@@ -1,6 +1,6 @@
 .grid {
-  width: 648px;
-  height: 675px;
+  width: 84vh;
+  height: 87.5vh;
   margin-top: -3rem;
   display: grid;
   grid-template-columns: repeat(24, calc(100% / 24));

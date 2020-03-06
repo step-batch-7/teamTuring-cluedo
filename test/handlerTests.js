@@ -35,4 +35,14 @@ describe('GET', function() {
         .expect(200, done);
     });
   });
+
+  describe('/rollDice', function() {
+    it('should roll dice and give a values of both dices ', function(done) {
+      request(app)
+        .get('/rollDice')
+        .expect('Content-Type', /application\/json/)
+        .expect(/value/)
+        .expect(200, done);
+    });
+  });
 });

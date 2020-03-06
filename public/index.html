@@ -9,12 +9,24 @@
     <link rel="stylesheet" href="./css/players.css" />
     <link rel="stylesheet" href="./css/grid.css" />
     <link rel="stylesheet" href="./css/game.css" />
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
       rel="stylesheet"
     />
     <script src="./javascript/index.js"></script>
     <script src="./XHRRequest/staticRequest.js"></script>
+=======
+    <script src="./javascript/request.js"></script>
+    <script src="./javascript/index.js"></script>
+    <script src="./javascript/dice.js"></script>
+>>>>>>> Stashed changes
+=======
+    <script src="./javascript/request.js"></script>
+    <script src="./javascript/index.js"></script>
+    <script src="./javascript/dice.js"></script>
+>>>>>>> Stashed changes
   </head>
   <body onload="main()">
     <div class="nav">
@@ -55,10 +67,20 @@
         <div class="study-door room"></div>
         <div class="dice-room ">
           <div class="gameName">CLUEDO</div>
-          <div id="dices">
-            <img class="dice" id="dice1" src="./images/dice1.png" alt="dice" />
+          <div id="dices" onclick="getDicesValue()">
+            <img
+              class="dice"
+              id="dice1"
+              src="./images/dice/dice1.png"
+              alt="dice"
+            />
             <br />
-            <img class="dice" id="dice2" src="./images/dice1.png" alt="dice" />
+            <img
+              class="dice"
+              id="dice2"
+              src="./images/dice/dice1.png"
+              alt="dice"
+            />
           </div>
         </div>
         <div class="study-disable-bottom"></div>

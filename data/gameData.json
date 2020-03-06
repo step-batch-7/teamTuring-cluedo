@@ -1,0 +1,16 @@
+{
+  "1234": {
+    "players": [
+      {
+        "id": "1",
+        "name": "foo",
+        "character": "scarlet",
+        "position": "3_2",
+        "cards": [],
+        "notes": {},
+        "status": "active",
+        "hasSuspectedInLastTurn": false
+      }
+    ]
+  }
+}

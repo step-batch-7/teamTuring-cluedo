@@ -183,12 +183,12 @@ const path = [
   '17_25'
 ];
 
-const playerInitPos = ['10_1', '15_1', '24_7', '24_20', '1_18', '8_25'];
-
-const addPlayerInitPos = () => {
+const addPlayerInitPos = responseText => {
+  const { playerInitPos } = JSON.parse(responseText);
   const grid = document.querySelector('.grid');
   playerInitPos.forEach(pos => {
     const posTemplate = document.createElement('div');
+    posTemplate.innerHTML = '<div><i class="fas fa-map-marker"></i></div>';
     posTemplate.classList.add('startingPoint');
     posTemplate.id = `${pos}`;
     grid.appendChild(posTemplate);
@@ -207,5 +207,5 @@ const loadPath = () => {
 
 const main = () => {
   loadPath();
-  addPlayerInitPos();
+  getPlayersStartingPosition();
 };

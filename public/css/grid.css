@@ -36,57 +36,64 @@
   grid-row: 1/2;
   background: none;
 }
-.startingPoint[id='10_1'] {
-  grid-column: 10/11;
-  grid-row: 1/2;
-}
-.startingPoint[id='15_1'] {
-  grid-column: 15/16;
-  grid-row: 1/2;
-}
-.startingPoint[id='24_7'] {
-  grid-column: 24/25;
-  grid-row: 7/8;
-}
-.startingPoint[id='24_20'] {
-  grid-column: 24/25;
-  grid-row: 20/21;
-}
-.startingPoint[id='1_18'] {
-  grid-column: 1/2;
-  grid-row: 18/19;
-}
-.startingPoint[id='8_25'] {
-  grid-column: 8/9;
-  grid-row: 25/26;
-}
-.startingPoint[id='8_25'],
-.scarlet {
-  color: #e94136;
-}
-.startingPoint[id='1_18'],
-.mustard {
-  color: #efc633;
-}
-.startingPoint[id='10_1'],
-.white {
-  color: #ffffff;
-}
-.startingPoint[id='15_1'],
-.green {
-  color: #4ec375;
-}
-.startingPoint[id='24_7'],
-.peacock {
-  color: #3c80f5;
-}
-.startingPoint[id='24_20'],
-.plum {
-  color: #a80eef;
-}
+
 .startingPoint {
   font-size: 1.4rem;
   text-align: center;
   border: 1px solid black;
   background: url('../images/startingTile.jpg');
+}
+
+.startingPoint[id='10_1'] {
+  grid-column: 10/11;
+  grid-row: 1/2;
+}
+
+.startingPoint[id='15_1'] {
+  grid-column: 15/16;
+  grid-row: 1/2;
+}
+
+.startingPoint[id='24_7'] {
+  grid-column: 24/25;
+  grid-row: 7/8;
+}
+
+.startingPoint[id='24_20'] {
+  grid-column: 24/25;
+  grid-row: 20/21;
+}
+
+.startingPoint[id='1_18'] {
+  grid-column: 1/2;
+  grid-row: 18/19;
+}
+
+.startingPoint[id='8_25'] {
+  grid-column: 8/9;
+  grid-row: 25/26;
+}
+
+.scarlet {
+  color: #e94136;
+}
+
+.mustard {
+  color: #efc633;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.green {
+  color: #4ec375;
+}
+
+.peacock {
+  color: #3c80f5;
+}
+
+.plum {
+  color: #a80eef;
 }

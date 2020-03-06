@@ -1,7 +1,9 @@
 const getDiceValue = () => Math.ceil(Math.random() * 6);
 
 const rollDice = function(req, res) {
-  res.json({ values: [getDiceValue(), getDiceValue()] });
+  const values = [getDiceValue(), getDiceValue()];
+  req.app.locals.game.updateDiceValue(values);
+  res.json({ values });
 };
 
 module.exports = { rollDice };

@@ -183,14 +183,13 @@ const path = [
   '17_25'
 ];
 
-const addPlayerInitPos = responseText => {
-  const { playerInitPos } = responseText;
+const initializePlayersPosition = () => {
+  const playersPosition = ['8_25', '1_18', '10_1', '15_1', '24_7', '24_20'];
   const grid = document.querySelector('.grid');
-  playerInitPos.forEach(pos => {
+  playersPosition.forEach(position => {
     const posTemplate = document.createElement('div');
-    posTemplate.innerHTML = '<div><i class="fas fa-map-marker"></i></div>';
     posTemplate.classList.add('startingPoint');
-    posTemplate.id = `${pos}`;
+    posTemplate.id = `${position}`;
     grid.appendChild(posTemplate);
   });
 };
@@ -205,11 +204,21 @@ const loadPath = () => {
   });
 };
 
-const getPlayersStartingPosition = function() {
-  sendRequest('GET', '/getPlayersPosition', {}, addPlayerInitPos);
+const updatePosition = playersPosition => {
+  playersPosition.forEach(({ character, position }) => {
+    const grid = document.getElementById(position);
+    const html = `<div class="${character}">
+    <i class="fas fa-map-marker"></i></div>`;
+    grid.innerHTML = html;
+  });
+};
+
+const updatePlayersPosition = function() {
+  sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
 };
 
 const main = () => {
   loadPath();
-  getPlayersStartingPosition();
+  initializePlayersPosition();
+  updatePlayersPosition();
 };

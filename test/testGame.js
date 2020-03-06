@@ -8,7 +8,32 @@ describe('Game', () => {
     it('Should give all the players position', () => {
       const game = new Game();
       const actual = game.getPlayersPosition();
-      const expected = ['8_25', '1_18', '10_1', '15_1', '24_7', '24_20'];
+      const expected = [
+        {
+          character: 'scarlet',
+          position: '8_25'
+        },
+        {
+          character: 'mustard',
+          position: '1_18'
+        },
+        {
+          character: 'white',
+          position: '10_1'
+        },
+        {
+          character: 'green',
+          position: '15_1'
+        },
+        {
+          character: 'peacock',
+          position: '24_7'
+        },
+        {
+          character: 'plum',
+          position: '24_20'
+        }
+      ];
       assert.deepStrictEqual(actual, expected);
     });
   });

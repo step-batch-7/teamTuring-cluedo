@@ -4,5 +4,6 @@ const sendRequest = function(method, url, msg, handler) {
     handler(JSON.parse(this.responseText));
   };
   request.open(method, url);
-  request.send(msg);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(msg));
 };

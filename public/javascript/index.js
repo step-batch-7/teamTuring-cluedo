@@ -184,7 +184,7 @@ const path = [
 ];
 
 const addPlayerInitPos = responseText => {
-  const { playerInitPos } = JSON.parse(responseText);
+  const { playerInitPos } = responseText;
   const grid = document.querySelector('.grid');
   playerInitPos.forEach(pos => {
     const posTemplate = document.createElement('div');
@@ -203,6 +203,10 @@ const loadPath = () => {
     tileTemplate.id = `${tile}`;
     grid.appendChild(tileTemplate);
   });
+};
+
+const getPlayersStartingPosition = function() {
+  sendRequest('GET', '/getPlayersPosition', {}, addPlayerInitPos);
 };
 
 const main = () => {

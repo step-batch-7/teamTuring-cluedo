@@ -1,0 +1,19 @@
+body {
+  height: 95vh;
+  margin: 0;
+  flex-flow: column;
+  flex-wrap: wrap;
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  width: 98%;
+  height: 83%;
+  margin: 0 auto;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

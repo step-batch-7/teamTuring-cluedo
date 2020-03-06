@@ -1,0 +1,48 @@
+.players {
+  height: 93%;
+  width: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.player {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  height: 13%;
+  flex-wrap: wrap;
+  box-shadow: -9px 0px 12px 2px lightgrey;
+  border-radius: 0% 50% 50% 0%;
+  width: 75%;
+}
+.player > .avatar {
+  border: 1px solid black;
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  background: red;
+}
+.player > .avatar > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+.player .avatar > .name {
+  margin: 0 auto;
+  margin-top: -1.3rem;
+  background: white;
+  width: 91%;
+  height: 105%;
+  font-size: 0.8rem;
+  text-align: center;
+  clip-path: ellipse(47% 30% at 51% -6%);
+}
+.user {
+  width: 40%;
+  text-align: center;
+}

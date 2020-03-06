@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  flex-flow: row;
+  height: 8%;
+  margin: 0 auto;
+  width: 98%;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.header {
+  width: 50%;
+  height: 100%;
+  font-size: 3rem;
+  font-family: sans-serif;
+}
+.header > img {
+  height: 100%;
+}

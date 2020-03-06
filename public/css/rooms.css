@@ -1,0 +1,214 @@
+.kitchen {
+  grid-column: 1/7;
+  grid-row: 2/8;
+  background: none;
+}
+.kitchen-door {
+  grid-column: 5/6;
+  grid-row: 7/8;
+}
+
+.kitchen-disabled {
+  grid-column: 1/2;
+  grid-row: 7/8;
+  background: none;
+}
+
+.kitchen-right-disable {
+  grid-column: 7/8;
+  grid-row: 2/3;
+  background: none;
+}
+
+.dinning {
+  grid-column: 1/9;
+  grid-row: 11/17;
+  background: transparent;
+}
+.dinning-door {
+  grid-column: 7/8;
+  grid-row: 16/17;
+}
+
+.dinning-disable-bottom {
+  grid-column: 1/2;
+  grid-row: 17/18;
+  background: none;
+}
+
+.dinning-disable-top {
+  grid-column: 1/2;
+  grid-row: 9/10;
+  background: none;
+}
+
+.dinning-extent {
+  grid-column: 1/6;
+  grid-row: 10/11;
+  background: transparent;
+}
+
+.lounge {
+  grid-column: 1/8;
+  grid-row: 20/26;
+  background: transparent;
+}
+
+.lounge-door {
+  grid-column: 7/8;
+  grid-row: 20/21;
+}
+
+.lounge-disable-bottom {
+  grid-column: 7/8;
+  grid-row: 25/26;
+  background: none;
+}
+
+.lounge-disable-top {
+  grid-column: 1/2;
+  grid-row: 19/20;
+  background: none;
+}
+
+.hall {
+  grid-column: 10/16;
+  grid-row: 19/26;
+  background: transparent;
+}
+
+.hall-door {
+  grid-column: 13/14;
+  grid-row: 19/20;
+}
+
+.hall-disable-left {
+  grid-column: 9/11;
+  grid-row: 25/26;
+  background: none;
+}
+
+.hall-disable-right {
+  grid-column: 15/17;
+  grid-row: 25/26;
+  background: none;
+}
+
+.study {
+  grid-column: 18/25;
+  grid-row: 22/26;
+  background: transparent;
+}
+.study-door {
+  grid-column: 18/19;
+  grid-row: 22/23;
+}
+
+.study-disable-bottom {
+  grid-column: 18/19;
+  grid-row: 25/26;
+  background: none;
+}
+
+.study-disable-up {
+  grid-column: 24/25;
+  grid-row: 21/22;
+  background: none;
+}
+
+.library {
+  grid-column: 19/25;
+  grid-row: 15/20;
+  background: transparent;
+}
+.library-door {
+  grid-column: 18/19;
+  grid-row: 17/18;
+}
+.library-disable-top {
+  grid-column: 24/25;
+  grid-row: 14/16;
+  background: none;
+}
+
+.library-disable-bottom {
+  grid-column: 24/25;
+  grid-row: 19/20;
+  background: none;
+}
+
+.library-extent {
+  grid-column: 18/19;
+  grid-row: 16/19;
+  background: transparent;
+}
+
+.billiard {
+  grid-column: 19/25;
+  grid-row: 9/14;
+  background: transparent;
+}
+.billiard-door {
+  grid-column: 19/20;
+  grid-row: 10/11;
+}
+.billiard-disable-top {
+  grid-column: 24/25;
+  grid-row: 8/9;
+  background: none;
+}
+
+.dice-room {
+  text-align: center;
+  font-weight: 800;
+  font-size: larger;
+  background: white;
+  grid-column: 11/16;
+  grid-row: 11/18;
+}
+
+.conservatory {
+  grid-column: 19/25;
+  grid-row: 2/6;
+  background: transparent;
+}
+
+.conservatory-extent {
+  grid-column: 20/24;
+  grid-row: 6/7;
+  background: transparent;
+}
+.conservatory-door {
+  grid-column: 20/21;
+  grid-row: 6/7;
+}
+.conservatory-right-disable {
+  grid-column: 24/25;
+  grid-row: 6/7;
+  background: none;
+}
+
+.conservatory-left-disable {
+  grid-column: 18/19;
+  grid-row: 2/3;
+  background: none;
+}
+
+.ball-room {
+  grid-column: 9/17;
+  grid-row: 3/9;
+  background: transparent;
+}
+.ball-room-doorA {
+  grid-column: 16/17;
+  grid-row: 6/7;
+}
+.ball-room-doorB {
+  grid-column: 10/11;
+  grid-row: 8/9;
+}
+.ball-room-extent {
+  grid-column: 11/15;
+  grid-row: 2/3;
+  background: transparent;
+}

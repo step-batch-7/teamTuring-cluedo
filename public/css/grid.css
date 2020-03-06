@@ -1,0 +1,89 @@
+.grid {
+  width: 648px;
+  height: 675px;
+  margin-top: -3rem;
+  display: grid;
+  grid-template-columns: repeat(24, calc(100% / 24));
+  grid-template-rows: repeat(25, calc(100% / 25));
+  background: url('../images/gameBoard.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -17px;
+}
+
+.tile {
+  border: 0.1px solid black;
+  background: url('../images/tile.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: -1px;
+}
+
+.top-left-disable {
+  grid-column: 1/10;
+  grid-row: 1/2;
+  background: none;
+}
+
+.top-right-disable {
+  grid-column: 16/25;
+  grid-row: 1/2;
+  background: none;
+}
+
+.top-middle-disable {
+  grid-column: 11/15;
+  grid-row: 1/2;
+  background: none;
+}
+.startingPoint[id='10_1'] {
+  grid-column: 10/11;
+  grid-row: 1/2;
+}
+.startingPoint[id='15_1'] {
+  grid-column: 15/16;
+  grid-row: 1/2;
+}
+.startingPoint[id='24_7'] {
+  grid-column: 24/25;
+  grid-row: 7/8;
+}
+.startingPoint[id='24_20'] {
+  grid-column: 24/25;
+  grid-row: 20/21;
+}
+.startingPoint[id='1_18'] {
+  grid-column: 1/2;
+  grid-row: 18/19;
+}
+.startingPoint[id='8_25'] {
+  grid-column: 8/9;
+  grid-row: 25/26;
+}
+.startingPoint[id='8_25'],
+.scarlet {
+  background: #e94136;
+}
+.startingPoint[id='1_18'],
+.mustard {
+  background: #efc633;
+}
+.startingPoint[id='10_1'],
+.white {
+  background: #ffffff;
+}
+.startingPoint[id='15_1'],
+.green {
+  background: #4ec375;
+}
+.startingPoint[id='24_7'],
+.peacock {
+  background: #3c80f5;
+}
+.startingPoint[id='24_20'],
+.plum {
+  background: #71477d;
+}
+.startingPoint {
+  border: 1px solid black;
+}

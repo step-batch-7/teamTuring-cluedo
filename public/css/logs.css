@@ -1,0 +1,71 @@
+.info {
+  display: flex;
+  flex-flow: column;
+  height: 98%;
+  width: 30%;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+}
+.tabs {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  background: lightgray;
+  height: 2rem;
+  align-items: center;
+}
+.logs {
+  display: flex;
+  height: 87%;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 90%;
+  flex-flow: column;
+
+  align-items: center;
+  justify-content: space-between;
+}
+.list {
+  display: flex;
+  flex-flow: column;
+  padding: 1%;
+  margin: 1%;
+  box-shadow: 0px 1px 3px 1px lightgrey;
+}
+.logContent {
+  height: 90%;
+  width: 100%;
+  flex-flow: column;
+}
+
+.cards {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card {
+  width: 30%;
+  height: 37%;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 3px 2px lightgrey;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.card > div {
+  display: flex;
+  height: 100%;
+}
+.card > div > img {
+  border-radius: 0.3rem;
+  height: auto;
+  width: 100%;
+}

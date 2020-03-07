@@ -13,4 +13,14 @@ const getPlayerName = function(req, res) {
   res.json(playerName);
 };
 
-module.exports = { handlePlayersPosition, handlePlayersList, getPlayerName };
+const getMyCardsList = function(req, res) {
+  const cardsList = req.app.locals.game.getCards(1);
+  res.json(cardsList);
+};
+
+module.exports = {
+  handlePlayersPosition,
+  handlePlayersList,
+  getPlayerName,
+  getMyCardsList
+};

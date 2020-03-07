@@ -10,14 +10,13 @@
     <link rel="stylesheet" href="./css/grid.css" />
     <link rel="stylesheet" href="./css/game.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
       rel="shortcut icon"
       href="./images/teamTuringLogo.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="./css/logs.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./images/teamTuringLogo.png" type="image/x-icon" />
     <script src="./javascript/request.js"></script>
     <script src="./javascript/index.js"></script>
     <script src="./javascript/dice.js"></script>
@@ -72,19 +71,9 @@
         <div class="dice-room ">
           <div class="gameName">CLUEDO</div>
           <div id="dices" onclick="getDicesValue()">
-            <img
-              class="dice"
-              id="dice1"
-              src="./images/dice/dice1.png"
-              alt="dice"
-            />
+            <img class="dice" id="dice1" src="./images/dice/dice1.png" alt="dice" />
             <br />
-            <img
-              class="dice"
-              id="dice2"
-              src="./images/dice/dice1.png"
-              alt="dice"
-            />
+            <img class="dice" id="dice2" src="./images/dice/dice1.png" alt="dice" />
           </div>
         </div>
         <div class="study-disable-bottom"></div>
@@ -98,6 +87,15 @@
         <div class="billiard room" id="Billiard" onclick="movePlayer()"></div>
         <div class="billiard-door room" id="Billiard" onclick="movePlayer()"></div>
       </div>
+      <div class="info">
+        <div class="logs">
+          <div class="tabs"> 
+            <div class="tabsContent" id="myCards"> My Cards </div> 
+          </div>
+          <div class="logContent" id="myCardsContent">
+            <div class="cards"> </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>

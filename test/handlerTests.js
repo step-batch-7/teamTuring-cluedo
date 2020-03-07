@@ -36,6 +36,20 @@ describe('GET', function() {
     });
   });
 
+  describe('/getPlayersPosition', function() {
+    beforeEach(() => {
+      app.locals.game.getPlayersPosition = function() {
+        return [{ character: 'abc', position: '1' }];
+      };
+    });
+    it('should give the initial positions of players', function(done) {
+      request(app)
+        .get('/getPlayersPosition')
+        .expect([{ character: 'abc', position: '1' }])
+        .expect(200, done);
+    });
+  });
+
   describe('/rollDice', function() {
     it('should roll dice and give a values of both dices ', function(done) {
       request(app)

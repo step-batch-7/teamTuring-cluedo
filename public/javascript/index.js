@@ -235,6 +235,21 @@ const createPlayerCard = playerInfo => {
   return player;
 };
 
+const createCard = function(card) {
+  const cardContent = document.createElement('div');
+  cardContent.classList.add('card');
+  cardContent.innerHTML = `<div><img src="./images/cards/${card}.jpg" /></div>`;
+  return cardContent;
+};
+
+const displayMyCards = function(cardsList) {
+  const myCards = document.querySelector('.cards');
+  cardsList.forEach(function(card) {
+    const cardContent = createCard(card);
+    return myCards.appendChild(cardContent);
+  });
+};
+
 const displayName = function(name) {
   const profileName = document.querySelector('#profile-name');
   profileName.innerText = name;
@@ -245,5 +260,6 @@ const main = () => {
   initializePlayersPosition();
   updatePlayersPosition();
   getPlayerList();
+  getMyCards();
   displayPlayerName();
 };

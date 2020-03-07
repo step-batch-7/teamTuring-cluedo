@@ -28,3 +28,7 @@ const getPlayerList = function() {
 const displayPlayerName = function() {
   sendRequest('GET', '/getPlayerName', {}, displayName);
 };
+
+const getMyCards = function() {
+  sendRequest('GET', '/myCards', {}, displayMyCards);
+};

@@ -1,6 +1,7 @@
 'use strict';
 const request = require('supertest');
 const app = require('../lib/app');
+const sinon = require('sinon');
 
 describe('GET', function() {
   describe('/ or /index.html', function() {
@@ -38,11 +39,17 @@ describe('GET', function() {
 
   describe('/rollDice', function() {
     it('should roll dice and give a values of both dices ', function(done) {
+      Math.random = function() {
+        return 1;
+      };
+      sinon.stub(Math, 'random');
+
       request(app)
         .get('/rollDice')
         .expect('Content-Type', /application\/json/)
-        .expect(/value/)
+        .expect({ values: [6, 6] })
         .expect(200, done);
+      sinon.restore();
     });
   });
 });

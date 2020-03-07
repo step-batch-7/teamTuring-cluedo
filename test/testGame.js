@@ -37,4 +37,12 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+  describe('updateDiceValue', () => {
+    it('Should should update diceValue with given data', () => {
+      const game = new Game();
+      const diceValue = [1, 2];
+      game.updateDiceValue(diceValue);
+      assert.deepStrictEqual(game.getDiceValue(), diceValue);
+    });
+  });
 });

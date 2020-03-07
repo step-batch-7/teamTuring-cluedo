@@ -13,15 +13,31 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  border-radius: 0.5rem 0.5rem 0rem 0rem;
-  background: lightgray;
   height: 2rem;
   align-items: center;
+}
+.tabsContent:hover {
+  background-color: rgba(233, 65, 54, 0.2);
+  color: rgba(233, 65, 54);
+}
+.active {
+  background-color: rgba(233, 65, 54, 0.2);
+  color: rgba(233, 65, 54);
+  border-bottom: 0.2rem solid rgba(233, 65, 54);
+}
+.tabsContent {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  text-align: center;
+  height: 100%;
+  cursor: pointer;
 }
 .logs {
   display: flex;
   height: 87%;
-  border: 1px solid black;
   border-radius: 0.5rem;
   width: 90%;
   flex-flow: column;
@@ -29,19 +45,17 @@
   align-items: center;
   justify-content: space-between;
 }
-.list {
-  display: flex;
-  flex-flow: column;
-  padding: 1%;
-  margin: 1%;
-  box-shadow: 0px 1px 3px 1px lightgrey;
-}
-.logContent {
-  height: 90%;
-  width: 100%;
-  flex-flow: column;
-}
 
+.logContent {
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgray;
+  box-shadow: 4px 5px 11px 1px lightgrey;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  justify-items: center;
+}
 .cards {
   display: flex;
   flex-flow: row;

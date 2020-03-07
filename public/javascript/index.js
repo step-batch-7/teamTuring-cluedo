@@ -199,6 +199,7 @@ const loadPath = () => {
   path.forEach(tile => {
     const tileTemplate = document.createElement('div');
     tileTemplate.classList.add('tile');
+    tileTemplate.addEventListener('click', movePlayer);
     tileTemplate.id = `${tile}`;
     grid.appendChild(tileTemplate);
   });

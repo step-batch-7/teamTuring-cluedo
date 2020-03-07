@@ -38,7 +38,7 @@ describe('GET', function() {
   });
 
   describe('/getPlayersPosition', function() {
-    beforeEach(() => {
+    before(() => {
       app.locals.game.getPlayersPosition = function() {
         return [{ character: 'abc', position: '1' }];
       };
@@ -47,6 +47,20 @@ describe('GET', function() {
       request(app)
         .get('/getPlayersPosition')
         .expect([{ character: 'abc', position: '1' }])
+        .expect(200, done);
+    });
+  });
+
+  describe('/getPlayersList', function() {
+    before(() => {
+      app.locals.game.getPlayersList = function() {
+        return [{ character: 'abc', name: 'efg' }];
+      };
+    });
+    it('should return all the players character and username', function(done) {
+      request(app)
+        .get('/getPlayersList')
+        .expect([{ character: 'abc', name: 'efg' }])
         .expect(200, done);
     });
   });

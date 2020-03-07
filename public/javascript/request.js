@@ -1,7 +1,7 @@
-const sendRequest = function(method, url, msg, handler) {
+const sendRequest = function(method, url, msg, callback) {
   const request = new XMLHttpRequest();
   request.onload = function() {
-    handler(JSON.parse(this.responseText));
+    callback(JSON.parse(this.responseText));
   };
   request.open(method, url);
   request.setRequestHeader('Content-Type', 'application/json');
@@ -19,4 +19,7 @@ const updatePlayersPosition = function() {
 const movePlayer = () => {
   const element = event.target;
   sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
+};
+const getPlayerList = function() {
+  sendRequest('GET', '/getPlayersList', {}, generatePlayerList);
 };

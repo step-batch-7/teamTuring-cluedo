@@ -1,7 +1,11 @@
 const handlePlayersPosition = function(req, res) {
   const playersPosition = req.app.locals.game.getPlayersPosition();
-  res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(playersPosition));
+  res.json(playersPosition);
 };
 
-module.exports = { handlePlayersPosition };
+const handlePlayersList = function(req, res) {
+  const playersList = req.app.locals.game.getPlayersList();
+  res.json({ playersList });
+};
+
+module.exports = { handlePlayersPosition, handlePlayersList };

@@ -214,8 +214,35 @@ const updatePosition = playersPosition => {
   });
 };
 
+const generatePlayerList = response => {
+  const { playersList } = response;
+  const players = document.querySelector('.players');
+  playersList.forEach(function(playerInfo) {
+    const playerCard = createPlayerCard(playerInfo);
+    return players.appendChild(playerCard);
+  });
+};
+
+const createPlayerCard = playerInfo => {
+  const player = document.createElement('div');
+  player.classList.add('player');
+  player.id = playerInfo.character;
+  player.innerHTML = `
+    <div class="avatar">
+      <img src="./images/playersCharacterFaces/${playerInfo.character}.jpg" />
+      <div class="name">${playerInfo.character}</div>
+    </div>
+    <div class="user">${playerInfo.username}</div>`;
+  return player;
+};
+
+const updatePlayersPosition = function() {
+  sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
+};
+
 const main = () => {
   loadPath();
   initializePlayersPosition();
   updatePlayersPosition();
+  getPlayerList();
 };

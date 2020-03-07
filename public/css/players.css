@@ -25,7 +25,6 @@
   border-radius: 50%;
   display: flex;
   flex-wrap: wrap;
-  background: red;
 }
 .player > .avatar > img {
   height: 100%;
@@ -34,15 +33,51 @@
 }
 .player .avatar > .name {
   margin: 0 auto;
-  margin-top: -1.3rem;
+  margin-top: -1.2rem;
   background: white;
   width: 91%;
   height: 105%;
+  color: black;
   font-size: 0.8rem;
   text-align: center;
   clip-path: ellipse(47% 30% at 51% -6%);
 }
 .user {
-  width: 40%;
+  width: 45%;
   text-align: center;
+}
+#scarlet,
+#mustard,
+#green,
+#peacock,
+#plum,
+#white {
+  text-transform: capitalize;
+  color: white;
+}
+#white {
+  color: black;
+}
+#scarlet {
+  background-color: #e94136;
+}
+
+#mustard {
+  background-color: #efc633;
+}
+
+#white {
+  background-color: #ffffff;
+}
+
+#green {
+  background-color: #4ec375;
+}
+
+#peacock {
+  background-color: #3c80f5;
+}
+
+#plum {
+  background-color: #a80eef;
 }

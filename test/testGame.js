@@ -37,6 +37,39 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+  describe('getPlayersPosition', () => {
+    it('Should give all the players list with character and name', () => {
+      const game = new Game();
+      const actual = game.getPlayersList();
+      const expected = [
+        {
+          username: 'turing',
+          character: 'scarlet'
+        },
+        {
+          username: 'naveen',
+          character: 'mustard'
+        },
+        {
+          username: 'shankar',
+          character: 'white'
+        },
+        {
+          username: 'anil',
+          character: 'green'
+        },
+        {
+          username: 'trinankur',
+          character: 'peacock'
+        },
+        {
+          username: 'ayush',
+          character: 'plum'
+        }
+      ];
+      assert.deepStrictEqual(actual, expected);
+    });
+  });
   describe('updateDiceValue', () => {
     it('Should should update diceValue with given data', () => {
       const game = new Game();

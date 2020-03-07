@@ -214,8 +214,7 @@ const updatePosition = playersPosition => {
   });
 };
 
-const generatePlayerList = response => {
-  const { playersList } = response;
+const generatePlayerList = playersList => {
   const players = document.querySelector('.players');
   playersList.forEach(function(playerInfo) {
     const playerCard = createPlayerCard(playerInfo);

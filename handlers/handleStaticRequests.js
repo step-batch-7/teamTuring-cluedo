@@ -5,7 +5,7 @@ const handlePlayersPosition = function(req, res) {
 
 const handlePlayersList = function(req, res) {
   const playersList = req.app.locals.game.getPlayersList();
-  res.json({ playersList });
+  res.json(playersList);
 };
 
 module.exports = { handlePlayersPosition, handlePlayersList };

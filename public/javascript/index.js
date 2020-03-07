@@ -236,10 +236,6 @@ const createPlayerCard = playerInfo => {
   return player;
 };
 
-const updatePlayersPosition = function() {
-  sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
-};
-
 const main = () => {
   loadPath();
   initializePlayersPosition();

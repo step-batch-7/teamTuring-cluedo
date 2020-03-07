@@ -42,10 +42,16 @@
   background: url('../images/startingTile.jpg');
 }
 .startingPoint,
-.tile {
+.tile,
+.room {
   font-size: 1.4rem;
   text-align: center;
 }
+.room .fas {
+  font-size: 2.4rem;
+  padding-top: 0.1rem;
+}
+
 .startingPoint[id='10_1'] {
   grid-column: 10/11;
   grid-row: 1/2;

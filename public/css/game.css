@@ -5,7 +5,8 @@ body {
   flex-wrap: wrap;
   display: flex;
   justify-items: center;
-  justify-content: space-between;
+	justify-content: space-between;
+  font-family: sans-serif;
 }
 
 .container {

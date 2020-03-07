@@ -8,4 +8,9 @@ const handlePlayersList = function(req, res) {
   res.json({ playersList });
 };
 
-module.exports = { handlePlayersPosition, handlePlayersList };
+const getPlayerName = function(req, res) {
+  const playerName = req.app.locals.game.getPlayerName(1);
+  res.json(playerName);
+};
+
+module.exports = { handlePlayersPosition, handlePlayersList, getPlayerName };

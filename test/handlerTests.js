@@ -66,6 +66,16 @@ describe('GET', function() {
       sinon.restore();
     });
   });
+
+  describe('/getPlayerName', function() {
+    it('should load the player name', function(done) {
+      request(app)
+        .get('/getPlayerName')
+        .expect('Content-Type', /application\/json*/)
+        .expect(/turing/)
+        .expect(200, done);
+    });
+  });
 });
 
 describe('POST', () => {

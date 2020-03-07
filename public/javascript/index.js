@@ -236,9 +236,15 @@ const createPlayerCard = playerInfo => {
   return player;
 };
 
+const displayName = function(name) {
+  const profileName = document.querySelector('#profile-name');
+  profileName.innerText = name;
+};
+
 const main = () => {
   loadPath();
   initializePlayersPosition();
   updatePlayersPosition();
   getPlayerList();
+  displayPlayerName();
 };

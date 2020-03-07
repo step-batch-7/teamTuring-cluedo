@@ -20,6 +20,11 @@ const movePlayer = () => {
   const element = event.target;
   sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
 };
+
 const getPlayerList = function() {
   sendRequest('GET', '/getPlayersList', {}, generatePlayerList);
+};
+
+const displayPlayerName = function() {
+  sendRequest('GET', '/getPlayerName', {}, displayName);
 };

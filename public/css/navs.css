@@ -12,8 +12,22 @@
   width: 50%;
   height: 100%;
   font-size: 3rem;
-  font-family: sans-serif;
 }
 .header > img {
   height: 100%;
+}
+.profile {
+  min-width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#profile-image {
+  width: 3rem;
+}
+#profile-name {
+  font-size: 1.2rem;
+}
+.separator {
+  font-size: 2.5rem;
 }

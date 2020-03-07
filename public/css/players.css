@@ -40,6 +40,7 @@
   color: black;
   font-size: 0.8rem;
   text-align: center;
+  text-transform: capitalize;
   clip-path: ellipse(47% 30% at 51% -6%);
 }
 .user {
@@ -52,7 +53,6 @@
 #peacock,
 #plum,
 #white {
-  text-transform: capitalize;
   color: white;
 }
 #white {

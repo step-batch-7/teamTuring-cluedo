@@ -43,27 +43,27 @@ describe('Game', () => {
       const actual = game.getPlayersList();
       const expected = [
         {
-          username: 'turing',
+          username: 'Turing',
           character: 'scarlet'
         },
         {
-          username: 'naveen',
+          username: 'Naveen',
           character: 'mustard'
         },
         {
-          username: 'shankar',
+          username: 'Shankar',
           character: 'white'
         },
         {
-          username: 'anil',
+          username: 'Anil',
           character: 'green'
         },
         {
-          username: 'trinankur',
+          username: 'Trinankur',
           character: 'peacock'
         },
         {
-          username: 'ayush',
+          username: 'Ayush',
           character: 'plum'
         }
       ];

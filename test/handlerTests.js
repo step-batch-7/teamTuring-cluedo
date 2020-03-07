@@ -86,7 +86,7 @@ describe('GET', function() {
       request(app)
         .get('/getPlayerName')
         .expect('Content-Type', /application\/json*/)
-        .expect(/turing/)
+        .expect(/turing/gi)
         .expect(200, done);
     });
   });

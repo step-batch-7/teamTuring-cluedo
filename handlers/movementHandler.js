@@ -11,7 +11,7 @@ const movePlayer = (req, res) => {
   const { position } = req.body;
   const hasMoved = game.movePlayer(position);
   const positions = game.getPlayersPosition();
-  res.send({ hasMoved, positions });
+  res.json({ hasMoved, positions });
 };
 
 module.exports = { rollDice, movePlayer };

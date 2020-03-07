@@ -1,0 +1,48 @@
+{
+  "Lounge": {
+    "door": ["7_20"],
+    "entrance": ["7_19"],
+    "connectedRoom": "Conservatory"
+  },
+  "DiningRoom": {
+    "door": ["7_16"],
+    "entrance": ["7_17"],
+    "connectedRoom": ""
+  },
+  "Kitchen": {
+    "door": ["5_7"],
+    "entrance": ["5_8"],
+    "connectedRoom": "Study"
+  },
+  "Ballroom": {
+    "door": ["16_6","10_8"],
+    "entrance": ["17_6", "10_9"],
+    "connectedRoom": ""
+  },
+  "Conservatory": {
+    "door": ["20_6"],
+    "entrance": ["19_6"],
+    "connectedRoom": "Lounge"
+  },
+
+  "Billiard": {
+    "door": ["19_10"],
+    "entrance": ["18_10"],
+    "connectedRoom": ""
+  },
+  "Library": {
+    "door": ["18_17"],
+    "entrance": ["17_17"],
+    "connectedRoom": ""
+  },
+  "Study": {
+    "door": ["18_22"],
+    "entrance": ["18_21"],
+    "connectedRoom": "Kitchen"
+  },
+  "Hall": {
+    "door": ["13_19"],
+    "entrance": ["13_18"],
+    "connectedRoom": ""
+  }
+}

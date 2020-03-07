@@ -38,12 +38,14 @@
 }
 
 .startingPoint {
-  font-size: 1.4rem;
-  text-align: center;
   border: 1px solid black;
   background: url('../images/startingTile.jpg');
 }
-
+.startingPoint,
+.tile {
+  font-size: 1.4rem;
+  text-align: center;
+}
 .startingPoint[id='10_1'] {
   grid-column: 10/11;
   grid-row: 1/2;

@@ -112,10 +112,10 @@ describe('GET', function() {
 
 describe('POST', () => {
   describe('/movePlayer', () => {
-    it('Should move the player selects correct position', done => {
+    it('Should move the player in side room', done => {
       request(app)
         .post('/movePlayer')
-        .send({ position: '9_14' })
+        .send({ position: 'Lounge' })
         .expect(200)
         .expect('Content-Type', /application\/json/)
         .expect(/true/, done);
@@ -127,6 +127,16 @@ describe('POST', () => {
         .expect(200)
         .expect('Content-Type', /application\/json/)
         .expect(/false/, done);
+    });
+    it('Should be able to move out of room', done => {
+      app.locals.game.diceValues = [1, 1];
+      request(app)
+        .post('/movePlayer')
+        .send({ position: '7_18' })
+        .expect(200)
+        .expect('Content-Type', /application\/json/)
+        .expect(/true/, done);
+      sinon.restore();
     });
   });
 });

@@ -7,8 +7,3 @@ const confirmMovement = function(response) {
   document.querySelector('.scarlet').parentElement.innerHTML = '';
   updatePosition(response.positions);
 };
-
-const movePlayer = () => {
-  const element = event.target;
-  sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
-};

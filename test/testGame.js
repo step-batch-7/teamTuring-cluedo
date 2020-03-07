@@ -37,6 +37,7 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+
   describe('getPlayersPosition', () => {
     it('Should give all the players list with character and name', () => {
       const game = new Game();
@@ -70,6 +71,7 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+
   describe('updateDiceValue', () => {
     it('Should should update diceValue with given data', () => {
       const game = new Game();
@@ -78,6 +80,7 @@ describe('Game', () => {
       assert.deepStrictEqual(game.getDiceValue(), diceValue);
     });
   });
+
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {
       const game = new Game();
@@ -115,6 +118,15 @@ describe('Game', () => {
       const game = new Game();
       game.updateDiceValue([3, 3]);
       assert.ok(!game.movePlayer('8_24'));
+    });
+  });
+
+  describe('getCards', () => {
+    it('Should return list of cards matching for the given player', () => {
+      const game = new Game();
+      const actual = game.getCards(1);
+      const expected = ['plum', 'rope', 'kitchen'];
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });

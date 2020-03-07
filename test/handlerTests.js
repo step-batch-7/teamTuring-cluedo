@@ -39,9 +39,9 @@ describe('GET', function() {
 
   describe('/getPlayersPosition', function() {
     before(() => {
-      app.locals.game.getPlayersPosition = function() {
+      sinon.replace(app.locals.game, 'getPlayersPosition', function() {
         return [{ character: 'abc', position: '1' }];
-      };
+      });
     });
     it('should give the initial positions of players', function(done) {
       request(app)
@@ -49,13 +49,14 @@ describe('GET', function() {
         .expect([{ character: 'abc', position: '1' }])
         .expect(200, done);
     });
+    sinon.restore();
   });
 
   describe('/getPlayersList', function() {
     before(() => {
-      app.locals.game.getPlayersList = function() {
+      sinon.replace(app.locals.game, 'getPlayersList', function() {
         return [{ character: 'abc', name: 'efg' }];
-      };
+      });
     });
     it('should return all the players character and username', function(done) {
       request(app)
@@ -63,6 +64,23 @@ describe('GET', function() {
         .expect([{ character: 'abc', name: 'efg' }])
         .expect(200, done);
     });
+    sinon.restore();
+  });
+
+  describe('/myCards', function() {
+    before(() => {
+      sinon.replace(app.locals.game, 'getCards', function() {
+        return ['plum', 'rope', 'kitchen'];
+      });
+    });
+
+    it('should return list of all the cards of the player', function(done) {
+      request(app)
+        .get('/myCards')
+        .expect(['plum', 'rope', 'kitchen'])
+        .expect(200, done);
+    });
+    sinon.restore();
   });
 
   describe('/rollDice', function() {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,19 +10,14 @@
     <link rel="stylesheet" href="./css/players.css" />
     <link rel="stylesheet" href="./css/grid.css" />
     <link rel="stylesheet" href="./css/game.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="shortcut icon"
-      href="./images/teamTuringLogo.png"
-      type="image/x-icon"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./images/teamTuringLogo.png" type="image/x-icon" />
     <script src="./javascript/request.js"></script>
     <script src="./javascript/index.js"></script>
     <script src="./javascript/dice.js"></script>
+    <script src="./javascript/movePlayer.js"></script>
   </head>
+
   <body onload="main()">
     <div class="nav">
       <div class="header"><img src="./images/teamTuringLogo.png" /></div>
@@ -31,63 +27,54 @@
         <div class="top-left-disable room"></div>
         <div class="top-right-disable"></div>
         <div class="top-middle-disable"></div>
-        <div class="kitchen room"></div>
-        <div class="kitchen-door room"></div>
+        <div class="kitchen room" id="Kitchen"></div>
+        <div class="kitchen-door room" id="Kitchen"></div>
         <div class="kitchen-right-disable"></div>
         <div class="kitchen-disabled"></div>
-        <div class="ball-room room"></div>
-        <div class="ball-room-doorA room"></div>
-        <div class="ball-room-doorB room"></div>
-        <div class="ball-room-extent room"></div>
-        <div class="conservatory room"></div>
-        <div class="conservatory-door room"></div>
-        <div class="conservatory-extent room"></div>
+        <div class="ball-room room" id="Ballroom"></div>
+        <div class="ball-room-doorA room" id="Ballroom"></div>
+        <div class="ball-room-doorB room" id="Ballroom"></div>
+        <div class="ball-room-extent room" id="Ballroom"></div>
+        <div class="conservatory room" id="Conservatory"></div>
+        <div class="conservatory-door room" id="Conservatory"></div>
+        <div class="conservatory-extent room" id="Conservatory"></div>
         <div class="conservatory-right-disable"></div>
         <div class="conservatory-left-disable"></div>
-        <div class="dinning-extent room"></div>
+        <div class="dinning-extent room" id="DiningRoom"></div>
         <div class="dinning-disable-top"></div>
-        <div class="dinning room"></div>
-        <div class="dinning-door room"></div>
+        <div class="dinning room" id="DiningRoom"></div>
+        <div class="dinning-door room" id="DiningRoom"></div>
         <div class="dinning-disable-bottom"></div>
-        <div class="lounge room"></div>
-        <div class="lounge-door room"></div>
+        <div class="lounge room" id="Lounge"></div>
+        <div class="lounge-door room" id="Lounge"></div>
         <div class="lounge-disable-top"></div>
         <div class="lounge-disable-bottom"></div>
-        <div class="hall room"></div>
-        <div class="hall-door room"></div>
+        <div class="hall room" id="Hall"></div>
+        <div class="hall-door room" id="Hall"></div>
         <div class="hall-disable-left"></div>
         <div class="hall-disable-right"></div>
-        <div class="study room"></div>
-        <div class="study-door room"></div>
+        <div class="study room" id="Study"></div>
+        <div class="study-door room" id="Study"></div>
         <div class="dice-room ">
           <div class="gameName">CLUEDO</div>
           <div id="dices" onclick="getDicesValue()">
-            <img
-              class="dice"
-              id="dice1"
-              src="./images/dice/dice1.png"
-              alt="dice"
-            />
+            <img class="dice" id="dice1" src="./images/dice/dice1.png" alt="dice" />
             <br />
-            <img
-              class="dice"
-              id="dice2"
-              src="./images/dice/dice1.png"
-              alt="dice"
-            />
+            <img class="dice" id="dice2" src="./images/dice/dice1.png" alt="dice" />
           </div>
         </div>
         <div class="study-disable-bottom"></div>
         <div class="study-disable-up"></div>
-        <div class="library room"></div>
-        <div class="library-door room"></div>
+        <div class="library room" id="Library"></div>
+        <div class="library-door room" id="Library"></div>
         <div class="library-disable-top"></div>
         <div class="library-disable-bottom"></div>
         <div class="library-extent room"></div>
         <div class="billiard-disable-top"></div>
-        <div class="billiard room"></div>
-        <div class="billiard-door room"></div>
+        <div class="billiard room" id="Billiard"></div>
+        <div class="billiard-door room" id="Billiard"></div>
       </div>
     </div>
   </body>
+
 </html>

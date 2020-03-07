@@ -67,3 +67,24 @@ describe('GET', function() {
     });
   });
 });
+
+describe('POST', () => {
+  describe('/movePlayer', () => {
+    it('Should move the player selects correct position', done => {
+      request(app)
+        .post('/movePlayer')
+        .send({ position: '9_14' })
+        .expect(200)
+        .expect('Content-Type', /application\/json/)
+        .expect(/true/, done);
+    });
+    it('Should not move the player have not rolled the dice', done => {
+      request(app)
+        .post('/movePlayer')
+        .send({ position: '8_24' })
+        .expect(200)
+        .expect('Content-Type', /application\/json/)
+        .expect(/false/, done);
+    });
+  });
+});

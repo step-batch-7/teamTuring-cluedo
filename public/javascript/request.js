@@ -7,3 +7,7 @@ const sendRequest = function(method, url, msg, handler) {
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(msg));
 };
+
+const getDicesValue = () => {
+  sendRequest('GET', '/rollDice', {}, updateDiceFace);
+};

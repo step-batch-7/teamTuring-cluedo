@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CLUEDO</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <script src="./javascript/home.js"></script>
+  </head>
+  <body>
+    <h1 class="header">CLUEDO</h1>
+    <div class="container">
+      <div class="options" id="mainDiv">
+        <button id="createGame" onclick="showCreatePage()">Create Game</button>
+        <button id="joinGame" onclick="showJoinPage()">Join Game</button>
+      </div>
+      <div class="popup" id="createGameDiv">
+        <label for="player-name">Player Name</label><br />
+        <input type="text" name="player-name" placeholder="John Doe" /><br />
+        <label for="no-of-players">Number Of Players</label><br />
+        <input
+          id="no-of-players"
+          type="number"
+          name="no-of-players"
+          min="3"
+          max="6"
+          value="3"
+        />
+        <button id="create" onclick="showLoadingPage(this.id)">Create</button>
+        <button id="cancel-create" onclick="backToHomePage(this.id)">
+          Cancel
+        </button>
+      </div>
+      <div class="popup" id="joinGameDiv">
+        <label for="player-name">Player Name</label><br />
+        <input type="text" name="player-name" placeholder="John Doe" /><br />
+        <label for="game-id">Game Id</label><br />
+        <input id="game-id" type="text" name="game-id" placeholder="1234" />
+        <button id="join" onclick="showLoadingPage(this.id)">Join</button>
+        <button id="cancel-join" onclick="backToHomePage(this.id)">
+          Cancel
+        </button>
+      </div>
+      <div id="loadingGameDiv" class="loadingDiv">
+        <h3>Waiting For Players</h3>
+        <h4 id="joined-players-status">
+          _player-ratio_ Players Joined
+        </h4>
+        <div class="loader">
+          <div class="ball1"></div>
+          <div class="ball2"></div>
+          <div class="ball3"></div>
+          <div class="ball4"></div>
+          <div class="ball5"></div>
+        </div>
+      </div>
+      <div id="message"></div>
+    </div>
+  </body>
+</html>

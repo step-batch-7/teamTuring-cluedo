@@ -1,0 +1,142 @@
+body {
+  background-image: url('./background.png');
+  margin: 0%;
+  font-family: sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: brightness(40%);
+  height: 100vh;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  font-size: 7vh;
+  margin: 0%;
+  padding-top: 3%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+}
+
+.options,
+.popup,
+.loadingDiv {
+  padding: 1%;
+  width: 20vw;
+  margin-top: 5vh;
+  display: flex;
+  flex-flow: column wrap;
+  border: 1px solid white;
+  background-color: #163054;
+}
+
+.popup {
+  display: none;
+}
+
+.popup label {
+  margin-left: 5%;
+  color: white;
+  font-size: 2vh;
+}
+
+.popup button {
+  margin-top: 2%;
+  padding: 1.5%;
+  width: 40%;
+  font-size: 2vh;
+  border-radius: 0.5vw;
+  margin-left: 5%;
+}
+
+.options button,
+.popup input {
+  padding: 2.5%;
+  margin: 4%;
+  width: 80%;
+  font-size: 2vh;
+  outline: none;
+}
+
+.options button,
+.popup button {
+  cursor: pointer;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.options,
+.options button,
+.popup,
+.popup input,
+.loadingDiv {
+  border-radius: 0.5vw;
+  align-self: center;
+}
+.input-field {
+  margin: 5%;
+}
+.option-field {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 5%;
+}
+.input-field label {
+  display: block;
+}
+.input-field input[type='text'],
+select {
+  width: 90%;
+  padding: 4%;
+  border-radius: 10px;
+  border: 1px solid #2c2c2c;
+  background: transparent;
+  color: #aeb6b8;
+  font-size: 1.5vh;
+}
+.input-field input::placeholder {
+  color: #aeb6b8;
+  font-family: FontAwesome;
+}
+.input-field input:focus {
+  border: 1px solid #e8e8e8;
+}
+.input-field input:focus,
+select {
+  outline: none;
+}
+.button {
+  background: #e8e8e8;
+  border: 1px solid #aeb6b8;
+  border-radius: 1vh;
+}
+.createForm {
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  padding: 1%;
+  margin: 1%;
+  background: gray;
+  border: 1px solid black;
+  border-radius: 0.5vw;
+  justify-content: space-between;
+}
+
+.loadingDiv {
+  display: none;
+}
+
+.loadingDiv h3,
+.loadingDiv h4 {
+  text-align: center;
+  color: white;
+  font-size: large;
+  height: 10px;
+  margin: 10px;
+  padding: 3px;
+}

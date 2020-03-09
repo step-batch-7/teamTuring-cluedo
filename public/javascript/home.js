@@ -15,6 +15,17 @@ const showLoadingPage = buttonId => {
   statusLine.innerText = statusLine.innerText.replace('_player-ratio_', '2/3');
 };
 
+const showErrorMessage = function(id, msg) {
+  document.querySelector(id).innerText = msg;
+};
+
+const confirmJoin = function({ hasJoined }) {
+  if (hasJoined) {
+    return location.assign('../waiting.html');
+  }
+  showErrorMessage('#error', 'invalid Game ID');
+};
+
 const backToHomePage = buttonId => {
   document.getElementById(buttonId).parentNode.style.display = 'none';
   document.getElementById('mainDiv').style.display = 'flex';

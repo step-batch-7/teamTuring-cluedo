@@ -13,11 +13,11 @@ const getDicesValue = () => {
 };
 
 const requestCreateGame = () => {
-  const noOfPlayer = document.querySelector('#no-of-players').value;
+  const noOfPlayers = document.querySelector('#no-of-players').value;
   const playerName = document.querySelector('#player-name').value;
-  const data = { noOfPlayer, playerName };
-  sendRequest('POST', '/createGame', data, data => {
-    console.log(data);
+  const data = { noOfPlayers, playerName };
+  sendRequest('POST', '/createGame', data, () => {
+    location.assign('../waiting.html');
   });
 };
 
@@ -40,4 +40,11 @@ const displayPlayerName = function() {
 
 const getMyCards = function() {
   sendRequest('GET', '/myCards', {}, displayMyCards);
+};
+
+const joinPlayer = function() {
+  const playerName = document.querySelector('#joined-player').value;
+  const gameId = document.querySelector('#game-id').value;
+  const data = { playerName, gameId };
+  sendRequest('POST', '/joinGame', data, confirmJoin);
 };

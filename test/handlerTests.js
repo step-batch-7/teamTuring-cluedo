@@ -37,7 +37,7 @@ describe('GET', function() {
     });
   });
 
-  describe('/getPlayersPosition', function() {
+  describe.skip('/getPlayersPosition', function() {
     before(() => {
       sinon.replace(app.locals.game, 'getPlayersPosition', function() {
         return [{ character: 'abc', position: '1' }];
@@ -52,7 +52,7 @@ describe('GET', function() {
     sinon.restore();
   });
 
-  describe('/getPlayersList', function() {
+  describe.skip('/getPlayersList', function() {
     before(() => {
       sinon.replace(app.locals.game, 'getPlayersList', function() {
         return [{ character: 'abc', name: 'efg' }];
@@ -67,7 +67,7 @@ describe('GET', function() {
     sinon.restore();
   });
 
-  describe('/myCards', function() {
+  describe.skip('/myCards', function() {
     before(() => {
       sinon.replace(app.locals.game, 'getCards', function() {
         return ['plum', 'rope', 'kitchen'];
@@ -83,7 +83,7 @@ describe('GET', function() {
     sinon.restore();
   });
 
-  describe('/rollDice', function() {
+  describe.skip('/rollDice', function() {
     it('should roll dice and give a values of both dices ', function(done) {
       Math.random = function() {
         return 1;
@@ -99,7 +99,7 @@ describe('GET', function() {
     });
   });
 
-  describe('/getPlayerName', function() {
+  describe.skip('/getPlayerName', function() {
     it('should load the player name', function(done) {
       request(app)
         .get('/getPlayerName')
@@ -110,7 +110,7 @@ describe('GET', function() {
   });
 });
 
-describe('POST', () => {
+describe.skip('POST', () => {
   describe('/movePlayer', () => {
     it('Should move the player in side room', done => {
       request(app)

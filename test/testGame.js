@@ -3,7 +3,7 @@
 const Game = require('../lib/game');
 const assert = require('assert');
 
-describe('Game', () => {
+describe.skip('Game', () => {
   let game = {};
   before(() => {
     const players = [

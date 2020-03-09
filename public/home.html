@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CLUEDO</title>
     <link rel="stylesheet" href="./css/home.css" />
+    <script src="./javascript/request.js"></script>
     <script src="./javascript/home.js"></script>
   </head>
   <body>
@@ -17,7 +18,12 @@
       </div>
       <div class="popup" id="createGameDiv">
         <label for="player-name">Player Name</label><br />
-        <input type="text" name="player-name" placeholder="John Doe" /><br />
+        <input
+          id="player-name"
+          type="text"
+          name="player-name"
+          placeholder="John Doe"
+        /><br />
         <label for="no-of-players">Number Of Players</label><br />
         <input
           id="no-of-players"
@@ -27,7 +33,7 @@
           max="6"
           value="3"
         />
-        <button id="create" onclick="showLoadingPage(this.id)">Create</button>
+        <button id="create" onclick="requestCreateGame()">Create</button>
         <button id="cancel-create" onclick="backToHomePage(this.id)">
           Cancel
         </button>
@@ -42,20 +48,6 @@
           Cancel
         </button>
       </div>
-      <div id="loadingGameDiv" class="loadingDiv">
-        <h3>Waiting For Players</h3>
-        <h4 id="joined-players-status">
-          _player-ratio_ Players Joined
-        </h4>
-        <div class="loader">
-          <div class="ball1"></div>
-          <div class="ball2"></div>
-          <div class="ball3"></div>
-          <div class="ball4"></div>
-          <div class="ball5"></div>
-        </div>
-      </div>
-      <div id="message"></div>
     </div>
   </body>
 </html>

@@ -12,6 +12,15 @@ const getDicesValue = () => {
   sendRequest('GET', '/rollDice', {}, updateDiceFace);
 };
 
+const requestCreateGame = () => {
+  const noOfPlayer = document.querySelector('#no-of-players').value;
+  const playerName = document.querySelector('#player-name').value;
+  const data = { noOfPlayer, playerName };
+  sendRequest('POST', '/createGame', data, data => {
+    console.log(data);
+  });
+};
+
 const updatePlayersPosition = function() {
   sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
 };

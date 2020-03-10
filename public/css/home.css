@@ -26,8 +26,7 @@ body {
 }
 
 .options,
-.popup,
-.loadingDiv {
+.popup {
   padding: 1%;
   width: 20vw;
   margin-top: 5vh;
@@ -75,8 +74,7 @@ body {
 .options,
 .options button,
 .popup,
-.popup input,
-.loadingDiv {
+.popup input {
   border-radius: 0.5vw;
   align-self: center;
 }
@@ -128,18 +126,4 @@ select {
   border: 1px solid black;
   border-radius: 0.5vw;
   justify-content: space-between;
-}
-
-.loadingDiv {
-  display: none;
-}
-
-.loadingDiv h3,
-.loadingDiv h4 {
-  text-align: center;
-  color: white;
-  font-size: large;
-  height: 10px;
-  margin: 10px;
-  padding: 3px;
 }

@@ -19,7 +19,13 @@ const showErrorMessage = function(id, msg) {
   document.querySelector(id).innerText = msg;
 };
 
-const confirmJoin = function({ hasJoined }) {
+const confirmJoin = function({ hasJoined, roomFull }) {
+  if (roomFull) {
+    return showErrorMessage(
+      '#error',
+      'max number of player has already joined'
+    );
+  }
   if (hasJoined) {
     return location.assign('../waiting.html');
   }

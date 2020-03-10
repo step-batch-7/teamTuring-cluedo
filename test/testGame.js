@@ -2,36 +2,22 @@
 
 const Game = require('../lib/game');
 const assert = require('assert');
+const sinon = require('sinon');
 
-describe.skip('Game', () => {
-  let game = {};
-  before(() => {
-    const players = [
-      {
-        id: 1,
-        name: 'Turing',
-        character: 'scarlet',
-        position: '8_25',
-        cards: ['plum', 'rope', 'kitchen']
-      }
-    ];
-    game = new Game(players, [], 1);
-  });
+describe.only('Game', () => {
   describe('getPlayersPosition', () => {
-    it('Should give all the players position', () => {
-      const actual = game.getPlayersPosition();
-      const expected = [
-        {
-          character: 'scarlet',
-          position: '8_25'
-        }
-      ];
-      assert.deepStrictEqual(actual, expected);
+    it.only('should get all player position after adding', function() {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      const expected = [{ character: 'scarlet', position: '8_25' }];
+      assert.deepStrictEqual(game.getPlayersPosition(), expected);
     });
   });
 
   describe('getPlayersList', () => {
-    it('Should give all the players list with character and name', () => {
+    it.only('Should give all the players list with character and name', () => {
+      const game = new Game(1);
+      game.addPlayer('Turing');
       const actual = game.getPlayersList();
       const expected = [
         {
@@ -44,7 +30,8 @@ describe.skip('Game', () => {
   });
 
   describe('updateDiceValue', () => {
-    it('Should should update diceValue with given data', () => {
+    it.only('Should should update diceValue with given data', () => {
+      const game = new Game(1);
       const diceValue = [1, 2];
       game.updateDiceValue(diceValue);
       assert.deepStrictEqual(game.getDiceValue(), diceValue);
@@ -52,28 +39,65 @@ describe.skip('Game', () => {
   });
 
   describe('movePlayer', () => {
-    it('Should give true if player moves', () => {
+    it.only('Should give true if player moves', () => {
+      const game = new Game(1);
+      game.addPlayer('Turing');
       game.updateDiceValue([1, 1]);
-      assert.ok(game.movePlayer('8_23'));
-      const expected = [
-        {
-          character: 'scarlet',
-          position: '8_23'
-        }
-      ];
-      assert.deepStrictEqual(game.getPlayersPosition(), expected);
+      const actual = game.movePlayer(0, '8_23');
+      const expected = {
+        hasMoved: true,
+        player: 'scarlet'
+      };
+      assert.deepStrictEqual(actual, expected);
     });
-    it('Should give false if player does not moves', () => {
+    it.only('Should give false if player does not moves', () => {
+      const game = new Game();
+      game.addPlayer('turing');
       game.updateDiceValue([3, 3]);
-      assert.ok(!game.movePlayer('8_24'));
+      const actual = game.movePlayer(0, '8_23');
+      const expected = {
+        hasMoved: true,
+        player: 'scarlet'
+      };
+      assert.deepStrictEqual(actual, expected);
     });
   });
 
   describe('getCards', () => {
-    it('Should return list of cards matching for the given player', () => {
-      const actual = game.getCards(1);
-      const expected = ['plum', 'rope', 'kitchen'];
-      assert.deepStrictEqual(actual, expected);
+    const fake = () => 0;
+    before(() => {
+      sinon.replace(Math, 'random', fake);
+    });
+    it.only('should get card after distribution among players', () => {
+      const game = new Game(3);
+      game.addPlayer('neha');
+      game.addPlayer('anil');
+      game.addPlayer('phani');
+      game.distribute();
+      assert.deepStrictEqual(game.getCards(0), [
+        'green',
+        'white',
+        'rope',
+        'dagger',
+        'lounge',
+        'billiardRoom'
+      ]);
+      assert.deepStrictEqual(game.getCards(1), [
+        'peacock',
+        'mustard',
+        'revolver',
+        'diningRoom',
+        'library',
+        'conservatory'
+      ]);
+      assert.deepStrictEqual(game.getCards(2), [
+        'plum',
+        'wrench',
+        'leadPipe',
+        'studyRoom',
+        'hall',
+        'ballRoom'
+      ]);
     });
   });
 });

@@ -4,9 +4,9 @@ const Game = require('../lib/game');
 const assert = require('assert');
 const sinon = require('sinon');
 
-describe.only('Game', () => {
+describe('Game', () => {
   describe('getPlayersPosition', () => {
-    it.only('should get all player position after adding', function() {
+    it('should get all player position after adding', function() {
       const game = new Game(1);
       game.addPlayer('turing');
       const expected = [{ character: 'scarlet', position: '8_25' }];
@@ -15,7 +15,7 @@ describe.only('Game', () => {
   });
 
   describe('getPlayersList', () => {
-    it.only('Should give all the players list with character and name', () => {
+    it('Should give all the players list with character and name', () => {
       const game = new Game(1);
       game.addPlayer('Turing');
       const actual = game.getPlayersList();
@@ -30,7 +30,7 @@ describe.only('Game', () => {
   });
 
   describe('updateDiceValue', () => {
-    it.only('Should should update diceValue with given data', () => {
+    it('Should should update diceValue with given data', () => {
       const game = new Game(1);
       const diceValue = [1, 2];
       game.updateDiceValue(diceValue);
@@ -39,7 +39,7 @@ describe.only('Game', () => {
   });
 
   describe('movePlayer', () => {
-    it.only('Should give true if player moves', () => {
+    it('Should give true if player moves', () => {
       const game = new Game(1);
       game.addPlayer('Turing');
       game.updateDiceValue([1, 1]);
@@ -50,7 +50,7 @@ describe.only('Game', () => {
       };
       assert.deepStrictEqual(actual, expected);
     });
-    it.only('Should give false if player does not moves', () => {
+    it('Should give false if player does not moves', () => {
       const game = new Game();
       game.addPlayer('turing');
       game.updateDiceValue([3, 3]);
@@ -68,7 +68,7 @@ describe.only('Game', () => {
     before(() => {
       sinon.replace(Math, 'random', fake);
     });
-    it.only('should get card after distribution among players', () => {
+    it('should get card after distribution among players', () => {
       const game = new Game(3);
       game.addPlayer('neha');
       game.addPlayer('anil');

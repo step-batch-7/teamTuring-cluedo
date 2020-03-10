@@ -21,15 +21,12 @@ const showErrorMessage = function(id, msg) {
 
 const confirmJoin = function({ hasJoined, roomFull }) {
   if (roomFull) {
-    return showErrorMessage(
-      '#error',
-      'max number of player has already joined'
-    );
+    return showErrorMessage('#error', 'Game has already started');
   }
   if (hasJoined) {
     return location.assign('../waiting.html');
   }
-  showErrorMessage('#error', 'invalid Game ID');
+  showErrorMessage('#error', 'Invalid Game ID');
 };
 
 const backToHomePage = buttonId => {

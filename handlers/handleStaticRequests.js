@@ -1,20 +1,24 @@
 const handlePlayersPosition = function(req, res) {
-  const playersPosition = req.app.locals.game.getPlayersPosition();
+  const game = req.game;
+  const playersPosition = game.getPlayersPosition();
   res.json(playersPosition);
 };
 
 const handlePlayersList = function(req, res) {
-  const playersList = req.app.locals.game.getPlayersList();
+  const game = req.game;
+  const playersList = game.getPlayersList();
   res.json(playersList);
 };
 
 const getPlayerName = function(req, res) {
-  const playerName = req.app.locals.game.getPlayerName(1);
+  const game = req.game;
+  const playerName = game.getPlayerName(req.player);
   res.json(playerName);
 };
 
 const getMyCardsList = function(req, res) {
-  const cardsList = req.app.locals.game.getCards(1);
+  const game = req.game;
+  const cardsList = game.getCards(req.player);
   res.json(cardsList);
 };
 

@@ -1,17 +1,18 @@
 const getDiceValue = () => Math.ceil(Math.random() * 6);
 
 const rollDice = function(req, res) {
+  const game = req.game;
   const values = [getDiceValue(), getDiceValue()];
-  req.app.locals.game.updateDiceValue(values);
+  game.updateDiceValue(values);
   res.json({ values });
 };
 
 const movePlayer = (req, res) => {
-  const game = req.app.locals.game;
+  const game = req.game;
   const { position } = req.body;
-  const hasMoved = game.movePlayer(position);
+  const { hasMoved, player } = game.movePlayer(req.player, position);
   const positions = game.getPlayersPosition();
-  res.json({ hasMoved, positions });
+  res.json({ hasMoved, positions, player });
 };
 
 module.exports = { rollDice, movePlayer };

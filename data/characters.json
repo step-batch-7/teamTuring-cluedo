@@ -1,1 +1,8 @@
-["scarlet", "mustered", "white", "green", "peacock", "plum"]
+[
+  { "name": "scarlet", "position": "8_25" },
+  { "name": "mustard", "position": "1_18" },
+  { "name": "white", "position": "10_1" },
+  { "name": "green", "position": "15_1" },
+  { "name": "peacock", "position": "24_7" },
+  { "name": "plum", "position": "24_20" }
+]

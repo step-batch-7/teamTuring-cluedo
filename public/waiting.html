@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/waiting.css" />
+    <script src="./javascript/waiting.js"></script>
+    <script src="./javascript/request.js"></script>
     <title>Document</title>
   </head>
-  <body>
-    <h1>waiting</h1>
+  <body onload="wait()">
+    <div id="loadingGameDiv" class="loadingDiv">
+      <h3>Waiting For Players</h3>
+      <h4 id="joined-players-status">
+      </h4>
+      <div class="loader">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
+        <div class="ball3"></div>
+        <div class="ball4"></div>
+        <div class="ball5"></div>
+      </div>
+    </div>
+    <div id="message"></div>
+  </div>
   </body>
 </html>

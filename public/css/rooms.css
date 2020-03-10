@@ -159,34 +159,37 @@
 }
 
 .dice-room {
-  text-align: center;
   font-weight: 800;
   font-size: larger;
   flex-flow: column;
   display: flex;
-  font-family: sans-serif;
   justify-content: space-evenly;
-  background: white;
+  background-color: tan;
   grid-column: 11/16;
   grid-row: 11/18;
   align-items: center;
 }
 
 #dices {
-  cursor: pointer;
+  width: 100%;
   display: flex;
-  align-items: center;
 }
 
 .dice {
-  width: 40%;
+  width: 30%;
   height: auto;
   border-radius: 18%;
   margin: auto;
+  cursor: pointer;
+}
+
+#dice1 {
+  background-color: black;
 }
 
 #dice2 {
   background-color: rgb(255, 0, 0);
+  margin-top: 60%;
 }
 
 .conservatory {

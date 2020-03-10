@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/players.css" />
     <link rel="stylesheet" href="./css/grid.css" />
     <link rel="stylesheet" href="./css/game.css" />
+    <link rel="stylesheet" href="./css/dice.css" />
     <link
       rel="shortcut icon"
       href="./images/teamTuringLogo.png"
@@ -112,23 +113,50 @@
         <div class="study room" id="Study" onclick="movePlayer()"></div>
         <div class="study-door room" id="Study" onclick="movePlayer()"></div>
         <div class="dice-room ">
-          <div class="gameName">CLUEDO</div>
-          <div id="dices">
-            <img
-              class="dice"
-              id="dice1"
-              src="./images/dice/dice1.png"
-              alt="dice"
-              onclick="getDicesValue()"
-            />
-            <br />
-            <img
-              class="dice"
-              id="dice2"
-              src="./images/dice/dice1.png"
-              alt="dice"
-              onclick="getDicesValue()"
-            />
+          <div class="dice-room ">
+            <div class="gameName">CLUEDO</div>
+            <div id="dices" onclick="getDicesValue()">
+              <div id="cube1">
+                <div class="front">
+                  <img src="./images/dice/dice1.png">
+                </div>
+                <div class="left">
+                  <img src="./images/dice/dice2.png">
+                </div>
+                <div class="top">
+                  <img src="./images/dice/dice3.png">
+                </div>
+                <div class="bottom">
+                  <img src="./images/dice/dice4.png">
+                </div>
+                <div class="right">
+                  <img src="./images/dice/dice5.png">
+                </div>
+                <div class="back">
+                  <img src="./images/dice/dice6.png">
+                </div>
+              </div>
+              <div id="cube2">
+                <div class="front">
+                  <img src="./images/dice/dice1.png">
+                </div>
+                <div class="left">
+                  <img src="./images/dice/dice2.png">
+                </div>
+                <div class="top">
+                  <img src="./images/dice/dice3.png">
+                </div>
+                <div class="bottom">
+                  <img src="./images/dice/dice4.png">
+                </div>
+                <div class="right">
+                  <img src="./images/dice/dice5.png">
+                </div>
+                <div class="back">
+                  <img src="./images/dice/dice6.png">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="study-disable-bottom"></div>

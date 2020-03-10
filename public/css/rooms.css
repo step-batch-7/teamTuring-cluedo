@@ -175,23 +175,6 @@
   display: flex;
 }
 
-.dice {
-  width: 30%;
-  height: auto;
-  border-radius: 18%;
-  margin: auto;
-  cursor: pointer;
-}
-
-#dice1 {
-  background-color: black;
-}
-
-#dice2 {
-  background-color: rgb(255, 0, 0);
-  margin-top: 60%;
-}
-
 .conservatory {
   grid-column: 19/25;
   grid-row: 2/6;

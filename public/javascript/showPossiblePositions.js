@@ -1,10 +1,9 @@
 'use strict';
 
 const showPossiblePositions = function(possiblePositions) {
-  document.querySelectorAll('.room').forEach(room => {
-    room.classList.add('dullRoom');
-  });
-
+  const rooms = document.querySelectorAll('.room');
+  rooms.forEach(room => room.classList.add('dullRoom'));
+  document.querySelector('.statusBar').innerText = 'Select a position to move';
   possiblePositions.forEach(position => {
     const tiles = document.querySelectorAll(`.tile[id="${position}"]`);
     const rooms = document.querySelectorAll(`.room[id="${position}"]`);

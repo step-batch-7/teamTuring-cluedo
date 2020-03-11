@@ -12,6 +12,7 @@ const confirmMovement = function(response) {
     room.classList.remove('dullRoom');
     room.removeEventListener('click', movePlayer);
   });
+  document.querySelector('.statusBar').innerText = '';
   document.querySelector(`.${response.player}`).parentElement.innerHTML = '';
   updatePosition(response.positions);
 };

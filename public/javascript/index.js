@@ -288,10 +288,15 @@ const toggleDiceRolling = function(diceStatus) {
   }
 };
 
+const updateStatusBar = function(message) {
+  document.querySelector('.statusBar').innerText = message;
+};
+
 const changeStatus = function(status) {
   addActivity(status.activities);
   activatePlayer(status.isPlayersTurn);
   toggleDiceRolling(status.canRollDice);
+  updateStatusBar(status.message);
 };
 
 const displayMyCards = function(cardsList) {

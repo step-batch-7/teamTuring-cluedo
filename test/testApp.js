@@ -219,7 +219,8 @@ describe('/getGameStatus', function() {
       .expect({
         isPlayersTurn: true,
         activities: ['scarlet rolled dice and got 12.'],
-        canRollDice: true
+        canRollDice: true,
+        message: 'your turn, roll dice'
       })
       .expect(200, done);
   });
@@ -339,7 +340,8 @@ describe('/getGameStatus', function() {
           'scarlet has entered Lounge.',
           'scarlet rolled dice and got 12.'
         ],
-        canRollDice: true
+        canRollDice: false,
+        message: `mustard'${'s'} turn`
       })
       .expect(200, done);
   });

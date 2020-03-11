@@ -7,7 +7,7 @@ describe('/', function() {
   it('should redirect to index.html page when the / is hit.', function(done) {
     request(app)
       .get('/')
-      .expect('location', '/index.html')
+      .expect('location', '/waiting.html')
       .expect(302, done);
   });
 });
@@ -141,6 +141,34 @@ describe('/distributeCards', function() {
     request(app)
       .get('/distributeCards')
       .set('Cookie', 'sid=15838254823351')
+      .expect(200, done);
+  });
+});
+
+describe('/getPlayersList', function() {
+  it('should get all players details', function(done) {
+    request(app)
+      .get('/getPlayersList')
+      .set('Cookie', 'sid=15838254823351')
+      .expect([
+        { character: 'scarlet', username: 'hey' },
+        { character: 'mustard', username: 'ria' },
+        { character: 'white', username: 'ria' }
+      ])
+      .expect(200, done);
+  });
+});
+
+describe('/getPlayersPosition', function() {
+  it('should give all players position', function(done) {
+    request(app)
+      .get('/getPlayersPosition')
+      .set('Cookie', 'sid=15838254823351')
+      .expect([
+        { character: 'scarlet', position: '8_25' },
+        { character: 'mustard', position: '1_18' },
+        { character: 'white', position: '10_1' }
+      ])
       .expect(200, done);
   });
 });

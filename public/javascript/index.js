@@ -189,7 +189,7 @@ const initializePlayersPosition = () => {
   playersPosition.forEach(position => {
     const posTemplate = document.createElement('div');
     posTemplate.classList.add('startingPoint');
-    posTemplate.id = `${position}`;
+    posTemplate.id = position;
     grid.appendChild(posTemplate);
   });
 };
@@ -200,7 +200,7 @@ const loadPath = () => {
     const tileTemplate = document.createElement('div');
     tileTemplate.classList.add('tile');
     tileTemplate.addEventListener('click', movePlayer);
-    tileTemplate.id = `${tile}`;
+    tileTemplate.id = tile;
     grid.appendChild(tileTemplate);
   });
 };

@@ -55,24 +55,25 @@
   flex-flow: row;
   justify-content: center;
   justify-items: center;
+  overflow: scroll;
+
 }
 .cards {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  margin: 0 auto;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 .card {
   width: 30%;
-  height: auto;
   border-radius: 0.3rem;
   box-shadow: 1px 1px 3px 2px lightgrey;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  margin: 2% 1%;
 }
 .card > div {
   display: flex;

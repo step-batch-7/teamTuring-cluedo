@@ -4,6 +4,7 @@ const rollDice = function(req, res) {
   const game = req.game;
   const values = [getDiceValue(), getDiceValue()];
   game.updateDiceValue(values);
+  game.addActivity(req.player, 'has rolled dice and got');
   res.json({ values });
 };
 

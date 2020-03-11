@@ -132,13 +132,18 @@
       <div class="info">
         <div class="logs">
           <div class="tabs">
-            <div class="tabsContent active" id="myCards">
+             <div class="tabsContent active" id="activityLogs" onclick="showTab(this.id)">
+              <div>Activity</div>
+            </div>
+            <div class="tabsContent" id="myCards" onclick="showTab(this.id)">
               <div>My Cards</div>
             </div>
           </div>
           <div class="logContent" id="myCardsContent">
             <div class="cards"></div>
           </div>
+             <div class="logContent" id="activityLogsContent">
+
         </div>
       </div>
     </body>

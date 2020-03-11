@@ -50,14 +50,11 @@
 .logContent {
   height: 100%;
   width: 100%;
-  border: 1px solid lightgray;
   box-shadow: 4px 5px 11px 1px lightgrey;
   display: flex;
   flex-flow: row;
   justify-content: center;
   justify-items: center;
-  overflow: scroll;
-
 }
 #myCardsContent {
   display: none;
@@ -70,6 +67,7 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  overflow: scroll;
 }
 .card {
   width: 30%;

@@ -42,6 +42,10 @@ const getMyCards = function() {
   sendRequest('GET', '/myCards', {}, displayMyCards);
 };
 
+const updateActivityLog = function() {
+  sendRequest('GET', '/activityLog', {}, data => {});
+};
+
 const joinPlayer = function() {
   const playerName = document.querySelector('#joined-player').value;
   const gameId = document.querySelector('#game-id').value;

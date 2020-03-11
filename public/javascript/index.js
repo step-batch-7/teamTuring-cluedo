@@ -274,6 +274,12 @@ const displayName = function(name) {
   profileName.innerText = name;
 };
 
+const getGameStatus = function() {
+  setInterval(() => {
+    updateActivityLog();
+  }, 500);
+};
+
 const main = () => {
   loadPath();
   initializePlayersPosition();
@@ -281,4 +287,5 @@ const main = () => {
   getPlayerList();
   getMyCards();
   displayPlayerName();
+  getGameStatus();
 };

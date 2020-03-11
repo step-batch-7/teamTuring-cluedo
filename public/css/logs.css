@@ -70,7 +70,9 @@
 #myCardsContent {
   display: none;
 }
-
+#activityLogsContent {
+  overflow-y: scroll;
+}
 .cards {
   display: flex;
   flex-flow: row;
@@ -78,7 +80,7 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .card {
   width: 30%;

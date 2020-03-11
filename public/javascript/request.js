@@ -12,7 +12,7 @@ const getDicesValue = () => {
   sendRequest('GET', '/rollDice', {}, updateDiceFace);
 };
 
-const requestCreateGame = () => {
+const requestHostGame = () => {
   const noOfPlayers = document.querySelector('#no-of-players').value;
   const playerName = document.querySelector('#player-name').value;
   const data = { noOfPlayers, playerName };

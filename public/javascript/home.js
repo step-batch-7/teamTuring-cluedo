@@ -1,4 +1,4 @@
-const showCreatePage = () => {
+const showHostGame = () => {
   document.getElementById('mainDiv').style.display = 'none';
   document.getElementById('createGameDiv').style.display = 'block';
 };

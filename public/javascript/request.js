@@ -65,7 +65,7 @@ const joinPlayer = function() {
 
 const getPossiblePositions = function(diceValue) {
   sendRequest(
-    'GET',
+    'POST',
     '/possiblePositions',
     { diceValue },
     showPossiblePositions

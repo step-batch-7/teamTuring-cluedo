@@ -287,7 +287,7 @@ describe('getPossiblePositions', () => {
       '6_17'
     ];
     request(app)
-      .get('/possiblePositions')
+      .post('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .send({ diceValue: 4 })
       .expect(possibilities)
@@ -306,7 +306,7 @@ describe('getPossiblePositions', () => {
   it('Should give a list of possible positions and rooms when he/she inside the room', done => {
     const possibilities = ['6_17', '8_17', '7_18'];
     request(app)
-      .get('/possiblePositions')
+      .post('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .send({ diceValue: 2 })
       .expect(possibilities)

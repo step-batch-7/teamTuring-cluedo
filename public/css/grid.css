@@ -20,11 +20,10 @@
 }
 
 .top-left-disable {
-  grid-column: 1/10;
+  grid-column: 7/10;
   grid-row: 1/2;
   background: none;
 }
-
 .top-right-disable {
   grid-column: 16/25;
   grid-row: 1/2;
@@ -51,7 +50,6 @@
   font-size: 2.4rem;
   padding-top: 0.1rem;
 }
-
 .startingPoint[id='10_1'] {
   grid-column: 10/11;
   grid-row: 1/2;

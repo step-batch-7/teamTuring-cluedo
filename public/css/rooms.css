@@ -1,6 +1,6 @@
 .kitchen {
   grid-column: 1/7;
-  grid-row: 2/8;
+  grid-row: 2/7;
   background: none;
 }
 .kitchen-door {
@@ -19,7 +19,16 @@
   grid-row: 2/3;
   background: none;
 }
-
+.kitchen-top-extension {
+  grid-column: 1/7;
+  grid-row: 1/2;
+  background: none;
+}
+.kitchen-bottom-extension {
+  grid-column: 2/7;
+  grid-row: 7/8;
+  background: none;
+}
 .dinning {
   grid-column: 1/9;
   grid-row: 11/17;
@@ -50,7 +59,12 @@
 
 .lounge {
   grid-column: 1/8;
-  grid-row: 20/26;
+  grid-row: 20/25;
+  background: transparent;
+}
+.lounge-bottom-extension {
+  grid-column: 1/7;
+  grid-row: 25/26;
   background: transparent;
 }
 
@@ -96,14 +110,18 @@
 
 .study {
   grid-column: 18/25;
-  grid-row: 22/26;
+  grid-row: 22/25;
+  background: transparent;
+}
+.study-bottom-extension {
+  grid-column: 19/25;
+  grid-row: 25/26;
   background: transparent;
 }
 .study-door {
   grid-column: 18/19;
   grid-row: 22/23;
 }
-
 .study-disable-bottom {
   grid-column: 18/19;
   grid-row: 25/26;
@@ -117,7 +135,7 @@
 }
 
 .library {
-  grid-column: 19/25;
+  grid-column: 19/24;
   grid-row: 15/20;
   background: transparent;
 }
@@ -137,8 +155,13 @@
   background: none;
 }
 
-.library-extent {
+.library-left-extension {
   grid-column: 18/19;
+  grid-row: 16/19;
+  background: transparent;
+}
+.library-right-extension {
+  grid-column: 24/25;
   grid-row: 16/19;
   background: transparent;
 }

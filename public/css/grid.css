@@ -5,10 +5,11 @@
   display: grid;
   grid-template-columns: repeat(24, calc(100% / 24));
   grid-template-rows: repeat(25, calc(100% / 25));
-  background: url('../images/gameBoard.png');
+  background: url('../images/Background.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: -17px;
+  background-position-x: center;
+  background-position-y: 3px;
 }
 
 .tile {

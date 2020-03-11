@@ -17,6 +17,7 @@
         <button id="joinGame" onclick="showJoinPage()">Join Game</button>
       </div>
       <div class="popup" id="createGameDiv">
+        <p id="error-host"></p>
         <label for="player-name">Player Name</label><br />
         <input
           id="player-name"
@@ -39,6 +40,7 @@
         </button>
       </div>
       <div class="popup" id="joinGameDiv">
+        <p id="error-join"></p>
         <label for="player-name">Player Name</label><br />
         <input
           type="text"
@@ -48,7 +50,6 @@
         /><br />
         <label for="game-id">Game Id</label><br />
         <input id="game-id" type="text" name="game-id" placeholder="1234" />
-        <p id="error"></p>
         <button id="join" onclick="joinPlayer(this.id)">Join</button>
         <button id="cancel-join" onclick="backToHomePage(this.id)">
           Cancel

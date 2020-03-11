@@ -21,12 +21,12 @@ const showErrorMessage = function(id, msg) {
 
 const confirmJoin = function({ hasJoined, roomFull }) {
   if (roomFull) {
-    return showErrorMessage('#error', 'Game has already started');
+    return showErrorMessage('#error-join', 'Game has already started.');
   }
   if (hasJoined) {
     return location.assign('../waiting.html');
   }
-  showErrorMessage('#error', 'Invalid Game ID');
+  showErrorMessage('#error-join', 'Invalid Game ID.');
 };
 
 const backToHomePage = buttonId => {

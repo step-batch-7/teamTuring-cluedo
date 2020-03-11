@@ -5,8 +5,10 @@ body {
   background-color: lightgray;
 }
 
-#error {
-  color: white;
+#error-join,
+#error-host {
+  color: rgb(243, 146, 164);
+  text-align: center;
 }
 
 .header {

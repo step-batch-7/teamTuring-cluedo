@@ -15,6 +15,12 @@ const getDicesValue = function() {
 const requestHostGame = function() {
   const noOfPlayers = document.querySelector('#no-of-players').value;
   const playerName = document.querySelector('#player-name').value;
+  if (playerName.length < 3) {
+    return showErrorMessage(
+      '#error-host',
+      'Enter at least 3 characters for name.'
+    );
+  }
   const data = { noOfPlayers, playerName };
   sendRequest('POST', '/createGame', data, () => {
     location.assign('../waiting.html');
@@ -49,6 +55,12 @@ const updateActivityLog = function() {
 const joinPlayer = function() {
   const playerName = document.querySelector('#joined-player').value;
   const gameId = document.querySelector('#game-id').value;
+  if (playerName.length < 3) {
+    return showErrorMessage(
+      '#error-join',
+      'Enter at least 3 characters for name.'
+    );
+  }
   const data = { playerName, gameId };
   sendRequest('POST', '/joinGame', data, confirmJoin);
 };

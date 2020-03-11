@@ -265,6 +265,7 @@ const addActivity = function(activities) {
   let activityDivs = '';
   activities.forEach(activity => {
     const newAct = document.createElement('div');
+    newAct.classList.add('activity');
     newAct.innerHTML = activity;
     activityDivs = activityDivs.concat(newAct.outerHTML);
   });

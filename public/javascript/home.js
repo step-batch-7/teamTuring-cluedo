@@ -15,7 +15,7 @@ const validateUserNum = () => {
 const validatePlayerName = () => {
   const playerName = document.querySelector('#player-name').value;
   if (playerName.length < 3) {
-    showErrorMessage('#nameError', 'Enter at least 3 characters for name.');
+    showErrorMessage('#nameError', 'Name should be at least 3 characters.');
     return false;
   }
   showErrorMessage('#nameError', '');

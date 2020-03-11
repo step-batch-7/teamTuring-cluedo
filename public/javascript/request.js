@@ -56,7 +56,7 @@ const joinPlayer = function() {
   if (playerName.length < 3) {
     return showErrorMessage(
       '#error-join',
-      'Enter at least 3 characters for name.'
+      'Name should be at least 3 characters.'
     );
   }
   const data = { playerName, gameId };

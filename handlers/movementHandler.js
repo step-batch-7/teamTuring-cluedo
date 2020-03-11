@@ -9,7 +9,8 @@ const rollDice = function(req, res) {
 
 const getPossiblePositions = function(req, res) {
   const game = req.game;
-  const possiblePositions = game.getPossiblePositions(req.player);
+  const { diceValue } = req.body;
+  const possiblePositions = game.getPossiblePositions(req.player, diceValue);
   res.json(possiblePositions);
 };
 

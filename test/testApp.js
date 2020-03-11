@@ -268,3 +268,27 @@ describe('/movePlayer', () => {
     sinon.restore();
   });
 });
+
+describe('getPossiblePositions', () => {
+  it('Should give a list of possible positions and rooms', done => {
+    const possibilities = [
+      '3_18',
+      '2_19',
+      '2_17',
+      '5_18',
+      '4_19',
+      'DiningRoom',
+      '8_17',
+      '7_18',
+      '6_19',
+      '6_17'
+    ];
+    request(app)
+      .get('/possiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .send({ diceValue: 4 })
+      .expect(possibilities)
+      .expect(200, done);
+    sinon.restore();
+  });
+});

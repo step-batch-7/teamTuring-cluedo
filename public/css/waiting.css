@@ -1,3 +1,20 @@
+body {
+  margin: 0%;
+  font-family: sans-serif;
+  height: 100vh;
+  background-color: lightgray;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  font-size: 7vh;
+  margin: 0%;
+  padding-top: 3%;
+}
+
 .loader {
   display: flex;
   width: 100%;
@@ -128,24 +145,26 @@
   }
 }
 
-
-.loadingDiv h3,
+.loadingDiv h1,
+.loadingDiv h2,
 .loadingDiv h4 {
   text-align: center;
+  font-weight: 200;
   color: white;
-  font-size: large;
-  height: 10px;
-  margin: 10px;
-  padding: 3px;
 }
 
 .loadingDiv {
   padding: 1%;
-  width: 20vw;
-  margin: 20vh auto;
+  width: 30vw;
+  min-height: 40vh;
+  margin: 5vh auto;
   display: flex;
   flex-flow: column wrap;
   border: 1px solid white;
   background-color: #163054;
   border-radius: 0.5vw;
+}
+
+#message {
+  color: white;
 }

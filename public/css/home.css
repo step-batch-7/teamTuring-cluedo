@@ -1,10 +1,8 @@
 body {
   margin: 0%;
   font-family: sans-serif;
-  background-size: cover;
-  background-repeat: no-repeat;
-  backdrop-filter: brightness(40%);
   height: 100vh;
+  background-color: lightgray;
 }
 
 #error {
@@ -13,7 +11,8 @@ body {
 
 .header {
   text-align: center;
-  color: white;
+  color: black;
+  font-weight: 500;
   font-size: 7vh;
   margin: 0%;
   padding-top: 3%;

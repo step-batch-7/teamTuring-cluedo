@@ -28,14 +28,15 @@ const joinGame = function(req, res) {
 };
 
 const checkNoOfPlayers = function(req, res) {
-  const { games, sessions } = req.app.locals;
-  const sid = req.cookies.sid;
-  const { gameId } = sessions.getUser(sid);
-  const game = games[gameId];
+  const { sessions } = req.app.locals;
+  const { gameId } = sessions.getUser(req.cookies.sid);
+  const game = req.game;
   res.json({
+    gameId,
     hasAllJoined: game.hasAllJoined(),
     noOfPlayers: game.players.length,
-    totalPlayer: game.totalPlayers
+    totalPlayer: game.totalPlayers,
+    players: game.getPlayersList()
   });
 };
 

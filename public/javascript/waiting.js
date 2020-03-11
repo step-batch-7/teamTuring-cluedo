@@ -1,10 +1,23 @@
+const updateWaitingPage = function(details) {
+  const status = document.querySelector('#joined-players-status');
+  status.innerText = ` Player Joined
+  ${details.noOfPlayers}/${details.totalPlayer}`;
+  const gameId = document.querySelector('#game-id');
+  gameId.innerText = `Game Id: ${details.gameId}`;
+  const message = document.querySelector('#message');
+  message.innerHTML = details.players.reduce((msg, player, index) => {
+    return (
+      msg + `<p>${index + 1}. ${player.username} - (${player.character})</p>`
+    );
+  }, '');
+};
+
 const checkNoOfPlayer = function() {
-  sendRequest('GET', '/checkNoOfPlayers', {}, data => {
-    const status = document.querySelector('#joined-players-status');
-    status.innerText = `${data.noOfPlayers}/${data.totalPlayer} Player Joined`;
-    if (data.hasAllJoined) {
+  sendRequest('GET', '/checkNoOfPlayers', {}, gameDetails => {
+    updateWaitingPage(gameDetails);
+    if (gameDetails.hasAllJoined) {
       sendRequest('GET', '/distributeCards', {}, () => {});
-      location.assign('../index.html');
+      setTimeout(() => location.assign('../index.html'), 2000);
     }
   });
 };

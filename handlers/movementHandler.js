@@ -11,12 +11,17 @@ const rollDice = function(req, res) {
   res.json({ values });
 };
 
-const movePlayer = (req, res) => {
+const getPossiblePositions = function(req, res) {
+  const game = req.game;
+  const possiblePositions = game.getPossiblePositions(req.player);
+  res.json(possiblePositions);
+};
+
+const movePlayer = function(req, res) {
   const game = req.game;
   const { position } = req.body;
   const { hasMoved, player } = game.movePlayer(req.player, position);
   const positions = game.getPlayersPosition();
   res.json({ hasMoved, positions, player });
 };
-
-module.exports = { rollDice, movePlayer };
+module.exports = { rollDice, movePlayer, getPossiblePositions };

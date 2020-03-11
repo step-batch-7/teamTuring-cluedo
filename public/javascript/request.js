@@ -8,11 +8,11 @@ const sendRequest = function(method, url, msg, callback) {
   request.send(JSON.stringify(msg));
 };
 
-const getDicesValue = () => {
+const getDicesValue = function() {
   sendRequest('GET', '/rollDice', {}, updateDiceFace);
 };
 
-const requestHostGame = () => {
+const requestHostGame = function() {
   const noOfPlayers = document.querySelector('#no-of-players').value;
   const playerName = document.querySelector('#player-name').value;
   const data = { noOfPlayers, playerName };
@@ -25,7 +25,7 @@ const updatePlayersPosition = function() {
   sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
 };
 
-const movePlayer = () => {
+const movePlayer = function() {
   const element = event.target;
   sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
 };
@@ -51,4 +51,8 @@ const joinPlayer = function() {
   const gameId = document.querySelector('#game-id').value;
   const data = { playerName, gameId };
   sendRequest('POST', '/joinGame', data, confirmJoin);
+};
+
+const getPossiblePositions = function() {
+  sendRequest('GET', '/possiblePositions', {}, showPossiblePositions);
 };

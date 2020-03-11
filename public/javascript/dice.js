@@ -13,6 +13,7 @@ const updateDiceFace = function({ values }) {
     setTimeout(() => {
       dice.className = '';
       dice.setAttribute('style', `transform :${faces[values[index] - 1]}`);
+      getPossiblePositions();
     }, 2200);
   });
 };

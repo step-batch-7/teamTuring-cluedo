@@ -36,7 +36,6 @@ describe('Game', () => {
       game.updateDiceValue([1, 1], 0);
       const actual = game.movePlayer(0, '8_23');
       const expected = {
-        hasMoved: true,
         player: 'scarlet'
       };
       assert.deepStrictEqual(actual, expected);
@@ -47,7 +46,6 @@ describe('Game', () => {
       game.updateDiceValue([3, 3], 0);
       const actual = game.movePlayer(0, '8_23');
       const expected = {
-        hasMoved: true,
         player: 'scarlet'
       };
       assert.deepStrictEqual(actual, expected);

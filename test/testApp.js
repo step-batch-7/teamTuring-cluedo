@@ -239,17 +239,7 @@ describe('/movePlayer', () => {
       .send({ position: 'Lounge' })
       .expect(200)
       .expect('Content-Type', /application\/json/)
-      .expect(/true/, done);
-  });
-
-  it('Should not move the player have not rolled the dice', done => {
-    request(app)
-      .post('/movePlayer')
-      .set('Cookie', 'sid=15838254823350')
-      .send({ position: '8_24' })
-      .expect(200)
-      .expect('Content-Type', /application\/json/)
-      .expect(/false/, done);
+      .expect(/Lounge/, done);
   });
 
   it('should roll dice in order move outside of room', function(done) {
@@ -274,7 +264,7 @@ describe('/movePlayer', () => {
       .send({ position: '4_17' })
       .expect(200)
       .expect('Content-Type', /application\/json/)
-      .expect(/true/, done);
+      .expect(/4_17/, done);
     sinon.restore();
   });
 });

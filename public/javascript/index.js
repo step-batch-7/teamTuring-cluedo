@@ -242,6 +242,25 @@ const createCard = function(card) {
   return cardContent;
 };
 
+const addClassActive = function(id) {
+  const tabs = document.querySelectorAll('.tabsContent');
+  for (let tab = 0; tab < tabs.length; tab++) {
+    tabs[tab].classList.remove('active');
+  }
+  const element = document.querySelector(`#${id}`);
+  element.classList.add('active');
+};
+
+const showTab = function(id) {
+  const logContent = document.getElementsByClassName('logContent');
+  addClassActive(id);
+  for (let content = 0; content < logContent.length; content++) {
+    logContent[content].style.display = 'none';
+  }
+  const element = document.querySelector(`#${id}Content`);
+  element.style.display = 'flex';
+};
+
 const displayMyCards = function(cardsList) {
   const myCards = document.querySelector('.cards');
   cardsList.forEach(function(card) {

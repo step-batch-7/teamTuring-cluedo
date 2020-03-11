@@ -115,3 +115,11 @@
 .plum {
   color: #a80eef;
 }
+
+.dullRoom {
+  background: rgb(211, 211, 211, 0.3);
+}
+
+.highlightTile {
+  opacity: 0.5;
+}

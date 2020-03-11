@@ -211,7 +211,15 @@ describe('/rollDice', function() {
     sinon.restore();
   });
 });
-
+describe('/activityLog', function() {
+  it('should give activity log', function(done) {
+    request(app)
+      .get('/activityLog')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(['scarlet rolled dice and got 12.'])
+      .expect(200, done);
+  });
+});
 describe('/getPlayerName', function() {
   it('should load the player name', function(done) {
     request(app)

@@ -15,7 +15,7 @@
     "connectedRoom": "Study"
   },
   "Ballroom": {
-    "door": ["16_6","10_8"],
+    "door": ["16_6", "10_8"],
     "entrance": ["17_6", "10_9"],
     "connectedRoom": ""
   },

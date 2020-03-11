@@ -43,7 +43,7 @@ const getMyCards = function() {
 };
 
 const updateActivityLog = function() {
-  sendRequest('GET', '/activityLog', {}, data => {});
+  sendRequest('GET', '/activityLog', {}, addActivity);
 };
 
 const joinPlayer = function() {

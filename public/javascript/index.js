@@ -261,6 +261,17 @@ const showTab = function(id) {
   element.style.display = 'flex';
 };
 
+const addActivity = function(activities) {
+  const activityContent = document.querySelector('#activityLogsContent');
+  let activityDivs = '';
+  activities.forEach(activity => {
+    const newAct = document.createElement('div');
+    newAct.innerHTML = activity;
+    activityDivs = activityDivs.concat(newAct.outerHTML);
+  });
+  activityContent.innerHTML = activityDivs;
+};
+
 const displayMyCards = function(cardsList) {
   const myCards = document.querySelector('.cards');
   cardsList.forEach(function(card) {
@@ -277,7 +288,7 @@ const displayName = function(name) {
 const getGameStatus = function() {
   setInterval(() => {
     updateActivityLog();
-  }, 500);
+  }, 5000);
 };
 
 const main = () => {

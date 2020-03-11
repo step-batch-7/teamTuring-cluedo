@@ -288,7 +288,7 @@ const displayName = function(name) {
 const getGameStatus = function() {
   setInterval(() => {
     updateActivityLog();
-  }, 5000);
+  }, 1000);
 };
 
 const main = () => {

@@ -29,20 +29,11 @@ describe('Game', () => {
     });
   });
 
-  describe('updateDiceValue', () => {
-    it('Should should update diceValue with given data', () => {
-      const game = new Game(1);
-      const diceValue = [1, 2];
-      game.updateDiceValue(diceValue);
-      assert.deepStrictEqual(game.getDiceValue(), diceValue);
-    });
-  });
-
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {
       const game = new Game(1);
       game.addPlayer('Turing');
-      game.updateDiceValue([1, 1]);
+      game.updateDiceValue([1, 1], 0);
       const actual = game.movePlayer(0, '8_23');
       const expected = {
         hasMoved: true,
@@ -53,7 +44,7 @@ describe('Game', () => {
     it('Should give false if player does not moves', () => {
       const game = new Game();
       game.addPlayer('turing');
-      game.updateDiceValue([3, 3]);
+      game.updateDiceValue([3, 3], 0);
       const actual = game.movePlayer(0, '8_23');
       const expected = {
         hasMoved: true,

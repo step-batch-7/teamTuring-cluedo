@@ -1,7 +1,7 @@
 .grid {
   width: 84vh;
   height: 87.5vh;
-  margin-top: -3rem;
+  margin-top: -4rem;
   display: grid;
   grid-template-columns: repeat(24, calc(100% / 24));
   grid-template-rows: repeat(25, calc(100% / 25));

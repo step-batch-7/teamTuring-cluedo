@@ -2,6 +2,25 @@ const showHostGame = () => {
   document.getElementById('mainDiv').style.display = 'none';
   document.getElementById('createGameDiv').style.display = 'block';
 };
+const validateUserNum = () => {
+  const noOfPlayers = document.querySelector('#no-of-players').value;
+  if (noOfPlayers < 7 && noOfPlayers > 2) {
+    showErrorMessage('#userNumError', '');
+    return true;
+  }
+  showErrorMessage('#userNumError', 'Please enter a number between 3 and 6.');
+  return false;
+};
+
+const validatePlayerName = () => {
+  const playerName = document.querySelector('#player-name').value;
+  if (playerName.length < 3) {
+    showErrorMessage('#nameError', 'Enter at least 3 characters for name.');
+    return false;
+  }
+  showErrorMessage('#nameError', '');
+  return true;
+};
 
 const showJoinPage = () => {
   document.getElementById('mainDiv').style.display = 'none';

@@ -6,9 +6,9 @@ body {
 }
 
 #error-join,
-#error-host {
+.error-host {
   color: rgb(243, 146, 164);
-  text-align: center;
+  font-size: 0.9rem;
 }
 
 .header {

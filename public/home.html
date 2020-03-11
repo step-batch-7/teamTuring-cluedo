@@ -17,7 +17,6 @@
         <button id="joinGame" onclick="showJoinPage()">Join Game</button>
       </div>
       <div class="popup" id="createGameDiv">
-        <p id="error-host"></p>
         <label for="player-name">Player Name</label><br />
         <input
           id="player-name"
@@ -25,6 +24,7 @@
           name="player-name"
           placeholder="John Doe"
         /><br />
+        <p class="error-host" id="nameError"></p>
         <label for="no-of-players">Number Of Players</label><br />
         <input
           id="no-of-players"
@@ -34,6 +34,7 @@
           max="6"
           value="3"
         />
+        <p class="error-host" id="userNumError"></p>
         <button id="create" onclick="requestHostGame()">Host</button>
         <button id="cancel-create" onclick="backToHomePage(this.id)">
           Cancel

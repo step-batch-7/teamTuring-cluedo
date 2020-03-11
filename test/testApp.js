@@ -218,7 +218,8 @@ describe('/getGameStatus', function() {
       .set('Cookie', 'sid=15838254823350')
       .expect({
         isPlayersTurn: true,
-        activities: ['scarlet rolled dice and got 12.']
+        activities: ['scarlet rolled dice and got 12.'],
+        canRollDice: true
       })
       .expect(200, done);
   });
@@ -337,7 +338,8 @@ describe('/getGameStatus', function() {
           'scarlet rolled dice and got 12.',
           'scarlet has entered Lounge.',
           'scarlet rolled dice and got 12.'
-        ]
+        ],
+        canRollDice: true
       })
       .expect(200, done);
   });

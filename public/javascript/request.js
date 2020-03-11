@@ -9,6 +9,8 @@ const sendRequest = function(method, url, msg, callback) {
 };
 
 const getDicesValue = function() {
+  const diceRoom = document.querySelector('#dices');
+  diceRoom.classList.add('block');
   sendRequest('GET', '/rollDice', {}, updateDiceFace);
 };
 

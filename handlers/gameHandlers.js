@@ -50,7 +50,8 @@ const getGameStatus = function(req, res) {
   const game = req.game;
   const activities = game.getActivityLog();
   const isPlayersTurn = game.isPlayersTurn(req.player);
-  res.json({ activities, isPlayersTurn });
+  const canRollDice = game.canRollDice;
+  res.json({ activities, isPlayersTurn, canRollDice });
 };
 
 const changeTurn = function(req, res) {

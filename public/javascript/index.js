@@ -280,9 +280,18 @@ const activatePlayer = function(playerStatus) {
   }
 };
 
+const toggleDiceRolling = function(diceStatus) {
+  const dices = document.querySelector('#dices');
+  dices.classList.add('block');
+  if (diceStatus) {
+    dices.classList.remove('block');
+  }
+};
+
 const changeStatus = function(status) {
   addActivity(status.activities);
   activatePlayer(status.isPlayersTurn);
+  toggleDiceRolling(status.canRollDice);
 };
 
 const displayMyCards = function(cardsList) {

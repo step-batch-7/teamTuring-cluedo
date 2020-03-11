@@ -270,23 +270,31 @@ describe('/movePlayer', () => {
 });
 
 describe('getPossiblePositions', () => {
-  it('Should give a list of possible positions and rooms', done => {
-    const possibilities = [
-      '3_18',
-      '2_19',
-      '2_17',
-      '5_18',
-      '4_19',
-      'DiningRoom',
-      '8_17',
-      '7_18',
-      '6_19',
-      '6_17'
-    ];
+  it('Should give a list of possible positions and rooms when he/she is outside the room', done => {
+    const possibilities = ['3_18', '2_19', '2_17', '5_18', '4_19', 'DiningRoom', '8_17', '7_18', '6_19', '6_17'];
     request(app)
       .get('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .send({ diceValue: 4 })
+      .expect(possibilities)
+      .expect(200, done);
+    sinon.restore();
+  });
+  it('Should move the player in side room to test possibilities when he/she is inside room', done => {
+    request(app)
+      .post('/movePlayer')
+      .set('Cookie', 'sid=15838254823350')
+      .send({ position: 'DiningRoom' })
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+      .expect(/DiningRoom/, done);
+  });
+  it('Should give a list of possible positions and rooms when he/she inside the room', done => {
+    const possibilities = ['6_17', '8_17', '7_18'];
+    request(app)
+      .get('/possiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .send({ diceValue: 2 })
       .expect(possibilities)
       .expect(200, done);
     sinon.restore();

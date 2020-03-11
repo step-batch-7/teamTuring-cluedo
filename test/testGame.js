@@ -41,7 +41,7 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
     it('Should give false if player does not moves', () => {
-      const game = new Game();
+      const game = new Game(1);
       game.addPlayer('turing');
       game.updateDiceValue([3, 3], 0);
       const actual = game.movePlayer(0, '8_23');
@@ -87,6 +87,23 @@ describe('Game', () => {
         'hall',
         'ballRoom'
       ]);
+    });
+  });
+
+  describe('getPossiblePositions', () => {
+    it('should give all the possible positions based on the diceValue', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      const actual = game.getPossiblePositions(0, 2);
+      const expected = ['8_23', '9_24'];
+      assert.deepStrictEqual(actual, expected);
+    });
+    it('should give all the possible positions with rooms based on the diceValue', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      const actual = game.getPossiblePositions(0, 10);
+      const expected = ['Lounge', '4_19', '5_18', '6_17', '7_18', '6_19', 'DiningRoom', '8_17', '9_18', '9_16', '10_17', '11_18', '9_20', '9_22', '8_19', '9_24', '8_21', '8_23'];
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });

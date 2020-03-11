@@ -34,6 +34,7 @@ const updatePlayersPosition = function() {
 const movePlayer = function() {
   const element = event.target;
   sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
+  sendRequest('GET', '/changeTurn', {}, () => {});
 };
 
 const getPlayerList = function() {
@@ -48,8 +49,8 @@ const getMyCards = function() {
   sendRequest('GET', '/myCards', {}, displayMyCards);
 };
 
-const updateActivityLog = function() {
-  sendRequest('GET', '/activityLog', {}, addActivity);
+const getGameStatus = function() {
+  sendRequest('GET', '/getGameStatus', {}, changeStatus);
 };
 
 const joinPlayer = function() {
@@ -72,4 +73,8 @@ const getPossiblePositions = function(diceValue) {
     { diceValue },
     showPossiblePositions
   );
+};
+
+const changeTurn = function() {
+  sendRequest('GET', '/changeTurn', {}, () => {});
 };

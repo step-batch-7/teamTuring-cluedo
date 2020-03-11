@@ -272,6 +272,19 @@ const addActivity = function(activities) {
   activityContent.innerHTML = activityDivs;
 };
 
+const activatePlayer = function(playerStatus) {
+  const gameBoard = document.querySelector('.grid');
+  gameBoard.classList.add('block');
+  if (playerStatus) {
+    gameBoard.classList.remove('block');
+  }
+};
+
+const changeStatus = function(status) {
+  addActivity(status.activities);
+  activatePlayer(status.isPlayersTurn);
+};
+
 const displayMyCards = function(cardsList) {
   const myCards = document.querySelector('.cards');
   cardsList.forEach(function(card) {
@@ -285,9 +298,9 @@ const displayName = function(name) {
   profileName.innerText = name;
 };
 
-const getGameStatus = function() {
+const updateGameStatus = function() {
   setInterval(() => {
-    updateActivityLog();
+    getGameStatus();
   }, 1000);
 };
 
@@ -298,5 +311,5 @@ const main = () => {
   getPlayerList();
   getMyCards();
   displayPlayerName();
-  getGameStatus();
+  updateGameStatus();
 };

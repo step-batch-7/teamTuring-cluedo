@@ -46,9 +46,17 @@ const distributeCards = function(req, res) {
   res.json({});
 };
 
-const updateActivityLog = function(req, res) {
+const getGameStatus = function(req, res) {
   const game = req.game;
-  res.json(game.getActivityLog());
+  const activities = game.getActivityLog();
+  const isPlayersTurn = game.isPlayersTurn(req.player);
+  res.json({ activities, isPlayersTurn });
+};
+
+const changeTurn = function(req, res) {
+  const game = req.game;
+  game.changeTurn();
+  res.json({});
 };
 
 module.exports = {
@@ -56,5 +64,6 @@ module.exports = {
   joinGame,
   checkNoOfPlayers,
   distributeCards,
-  updateActivityLog
+  getGameStatus,
+  changeTurn
 };

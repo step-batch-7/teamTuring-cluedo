@@ -211,12 +211,15 @@ describe('/rollDice', function() {
     sinon.restore();
   });
 });
-describe('/activityLog', function() {
-  it('should give activity log', function(done) {
+describe('/getGameStatus', function() {
+  it('should give game status', function(done) {
     request(app)
-      .get('/activityLog')
+      .get('/getGameStatus')
       .set('Cookie', 'sid=15838254823350')
-      .expect(['scarlet rolled dice and got 12.'])
+      .expect({
+        isPlayersTurn: true,
+        activities: ['scarlet rolled dice and got 12.']
+      })
       .expect(200, done);
   });
 });
@@ -271,7 +274,18 @@ describe('/movePlayer', () => {
 
 describe('getPossiblePositions', () => {
   it('Should give a list of possible positions and rooms when he/she is outside the room', done => {
-    const possibilities = ['3_18', '2_19', '2_17', '5_18', '4_19', 'DiningRoom', '8_17', '7_18', '6_19', '6_17'];
+    const possibilities = [
+      '3_18',
+      '2_19',
+      '2_17',
+      '5_18',
+      '4_19',
+      'DiningRoom',
+      '8_17',
+      '7_18',
+      '6_19',
+      '6_17'
+    ];
     request(app)
       .get('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
@@ -298,5 +312,33 @@ describe('getPossiblePositions', () => {
       .expect(possibilities)
       .expect(200, done);
     sinon.restore();
+  });
+});
+describe('/changeTurn', function() {
+  it('should change the turn of player', function(done) {
+    request(app)
+      .get('/changeTurn')
+      .set('Cookie', 'sid=15838254823350')
+      .expect('Content-Type', /application\/json*/)
+      .expect(200, done);
+  });
+});
+
+describe('/getGameStatus', function() {
+  it('should give is your turn false after your turn', function(done) {
+    request(app)
+      .get('/getGameStatus')
+      .set('Cookie', 'sid=15838254823350')
+      .expect({
+        isPlayersTurn: false,
+        activities: [
+          'scarlet has entered Dining Room.',
+          'scarlet has came out of Lounge.',
+          'scarlet rolled dice and got 12.',
+          'scarlet has entered Lounge.',
+          'scarlet rolled dice and got 12.'
+        ]
+      })
+      .expect(200, done);
   });
 });

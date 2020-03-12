@@ -284,6 +284,9 @@ const addActivity = function(activities) {
   });
   activityContent.innerHTML = activityDivs;
 };
+const clearMsg = function(id) {
+  document.getElementById(id).innerHTML = '';
+};
 
 const activatePlayer = function(playerStatus) {
   const gameBoard = document.querySelector('.grid');

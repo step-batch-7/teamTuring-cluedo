@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CLUEDO</title>
-    <link rel="shortcut icon" href="./images/teamTuringLogo.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./images/teamTuringLogo.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/home.css" />
+    <script src="./javascript/index.js"></script>
     <script src="./javascript/request.js"></script>
     <script src="./javascript/home.js"></script>
   </head>
@@ -21,10 +25,24 @@
       </div>
       <div class="popup" id="createGameDiv">
         <label for="player-name">Player Name</label><br />
-        <input id="player-name" type="text" name="player-name" placeholder="John Doe" /><br />
+        <input
+          onfocus="clearMsg('nameError')"
+          id="player-name"
+          type="text"
+          name="player-name"
+          placeholder="John Doe"
+        /><br />
         <p class="error-host" id="nameError"></p>
         <label for="no-of-players">Number Of Players</label><br />
-        <input id="no-of-players" type="number" name="no-of-players" min="3" max="6" value="3" />
+        <input
+          onfocus="clearMsg('userNumError')"
+          id="no-of-players"
+          type="number"
+          name="no-of-players"
+          min="3"
+          max="6"
+          value="3"
+        />
         <p class="error-host" id="userNumError"></p>
         <button id="create" onclick="requestHostGame()">Host</button>
         <button id="cancel-create" onclick="backToHomePage(this.id)">
@@ -34,7 +52,12 @@
       <div class="popup" id="joinGameDiv">
         <p id="error-join"></p>
         <label for="player-name">Player Name</label><br />
-        <input type="text" name="player-name" placeholder="John Doe" id="joined-player" /><br />
+        <input
+          type="text"
+          name="player-name"
+          placeholder="John Doe"
+          id="joined-player"
+        /><br />
         <label for="game-id">Game Id</label><br />
         <input id="game-id" type="text" name="game-id" placeholder="1234" />
         <button id="join" onclick="joinPlayer(this.id)">Join</button>
@@ -44,5 +67,4 @@
       </div>
     </div>
   </body>
-
 </html>

@@ -4,9 +4,12 @@ body {
   flex-flow: column;
   flex-wrap: wrap;
   display: flex;
+  color: white;
   justify-items: center;
-	justify-content: space-between;
+  justify-content: space-between;
   font-family: sans-serif;
+  background: url('../images/gameBackground.jpg') no-repeat;
+  background-size: cover;
 }
 
 .container {

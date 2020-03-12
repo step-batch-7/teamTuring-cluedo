@@ -130,5 +130,5 @@
 }
 
 .highlightTile {
-  opacity: 0.5;
+  background: radial-gradient(circle at 86%, white, #fde2bf, #e9ab57);
 }

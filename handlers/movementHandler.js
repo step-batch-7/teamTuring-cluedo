@@ -34,9 +34,7 @@ const getDiceAndPossiblePositions = function(req, res) {
   if (game.isPlayersTurn(player)) {
     diceValues = game.diceValues;
     const diceValue = diceValues.reduce((sum, value) => sum + value, 0);
-    if (diceValue) {
-      possiblePositions = game.getPossiblePositions(player, diceValue);
-    }
+    possiblePositions = game.getPossiblePositions(player, diceValue);
   }
   res.json({ diceValues, possiblePositions });
 };

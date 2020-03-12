@@ -18,3 +18,12 @@ const updateDiceFace = function({ values }) {
     }, 2200);
   });
 };
+
+const updateDiceAndPossibilities = function({ diceValues, possiblePositions }) {
+  const dices = Array.from(document.querySelectorAll('div[id^="cube"]'));
+  dices.forEach((dice, index) => {
+    dice.className = '';
+    dice.setAttribute('style', `transform :${faces[diceValues[index] - 1]}`);
+    showPossiblePositions(possiblePositions);
+  });
+};

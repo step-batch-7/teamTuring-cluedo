@@ -340,4 +340,5 @@ const main = () => {
   getMyCards();
   displayPlayerName();
   updateGameStatus();
+  getDicesValueAndPossiblePositions();
 };

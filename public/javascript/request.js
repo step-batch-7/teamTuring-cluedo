@@ -14,6 +14,11 @@ const getDicesValue = function() {
   sendRequest('GET', '/rollDice', {}, updateDiceFace);
 };
 
+const getDicesValueAndPossiblePositions = function() {
+  const url = '/diceValueAndPossiblePositions';
+  sendRequest('GET', url, {}, updateDiceAndPossibilities);
+};
+
 const requestHostGame = function() {
   const noOfPlayers = document.querySelector('#no-of-players').value;
   const playerName = document.querySelector('#player-name').value;

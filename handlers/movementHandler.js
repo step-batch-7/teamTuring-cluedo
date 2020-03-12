@@ -21,4 +21,23 @@ const movePlayer = (req, res) => {
   const positions = game.getPlayersPosition();
   res.json({ hasMoved, positions, player });
 };
-module.exports = { rollDice, movePlayer, getPossiblePositions };
+
+const getDiceAndPossiblePositions = function(req, res) {
+  const game = req.game;
+  const player = req.player;
+  let diceValues = [];
+  let possiblePositions = [];
+  if (game.isPlayersTurn(player)) {
+    diceValues = game.diceValues;
+    const diceValue = diceValues.reduce((sum, value) => sum + value, 0);
+    possiblePositions = game.getPossiblePositions(player, diceValue);
+  }
+  res.json({ diceValues, possiblePositions });
+};
+
+module.exports = {
+  rollDice,
+  movePlayer,
+  getPossiblePositions,
+  getDiceAndPossiblePositions
+};

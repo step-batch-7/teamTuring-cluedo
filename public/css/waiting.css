@@ -26,122 +26,48 @@ body {
 .ball3,
 .ball4 {
   margin: 3px;
-  width: 12px;
-  height: 12px;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
   position: relative;
+  animation: 0.8s fall linear infinite;
 }
 
 .ball1 {
   background-color: rgb(42, 23, 250);
-  animation: 2s fall1 linear infinite;
+  animation-delay: 0ms;
 }
 
 .ball2 {
   background-color: rgb(6, 180, 21);
-  animation: 2s fall2 linear infinite;
+  animation-delay: 200ms;
 }
 
 .ball3 {
   background-color: rgb(255, 208, 0);
-  animation: 2s fall3 linear infinite;
+  animation-delay: 300ms;
 }
 
 .ball4 {
   background-color: rgb(255, 30, 0);
-  animation: 2s fall4 linear infinite;
+  animation-delay: 400ms;
 }
 
-@keyframes fall1 {
+@keyframes fall {
   0% {
-    top: 10px;
-  }
-  5% {
-    top: 0px;
-  }
-  10% {
-    top: 10px;
-  }
-  15% {
-    top: 20px;
-  }
-  20% {
-    top: 10px;
-  }
-  100% {
-    top: 10px;
-  }
-}
-
-@keyframes fall2 {
-  0% {
-    top: 10px;
-  }
-  20% {
-    top: 10px;
+    top: 3px;
   }
   25% {
     top: 0px;
   }
-  30% {
-    top: 10px;
-  }
-  35% {
-    top: 20px;
-  }
-  40% {
-    top: 10px;
-  }
-  100% {
-    top: 10px;
-  }
-}
-
-@keyframes fall3 {
-  0% {
-    top: 10px;
-  }
-  40% {
-    top: 10px;
-  }
-  45% {
-    top: 0px;
-  }
   50% {
-    top: 10px;
-  }
-  55% {
-    top: 20px;
-  }
-  60% {
-    top: 10px;
-  }
-  100% {
-    top: 10px;
-  }
-}
-
-@keyframes fall4 {
-  0% {
-    top: 10px;
-  }
-  60% {
-    top: 10px;
-  }
-  65% {
-    top: 0px;
-  }
-  70% {
-    top: 10px;
+    top: 3px;
   }
   75% {
-    top: 20px;
-  }
-  80% {
-    top: 10px;
+    top: 6px;
   }
   100% {
-    top: 10px;
+    top: 3px;
   }
 }
 

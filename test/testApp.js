@@ -216,7 +216,7 @@ describe('/getGameStatus', function() {
         isPlayersTurn: true,
         activities: ['Game Started.'],
         canRollDice: true,
-        message: 'Your turn, roll dice',
+        message: 'Your turn, roll dice.',
         positions: [
           {
             character: 'scarlet',
@@ -346,12 +346,12 @@ describe('/getGameStatus', function() {
           'Scarlet rolled dice and got 2.',
           'Scarlet has entered Dining Room.',
           'Scarlet rolled dice and got 4.',
-          'Scarlet has came out of Lounge.',
+          'Scarlet has come out of Lounge.',
           'Scarlet has entered Lounge.',
           'Game Started.'
         ],
         canRollDice: false,
-        message: 'Select a position to move',
+        message: 'Select a position to move.',
         positions: [
           {
             character: 'scarlet',
@@ -393,12 +393,12 @@ describe('/getGameStatus', function() {
           'Scarlet rolled dice and got 2.',
           'Scarlet has entered Dining Room.',
           'Scarlet rolled dice and got 4.',
-          'Scarlet has came out of Lounge.',
+          'Scarlet has come out of Lounge.',
           'Scarlet has entered Lounge.',
           'Game Started.'
         ],
         canRollDice: false,
-        message: `Mustard'${'s'} turn`,
+        message: `Mustard'${'s'} turn.`,
         positions: [
           {
             character: 'scarlet',

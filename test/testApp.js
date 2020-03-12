@@ -316,6 +316,28 @@ describe('getPossiblePositions', () => {
     sinon.restore();
   });
 });
+
+describe('/getGameStatus', function() {
+  it('should give is your turn false after your turn', function(done) {
+    request(app)
+      .get('/getGameStatus')
+      .set('Cookie', 'sid=15838254823350')
+      .expect({
+        isPlayersTurn: true,
+        activities: [
+          'scarlet has entered Dining Room.',
+          'scarlet has came out of Lounge.',
+          'scarlet rolled dice and got 12.',
+          'scarlet has entered Lounge.',
+          'scarlet rolled dice and got 12.'
+        ],
+        canRollDice: false,
+        message: 'Select a position to move'
+      })
+      .expect(200, done);
+  });
+});
+
 describe('/changeTurn', function() {
   it('should change the turn of player', function(done) {
     request(app)

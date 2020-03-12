@@ -93,7 +93,7 @@ describe('/joinGame', function() {
       .expect(200, done);
   });
 
-  it('should be able to join a game given id 1234', function(done) {
+  it('should be able to join a game given id 10AA', function(done) {
     const ourRandom = function() {
       return 2;
     };
@@ -105,7 +105,6 @@ describe('/joinGame', function() {
       .send({ playerName: 'ria', gameId: '10AA' })
       .expect({ hasJoined: true })
       .expect(200, done);
-    sinon.restore();
   });
 
   it('1 more player should be able to join', function(done) {
@@ -130,6 +129,7 @@ describe('/joinGame', function() {
       .expect({ roomFull: true })
       .expect(200, done);
   });
+  afterEach(() => sinon.restore());
 });
 
 describe('/distributeCards', function() {
@@ -375,6 +375,17 @@ describe('diceValueAndPossiblePositions', function() {
     request(app)
       .get('/diceValueAndPossiblePositions')
       .set('Cookie', 'sid=15838254823350')
+      .expect(expected)
+      .expect(200, done);
+  });
+  it('Should give dice value and possible positions as empty for other player', function(done) {
+    const expected = {
+      diceValues: [],
+      possiblePositions: []
+    };
+    request(app)
+      .get('/diceValueAndPossiblePositions')
+      .set('Cookie', 'sid=15838254823352')
       .expect(expected)
       .expect(200, done);
   });

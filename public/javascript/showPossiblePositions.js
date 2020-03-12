@@ -2,7 +2,7 @@
 
 const showPossiblePositions = function({ possiblePositions, isTurnChange }) {
   if (isTurnChange) {
-    updateStatusBar('You are blocked, You can nor move.');
+    updateStatusBar('You are blocked, You can not move.');
     changeTurn();
     return;
   }

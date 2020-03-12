@@ -302,7 +302,9 @@ const toggleDiceRolling = function(diceStatus) {
 };
 
 const updateStatusBar = function(message) {
-  document.querySelector('.statusBar').innerText = message;
+  const statusBar = document.querySelector('.statusBar');
+  statusBar.style.display = 'flex';
+  statusBar.innerText = message;
 };
 
 const changeStatus = function(status) {

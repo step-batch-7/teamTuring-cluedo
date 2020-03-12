@@ -13,6 +13,17 @@
   height: 100%;
   font-size: 3rem;
 }
+.statusBar {
+  display: none;
+  width: 30%;
+  justify-content: center;
+  background: #227c7b;
+  height: 1.9rem;
+  align-items: center;
+  border-radius: 0.2rem;
+  color: white;
+  font-weight: 500;
+}
 .header > img {
   height: 100%;
 }

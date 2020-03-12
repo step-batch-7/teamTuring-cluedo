@@ -17,13 +17,13 @@
   align-items: center;
 }
 .tabsContent:hover {
-  background-color: rgba(233, 65, 54, 0.2);
-  color: rgba(233, 65, 54);
+  background-color: rgba(34, 124, 123, 0.1);
+  color: rgba(34, 124, 123);
 }
 .active {
-  background-color: rgba(233, 65, 54, 0.2);
-  color: rgba(233, 65, 54);
-  border-bottom: 0.2rem solid rgb(233, 65, 54) !important;
+  background-color: rgba(34, 124, 123, 0.2);
+  color: rgb(34, 86, 85);
+  border-bottom: 0.2rem solid rgb(34, 124, 123) !important;
 }
 .tabsContent {
   display: flex;

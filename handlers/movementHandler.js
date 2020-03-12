@@ -11,6 +11,8 @@ const getPossiblePositions = function(req, res) {
   const game = req.game;
   const { diceValue } = req.body;
   const possiblePositions = game.getPossiblePositions(req.player, diceValue);
+  game.diceRollable = false;
+  game.changeMessage(req.player, 'Select a position to move');
   res.json(possiblePositions);
 };
 

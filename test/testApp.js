@@ -130,10 +130,6 @@ describe('/joinGame', function() {
       .expect({ roomFull: true })
       .expect(200, done);
   });
-
-  after(() => {
-    sinon.restore();
-  });
 });
 
 describe('/distributeCards', function() {
@@ -284,7 +280,6 @@ describe('/movePlayer', () => {
       .expect(200)
       .expect('Content-Type', /application\/json/)
       .expect(/4_17/, done);
-    sinon.restore();
   });
 });
 
@@ -311,7 +306,6 @@ describe('getPossiblePositions', () => {
       .send({ diceValue: 4 })
       .expect(expected)
       .expect(200, done);
-    sinon.restore();
   });
   it('Should move the player in side room to test possibilities when he/she is inside room', done => {
     request(app)
@@ -333,7 +327,6 @@ describe('getPossiblePositions', () => {
       .send({ diceValue: 2 })
       .expect(expected)
       .expect(200, done);
-    sinon.restore();
   });
 });
 

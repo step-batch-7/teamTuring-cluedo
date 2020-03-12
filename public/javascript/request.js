@@ -27,7 +27,7 @@ const requestHostGame = function() {
 };
 
 const updatePlayersPosition = function() {
-  sendRequest('GET', '/getPlayersPosition', {}, updatePosition);
+  sendRequest('GET', '/getPlayersPosition', {}, assignPlayerPosition);
 };
 
 const movePlayer = function() {

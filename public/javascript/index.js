@@ -204,13 +204,26 @@ const loadPath = () => {
   });
 };
 
-const updatePosition = playersPosition => {
+const assignPlayerPosition = playersPosition => {
   playersPosition.forEach(({ character, position }) => {
     const grid = document.getElementById(position);
-    const html = `<div class="${character}">
+    const temp = document.createElement('div');
+    temp.innerHTML = `<div class="${character}">
     <i class="fas fa-map-marker"></i></div>`;
-    grid.innerHTML = html;
+    grid.appendChild(temp.firstChild);
   });
+};
+
+const removePlayerPosition = playersPosition => {
+  playersPosition.forEach(({ character }) => {
+    const element = document.querySelector(`.${character}`);
+    element.parentElement.removeChild(element);
+  });
+};
+
+const updatePosition = playersPosition => {
+  removePlayerPosition(playersPosition);
+  assignPlayerPosition(playersPosition);
 };
 
 const generatePlayerList = playersList => {

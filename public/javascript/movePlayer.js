@@ -10,6 +10,5 @@ const confirmMovement = function(response) {
     room.removeEventListener('click', movePlayer);
   });
   document.querySelector('.statusBar').innerText = '';
-  document.querySelector(`.${response.player}`).parentElement.innerHTML = '';
   updatePosition(response.positions);
 };

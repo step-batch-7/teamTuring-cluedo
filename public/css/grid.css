@@ -55,6 +55,11 @@
 .room {
   font-size: 1.4rem;
   text-align: center;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .room .fas {
   font-size: 2.4rem;

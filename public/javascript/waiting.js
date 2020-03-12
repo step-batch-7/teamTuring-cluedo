@@ -1,6 +1,6 @@
 const updateWaitingPage = function(details) {
   const status = document.querySelector('#joined-players-status');
-  status.innerText = ` Player Joined
+  status.innerText = ` Players Joined
   ${details.noOfPlayers}/${details.totalPlayer}`;
   const gameId = document.querySelector('#game-id');
   gameId.innerText = `Game Id: ${details.gameId}`;

@@ -48,6 +48,7 @@
 }
 
 .logContent {
+  overflow-y: auto;
   padding-top: 1rem;
   height: 100%;
   width: 100%;
@@ -71,9 +72,6 @@
 #myCardsContent {
   display: none;
 }
-#activityLogsContent {
-  overflow-y: scroll;
-}
 .activity:first-letter {
   display: block;
 
@@ -86,7 +84,6 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  overflow-y: scroll;
 }
 .card {
   width: 30%;

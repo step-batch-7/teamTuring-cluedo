@@ -52,7 +52,8 @@ const getGameStatus = function(req, res) {
   const isPlayersTurn = game.isPlayersTurn(req.player);
   const canRollDice = game.canRollDice(req.player);
   const message = game.getMessage(req.player);
-  res.json({ activities, isPlayersTurn, message, canRollDice });
+  const positions = game.getPlayersPosition();
+  res.json({ activities, isPlayersTurn, message, canRollDice, positions });
 };
 
 const changeTurn = function(req, res) {

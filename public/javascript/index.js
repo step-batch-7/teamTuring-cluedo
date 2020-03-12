@@ -297,6 +297,7 @@ const changeStatus = function(status) {
   activatePlayer(status.isPlayersTurn);
   toggleDiceRolling(status.canRollDice);
   updateStatusBar(status.message);
+  updatePosition(status.positions);
 };
 
 const displayMyCards = function(cardsList) {

@@ -220,7 +220,21 @@ describe('/getGameStatus', function() {
         isPlayersTurn: true,
         activities: ['scarlet rolled dice and got 12.'],
         canRollDice: true,
-        message: 'your turn, roll dice'
+        message: 'your turn, roll dice',
+        positions: [
+          {
+            character: 'scarlet',
+            position: '8_25'
+          },
+          {
+            character: 'mustard',
+            position: '1_18'
+          },
+          {
+            character: 'white',
+            position: '10_1'
+          }
+        ]
       })
       .expect(200, done);
   });
@@ -332,7 +346,21 @@ describe('/getGameStatus', function() {
           'scarlet rolled dice and got 12.'
         ],
         canRollDice: false,
-        message: 'Select a position to move'
+        message: 'Select a position to move',
+        positions: [
+          {
+            character: 'scarlet',
+            position: 'DiningRoom'
+          },
+          {
+            character: 'mustard',
+            position: '1_18'
+          },
+          {
+            character: 'white',
+            position: '10_1'
+          }
+        ]
       })
       .expect(200, done);
   });
@@ -363,7 +391,21 @@ describe('/getGameStatus', function() {
           'scarlet rolled dice and got 12.'
         ],
         canRollDice: false,
-        message: `mustard'${'s'} turn`
+        message: `mustard'${'s'} turn`,
+        positions: [
+          {
+            character: 'scarlet',
+            position: 'DiningRoom'
+          },
+          {
+            character: 'mustard',
+            position: '1_18'
+          },
+          {
+            character: 'white',
+            position: '10_1'
+          }
+        ]
       })
       .expect(200, done);
   });

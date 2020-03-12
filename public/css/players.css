@@ -1,10 +1,9 @@
 .players {
   height: 93%;
-  width: 15%;
+  width: 10%;
   display: flex;
   flex-wrap: wrap;
   flex-flow: column;
-  justify-content: space-between;
 }
 
 .player {
@@ -12,11 +11,10 @@
   flex-flow: row-reverse;
   align-items: center;
   justify-content: space-between;
-  height: 13%;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
   box-shadow: -9px 0px 12px 2px lightgrey;
   border-radius: 0% 50% 50% 0%;
-  width: 75%;
 }
 .player > .avatar {
   border: 1px solid black;

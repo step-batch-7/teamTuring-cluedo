@@ -5,10 +5,8 @@ const updateWaitingPage = function(details) {
   const gameId = document.querySelector('#game-id');
   gameId.innerText = `Game Id: ${details.gameId}`;
   const message = document.querySelector('#message');
-  message.innerHTML = details.players.reduce((msg, player, index) => {
-    return (
-      msg + `<p>${index + 1}. ${player.username} - (${player.character})</p>`
-    );
+  message.innerHTML = details.players.reduce((msg, player) => {
+    return msg + `<p>${player.username} - (${player.character})</p>`;
   }, '');
 };
 

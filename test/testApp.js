@@ -330,6 +330,56 @@ describe('getPossiblePositions', () => {
   });
 });
 
+describe('diceValueAndPossiblePositions', function() {
+  it('Should give dice value and possible positions empty if dice is not rolled', function(done) {
+    const expected = { diceValues: [], possiblePositions: [] };
+    request(app)
+      .get('/diceValueAndPossiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(expected)
+      .expect(200, done);
+  });
+
+  it('Should roll dice to get possible positions', function(done) {
+    Math.random = function() {
+      return 0.3;
+    };
+    sinon.stub(Math, 'random');
+
+    request(app)
+      .get('/rollDice')
+      .set('Cookie', 'sid=15838254823350')
+      .expect('Content-Type', /application\/json/)
+      .expect({ values: [2, 2] })
+      .expect(200, done);
+    sinon.restore();
+  });
+
+  it('Should give dice value and possible positions for current player', function(done) {
+    const expected = {
+      diceValues: [2, 2],
+      possiblePositions: [
+        '4_17',
+        '5_18',
+        '7_18',
+        '6_19',
+        '9_16',
+        '10_17',
+        '9_18',
+        '8_19',
+        '6_17',
+        '8_17',
+        'Lounge'
+      ]
+    };
+    request(app)
+      .get('/diceValueAndPossiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(expected)
+      .expect(200, done);
+  });
+});
+
 describe('/getGameStatus', function() {
   it('should give is your turn false after your turn', function(done) {
     Math.random = function() {

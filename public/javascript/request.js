@@ -1,10 +1,13 @@
 const sendRequest = function(method, url, msg, callback) {
   const request = new XMLHttpRequest();
+  request.open(method, url);
+  request.setRequestHeader('Content-Type', 'application/json');
   request.onload = function() {
     callback(JSON.parse(this.responseText));
   };
-  request.open(method, url);
-  request.setRequestHeader('Content-Type', 'application/json');
+  request.onerror = function(error) {
+    updateStatusBar('Something went wrong! please try again.');
+  };
   request.send(JSON.stringify(msg));
 };
 

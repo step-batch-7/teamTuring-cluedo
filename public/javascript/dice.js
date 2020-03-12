@@ -26,6 +26,7 @@ const updateDiceAndPossibilities = function({ diceValues, possiblePositions }) {
   dices.forEach((dice, index) => {
     dice.className = '';
     dice.setAttribute('style', `transform :${faces[diceValues[index] - 1]}`);
-    showPossiblePositions(possiblePositions);
+    possiblePositions.length &&
+      showPossiblePositions({ possiblePositions, isTurnChange: false });
   });
 };

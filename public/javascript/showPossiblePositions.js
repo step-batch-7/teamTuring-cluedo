@@ -1,7 +1,9 @@
 'use strict';
 
-const showPossiblePositions = function(possiblePositions) {
-  if (possiblePositions.length < 2) {
+const showPossiblePositions = function({ possiblePositions, isTurnChange }) {
+  if (isTurnChange) {
+    updateStatusBar('You are blocked, You can nor move.');
+    changeTurn();
     return;
   }
   const rooms = document.querySelectorAll('.room');

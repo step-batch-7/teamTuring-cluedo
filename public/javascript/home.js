@@ -4,7 +4,7 @@ const showHostGame = () => {
 };
 const validateUserNum = () => {
   const noOfPlayers = document.querySelector('#no-of-players').value;
-  if (noOfPlayers < 7 && noOfPlayers >= 2) {
+  if (noOfPlayers < 7 && noOfPlayers > 2) {
     showErrorMessage('#userNumError', '');
     return true;
   }

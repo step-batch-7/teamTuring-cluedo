@@ -290,23 +290,26 @@ describe('/movePlayer', () => {
 
 describe('getPossiblePositions', () => {
   it('Should give a list of possible positions and rooms when he/she is outside the room', done => {
-    const possibilities = [
-      '3_18',
-      '2_19',
-      '2_17',
-      '5_18',
-      '4_19',
-      'DiningRoom',
-      '8_17',
-      '7_18',
-      '6_19',
-      '6_17'
-    ];
+    const expected = {
+      possiblePositions: [
+        '3_18',
+        '2_19',
+        '2_17',
+        '5_18',
+        '4_19',
+        'DiningRoom',
+        '8_17',
+        '7_18',
+        '6_19',
+        '6_17'
+      ],
+      isTurnChange: false
+    };
     request(app)
       .post('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .send({ diceValue: 4 })
-      .expect(possibilities)
+      .expect(expected)
       .expect(200, done);
     sinon.restore();
   });
@@ -320,12 +323,15 @@ describe('getPossiblePositions', () => {
       .expect(/DiningRoom/, done);
   });
   it('Should give a list of possible positions and rooms when he/she inside the room', done => {
-    const possibilities = ['6_17', '8_17', '7_18'];
+    const expected = {
+      possiblePositions: ['6_17', '8_17', '7_18'],
+      isTurnChange: false
+    };
     request(app)
       .post('/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .send({ diceValue: 2 })
-      .expect(possibilities)
+      .expect(expected)
       .expect(200, done);
     sinon.restore();
   });

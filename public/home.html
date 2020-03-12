@@ -50,16 +50,24 @@
         </button>
       </div>
       <div class="popup" id="joinGameDiv">
-        <p id="error-join"></p>
         <label for="player-name">Player Name</label><br />
         <input
           type="text"
           name="player-name"
           placeholder="John Doe"
           id="joined-player"
+          onfocus="clearMsg('nameError-join')"
         /><br />
+        <p class="error-join" id="nameError-join"></p>
         <label for="game-id">Game Id</label><br />
-        <input id="game-id" type="text" name="game-id" placeholder="1234" />
+        <input
+          id="game-id"
+          type="text"
+          name="game-id"
+          placeholder="1234"
+          onfocus="clearMsg('idError')"
+        />
+        <p class="error-join" id="idError"></p>
         <button id="join" onclick="joinPlayer(this.id)">Join</button>
         <button id="cancel-join" onclick="backToHomePage(this.id)">
           Cancel

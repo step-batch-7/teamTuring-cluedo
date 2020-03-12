@@ -8,7 +8,7 @@ body {
   background-size: cover;
 }
 
-#error-join,
+.error-join,
 .error-host {
   color: rgb(243, 146, 164);
   font-size: 0.9rem;

@@ -3,7 +3,7 @@ const getDiceValue = () => Math.ceil(Math.random() * 6);
 const rollDice = function(req, res) {
   const game = req.game;
   const values = [getDiceValue(), getDiceValue()];
-  game.updateDiceValue(values, req.player);
+  game.updateDiceValue(values);
   res.json({ values });
 };
 
@@ -12,6 +12,7 @@ const getPossiblePositions = function(req, res) {
   const { diceValue } = req.body;
   const possiblePositions = game.getPossiblePositions(req.player, diceValue);
   game.diceRollable = false;
+  game.addActivity(req.player, `rolled dice and got ${diceValue}`);
   game.changeMessage(req.player, 'Select a position to move');
   res.json(possiblePositions);
 };

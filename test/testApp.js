@@ -218,7 +218,7 @@ describe('/getGameStatus', function() {
       .set('Cookie', 'sid=15838254823350')
       .expect({
         isPlayersTurn: true,
-        activities: ['Scarlet rolled dice and got 12.'],
+        activities: ['Game Started.'],
         canRollDice: true,
         message: 'Your turn, roll dice',
         positions: [
@@ -333,17 +333,23 @@ describe('getPossiblePositions', () => {
 
 describe('/getGameStatus', function() {
   it('should give is your turn false after your turn', function(done) {
+    Math.random = function() {
+      return 1;
+    };
+    sinon.stub(Math, 'random');
+
     request(app)
       .get('/getGameStatus')
       .set('Cookie', 'sid=15838254823350')
       .expect({
         isPlayersTurn: true,
         activities: [
+          'Scarlet rolled dice and got 2.',
           'Scarlet has entered Dining Room.',
+          'Scarlet rolled dice and got 4.',
           'Scarlet has came out of Lounge.',
-          'Scarlet rolled dice and got 12.',
           'Scarlet has entered Lounge.',
-          'Scarlet rolled dice and got 12.'
+          'Game Started.'
         ],
         canRollDice: false,
         message: 'Select a position to move',
@@ -363,6 +369,7 @@ describe('/getGameStatus', function() {
         ]
       })
       .expect(200, done);
+    sinon.restore();
   });
 });
 
@@ -384,11 +391,12 @@ describe('/getGameStatus', function() {
       .expect({
         isPlayersTurn: false,
         activities: [
+          'Scarlet rolled dice and got 2.',
           'Scarlet has entered Dining Room.',
+          'Scarlet rolled dice and got 4.',
           'Scarlet has came out of Lounge.',
-          'Scarlet rolled dice and got 12.',
           'Scarlet has entered Lounge.',
-          'Scarlet rolled dice and got 12.'
+          'Game Started.'
         ],
         canRollDice: false,
         message: `Mustard'${'s'} turn`,

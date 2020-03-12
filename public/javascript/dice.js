@@ -13,10 +13,12 @@ const updateDiceFace = function({ values }) {
     setTimeout(() => {
       dice.className = '';
       dice.setAttribute('style', `transform :${faces[values[index] - 1]}`);
-      const diceValue = values[0] + values[1];
-      getPossiblePositions(diceValue);
     }, 2200);
   });
+  setTimeout(() => {
+    const diceValue = values[0] + values[1];
+    getPossiblePositions(diceValue);
+  }, 2200);
 };
 
 const updateDiceAndPossibilities = function({ diceValues, possiblePositions }) {

@@ -218,9 +218,9 @@ describe('/getGameStatus', function() {
       .set('Cookie', 'sid=15838254823350')
       .expect({
         isPlayersTurn: true,
-        activities: ['scarlet rolled dice and got 12.'],
+        activities: ['Scarlet rolled dice and got 12.'],
         canRollDice: true,
-        message: 'your turn, roll dice',
+        message: 'Your turn, roll dice',
         positions: [
           {
             character: 'scarlet',
@@ -339,11 +339,11 @@ describe('/getGameStatus', function() {
       .expect({
         isPlayersTurn: true,
         activities: [
-          'scarlet has entered Dining Room.',
-          'scarlet has came out of Lounge.',
-          'scarlet rolled dice and got 12.',
-          'scarlet has entered Lounge.',
-          'scarlet rolled dice and got 12.'
+          'Scarlet has entered Dining Room.',
+          'Scarlet has came out of Lounge.',
+          'Scarlet rolled dice and got 12.',
+          'Scarlet has entered Lounge.',
+          'Scarlet rolled dice and got 12.'
         ],
         canRollDice: false,
         message: 'Select a position to move',
@@ -384,14 +384,14 @@ describe('/getGameStatus', function() {
       .expect({
         isPlayersTurn: false,
         activities: [
-          'scarlet has entered Dining Room.',
-          'scarlet has came out of Lounge.',
-          'scarlet rolled dice and got 12.',
-          'scarlet has entered Lounge.',
-          'scarlet rolled dice and got 12.'
+          'Scarlet has entered Dining Room.',
+          'Scarlet has came out of Lounge.',
+          'Scarlet rolled dice and got 12.',
+          'Scarlet has entered Lounge.',
+          'Scarlet rolled dice and got 12.'
         ],
         canRollDice: false,
-        message: `mustard'${'s'} turn`,
+        message: `Mustard'${'s'} turn`,
         positions: [
           {
             character: 'scarlet',

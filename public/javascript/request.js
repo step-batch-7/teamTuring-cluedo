@@ -12,7 +12,7 @@ const sendRequest = function(method, url, msg, callback) {
 };
 
 const requestPath = function() {
-  sendRequest('GET', '/getPath', {}, loadPath);
+  sendRequest('GET', '/game/getPath', {}, loadPath);
 };
 
 const getDicesValue = function() {

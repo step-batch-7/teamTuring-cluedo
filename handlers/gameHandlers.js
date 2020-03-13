@@ -52,17 +52,10 @@ const getGameStatus = function(req, res) {
   res.json({ activities, isPlayersTurn, message, canRollDice, positions });
 };
 
-const changeTurn = function(req, res) {
-  const game = req.game;
-  game.changeTurn();
-  res.json({});
-};
-
 module.exports = {
   createGame,
   joinGame,
   waitingPageStatus,
   distributeCards,
   getGameStatus,
-  changeTurn
 };

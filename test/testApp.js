@@ -120,7 +120,6 @@ describe('/joinGame', function() {
       .send({ playerName: 'ria', gameId: '10AA' })
       .expect({ hasJoined: true, roomFull: false })
       .expect(200, done);
-    sinon.restore();
   });
 
   it('none will be able to join after 3 player', function(done) {
@@ -131,6 +130,15 @@ describe('/joinGame', function() {
       .expect(200, done);
   });
   afterEach(() => sinon.restore());
+});
+
+describe ('/waiting.html', () => {
+  it('Should get waiting page for given valid user', function(done) {
+    request(app)
+      .get('/game.html')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(200, done);
+  });
 });
 
 describe('/distributeCards', function() {
@@ -311,25 +319,11 @@ describe('/diceValueAndPossiblePositions', function() {
     sinon.restore();
   });
 
-  it('Should give dice value and possible positions for current player', function(done) {
-    const expected = {
-      diceValues: [2, 2],
-      possiblePositions: [
-        '3_18',
-        '2_19',
-        '2_17',
-        '5_18',
-        '4_19',
-        'DiningRoom',
-        '8_17',
-        '7_18',
-        '6_19',
-        '6_17'
-      ]
-    };
+  it('Should give dice value and possible positions for current player if dice is rolled', function(done) {
+    const expected = { diceValues: [2, 2], possiblePositions: ['8_3'] };
     request(app)
       .get('/game/diceValueAndPossiblePositions')
-      .set('Cookie', 'sid=15838254823350')
+      .set('Cookie', 'sid=15838254823353')
       .expect(expected)
       .expect(200, done);
   });
@@ -432,16 +426,6 @@ describe('/getPossiblePositions', () => {
   });
 });
 
-describe('/changeTurn', function() {
-  it('should change the turn of player', function(done) {
-    request(app)
-      .get('/game/changeTurn')
-      .set('Cookie', 'sid=15838254823350')
-      .expect('Content-Type', /application\/json*/)
-      .expect(200, done);
-  });
-});
-
 describe('/getGameStatus', function() {
   it('should give is your turn false after your turn', function(done) {
     Math.random = function() {
@@ -457,8 +441,8 @@ describe('/getGameStatus', function() {
         'Scarlet has entered Lounge.',
         'Game Started.'
       ],
-      isPlayersTurn: false,
-      message: "Mustard's turn.",
+      isPlayersTurn: true,
+      message: 'Select a position to move.',
       canRollDice: false,
       positions: [
         { character: 'scarlet', position: 'DiningRoom' },

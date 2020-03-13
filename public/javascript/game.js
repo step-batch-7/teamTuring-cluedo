@@ -9,7 +9,7 @@ const initializePlayersPosition = () => {
   });
 };
 
-const loadPath = (path) => {
+const loadPath = path => {
   const grid = document.querySelector('.grid');
   path.forEach(tile => {
     const tileTemplate = document.createElement('div');

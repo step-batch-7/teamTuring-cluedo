@@ -13,7 +13,7 @@ const checkUserAccess = function(req, res, next) {
   if (sessions.isSessionAlive(sid)) {
     const { gameId, playerId } = sessions.getUser(sid);
     req.player = playerId;
-    req.game = games[gameId];
+    req.game = games.getGame(gameId);
     return next();
   }
   res.statusCode = 403;

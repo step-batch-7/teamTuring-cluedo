@@ -50,7 +50,6 @@ const movePlayer = function() {
     { position: element.id },
     confirmMovement
   );
-  changeTurn();
 };
 
 const getPlayerList = function() {
@@ -84,8 +83,4 @@ const joinPlayer = function() {
 
 const getPossiblePositions = function() {
   sendRequest('GET', '/game/possiblePositions', {}, showPossiblePositions);
-};
-
-const changeTurn = function() {
-  sendRequest('GET', '/game/changeTurn', {}, () => {});
 };

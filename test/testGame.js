@@ -9,13 +9,13 @@ describe('Game', () => {
     it('Should add the new player into game with given name when all player are not joined', () => {
       const game = new Game(1);
       const actual = game.addPlayer('turing');
-      assert.deepStrictEqual(actual, { hasJoined: true });
+      assert.deepStrictEqual(actual, { roomFull: false, hasJoined: true });
     });
     it('Should not add the new player into game when all player are joined', () => {
       const game = new Game(1);
       game.addPlayer('turing');
       const actual = game.addPlayer('shankar');
-      assert.deepStrictEqual(actual, { roomFull: true });
+      assert.deepStrictEqual(actual, { roomFull: true, hasJoined: false });
     });
   });
   describe('getPlayersPosition', () => {

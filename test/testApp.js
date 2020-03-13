@@ -90,7 +90,7 @@ describe('/joinGame', function() {
     request(app)
       .post('/joinGame')
       .send({ playerName: 'ria', gameId: '1233' })
-      .expect({ hasJoined: false })
+      .expect({ hasJoined: false, roomFull: true })
       .expect(200, done);
   });
 
@@ -104,7 +104,7 @@ describe('/joinGame', function() {
     request(app)
       .post('/joinGame')
       .send({ playerName: 'ria', gameId: '10AA' })
-      .expect({ hasJoined: true })
+      .expect({ hasJoined: true, roomFull: false })
       .expect(200, done);
   });
 
@@ -118,7 +118,7 @@ describe('/joinGame', function() {
     request(app)
       .post('/joinGame')
       .send({ playerName: 'ria', gameId: '10AA' })
-      .expect({ hasJoined: true })
+      .expect({ hasJoined: true, roomFull: false })
       .expect(200, done);
     sinon.restore();
   });
@@ -127,7 +127,7 @@ describe('/joinGame', function() {
     request(app)
       .post('/joinGame')
       .send({ playerName: 'ria', gameId: '10AA' })
-      .expect({ roomFull: true })
+      .expect({ hasJoined: false, roomFull: true })
       .expect(200, done);
   });
   afterEach(() => sinon.restore());

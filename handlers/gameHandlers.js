@@ -16,7 +16,7 @@ const joinGame = function(req, res) {
   const { playerName, gameId } = req.body;
   const { games, sessions } = req.app.locals;
   if (!games.hasGameId(gameId)) {
-    return res.json({ hasJoined: false });
+    return res.json({ hasJoined: false, roomFull: true });
   }
   const sid = sessions.create(getCookie(), games[gameId].nextPlayerId, gameId);
   res.cookie('sid', sid);

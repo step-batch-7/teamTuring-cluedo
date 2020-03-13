@@ -69,7 +69,7 @@ const getGameStatus = function() {
 };
 
 const joinPlayer = function() {
-  const playerName = document.querySelector('#joined-player').value;
+  const playerName = document.querySelector('#joined-player').value.trim();
   const gameId = document.querySelector('#game-id').value;
   if (playerName.length < 3) {
     return showErrorMessage(

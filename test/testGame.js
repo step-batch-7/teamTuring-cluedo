@@ -5,6 +5,19 @@ const assert = require('assert');
 const sinon = require('sinon');
 
 describe('Game', () => {
+  describe('addPlayer', () => {
+    it('Should add the new player into game with given name when all player are not joined', () => {
+      const game = new Game(1);
+      const actual = game.addPlayer('turing');
+      assert.deepStrictEqual(actual, { hasJoined: true });
+    });
+    it('Should not add the new player into game when all player are joined', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      const actual = game.addPlayer('shankar');
+      assert.deepStrictEqual(actual, { roomFull: true });
+    });
+  });
   describe('getPlayersPosition', () => {
     it('should get all player position after adding', function() {
       const game = new Game(1);
@@ -13,7 +26,6 @@ describe('Game', () => {
       assert.deepStrictEqual(game.getPlayersPosition(), expected);
     });
   });
-
   describe('getPlayersList', () => {
     it('Should give all the players list with character and name', () => {
       const game = new Game(1);
@@ -28,7 +40,6 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
-
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {
       const game = new Game(1);
@@ -51,7 +62,6 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
-
   describe('getCards', () => {
     const fake = () => 0;
     before(() => {
@@ -90,7 +100,6 @@ describe('Game', () => {
     });
     after(() => sinon.restore());
   });
-
   describe('getPossiblePositions', () => {
     it('should give all the possible positions based on the diceValue', () => {
       const game = new Game(1);
@@ -128,7 +137,6 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
-
   describe('isPlayerTurn', () => {
     it('Should give true if it is his turn and change the message as Your turn, roll dice.', () => {
       const game = new Game(1);

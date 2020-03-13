@@ -99,6 +99,7 @@ const addActivity = function(activities) {
   });
   activityContent.innerHTML = activityDivs;
 };
+
 const clearMsg = function(id) {
   document.getElementById(id).innerHTML = '';
 };

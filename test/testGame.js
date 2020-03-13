@@ -123,6 +123,20 @@ describe('Game', () => {
       ];
       assert.deepStrictEqual(actual, expected);
     });
+    it('Should not give any possible positions when there is no diceValue', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      assert.deepStrictEqual(game.getPossiblePositions(0), []);
+    });
+    it('should change the turn if you can not move anywhere', () => {
+      const game = new Game(2);
+      game.addPlayer('turing');
+      game.addPlayer('shankar');
+      game.movePlayer(1, '8_24');
+      game.updateDiceValue([1, 1]);
+      assert.deepStrictEqual(game.getPossiblePositions(0), []);
+      assert.ok(game.isPlayersTurn(0));
+    });
   });
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {

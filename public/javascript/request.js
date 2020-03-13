@@ -66,7 +66,7 @@ const getMyCards = function() {
 };
 
 const getGameStatus = function() {
-  sendRequest('GET', '/getGameStatus', {}, changeStatus);
+  sendRequest('GET', '/game/getGameStatus', {}, changeStatus);
 };
 
 const joinPlayer = function() {

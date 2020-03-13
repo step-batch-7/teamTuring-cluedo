@@ -212,7 +212,7 @@ describe('/rollDice', function() {
 describe('/getGameStatus', function() {
   it('should give game status', function(done) {
     request(app)
-      .get('/getGameStatus')
+      .get('/game/getGameStatus')
       .set('Cookie', 'sid=15838254823350')
       .expect({
         isPlayersTurn: true,
@@ -467,7 +467,7 @@ describe('/getGameStatus', function() {
       ]
     };
     request(app)
-      .get('/getGameStatus')
+      .get('/game/getGameStatus')
       .set('Cookie', 'sid=15838254823350')
       .expect(expected)
       .expect(200, done);

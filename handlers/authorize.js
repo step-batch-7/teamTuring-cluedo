@@ -4,7 +4,7 @@ const authorize = function(req, res, next) {
   if (sessions.isSessionAlive(req.cookies.sid)) {
     const { gameId, playerId } = sessions.getUser(req.cookies.sid);
     req.player = playerId;
-    req.game = games[gameId];
+    req.game = games.getGame(gameId);
     return next();
   }
   return res.redirect('/home.html');

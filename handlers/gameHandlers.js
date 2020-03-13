@@ -15,16 +15,12 @@ const createGame = function(req, res) {
 const joinGame = function(req, res) {
   const { playerName, gameId } = req.body;
   const { games, sessions } = req.app.locals;
-  if (!(gameId in games)) {
+  if (!games.hasGameId(gameId)) {
     return res.json({ hasJoined: false });
   }
-  if (games[gameId].hasAllJoined()) {
-    return res.json({ roomFull: true });
-  }
   const sid = sessions.create(getCookie(), games[gameId].nextPlayerId, gameId);
-  games[gameId].addPlayer(playerName);
   res.cookie('sid', sid);
-  res.json({ hasJoined: true });
+  res.json(games[gameId].addPlayer(playerName));
 };
 
 const checkNoOfPlayers = function(req, res) {

@@ -11,7 +11,7 @@ const getPossiblePositions = function(req, res) {
   const game = req.game;
   const { diceValue } = req.body;
   const possiblePositions = game.getPossiblePositions(req.player, diceValue);
-  game.diceRollable = false;
+  game.blockRollingDice();
   game.addActivity(req.player, `rolled dice and got ${diceValue}`);
   game.changeMessage(req.player, 'Select a position to move.');
   const isTurnChange = possiblePositions.length === 0;
@@ -27,8 +27,7 @@ const movePlayer = (req, res) => {
 };
 
 const getDiceAndPossiblePositions = function(req, res) {
-  const game = req.game;
-  const player = req.player;
+  const { game, player } = req;
   let diceValues = [];
   let possiblePositions = [];
   if (game.isPlayersTurn(player)) {

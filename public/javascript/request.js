@@ -28,7 +28,7 @@ const getDicesValueAndPossiblePositions = function() {
 
 const requestHostGame = function() {
   const noOfPlayers = document.querySelector('#no-of-players').value;
-  const playerName = document.querySelector('#player-name').value;
+  const playerName = document.querySelector('#player-name').value.trim();
   if (!validatePlayerName() || !validateUserNum()) {
     return;
   }

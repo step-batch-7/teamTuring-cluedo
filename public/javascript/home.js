@@ -4,7 +4,7 @@ const showHostGame = () => {
 };
 const validateUserNum = () => {
   const noOfPlayers = document.querySelector('#no-of-players').value;
-  if (noOfPlayers < 7 && noOfPlayers > 2 && Number.isInteger(noOfPlayers)) {
+  if (noOfPlayers < 7 && noOfPlayers > 2 && Number.isInteger(+noOfPlayers)) {
     showErrorMessage('#userNumError', '');
     return true;
   }
@@ -16,7 +16,7 @@ const validateUserNum = () => {
 };
 
 const validatePlayerName = () => {
-  const playerName = document.querySelector('#player-name').value;
+  const playerName = document.querySelector('#player-name').value.trim();
   if (playerName.length < 3) {
     showErrorMessage('#nameError', 'Name should be at least 3 characters.');
     return false;

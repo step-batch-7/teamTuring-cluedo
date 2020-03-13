@@ -29,4 +29,9 @@ describe('Player', function() {
       assert.strictEqual(player.getMessage(), 'welcome to cluedo');
     });
   });
+
+  it('should give player current position', () => {
+    const player1 = new Player(0, 'name', 'character', '1_1');
+    assert.strictEqual(player1.getPosition(), '1_1');
+  });
 });

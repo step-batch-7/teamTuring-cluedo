@@ -4,11 +4,14 @@ const showHostGame = () => {
 };
 const validateUserNum = () => {
   const noOfPlayers = document.querySelector('#no-of-players').value;
-  if (noOfPlayers < 7 && noOfPlayers > 2) {
+  if (noOfPlayers < 7 && noOfPlayers > 2 && Number.isInteger(noOfPlayers)) {
     showErrorMessage('#userNumError', '');
     return true;
   }
-  showErrorMessage('#userNumError', 'Please enter a number between 3 and 6.');
+  showErrorMessage(
+    '#userNumError',
+    'Please enter a number between 3 and 6. It should be an Integer.'
+  );
   return false;
 };
 

@@ -11,6 +11,10 @@ const sendRequest = function(method, url, msg, callback) {
   request.send(JSON.stringify(msg));
 };
 
+const requestPath = function() {
+  sendRequest('GET', '/getPath', {}, loadPath);
+};
+
 const getDicesValue = function() {
   const diceRoom = document.querySelector('#dices');
   diceRoom.classList.add('block');

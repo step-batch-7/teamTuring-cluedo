@@ -1,6 +1,7 @@
 'use strict';
 const request = require('supertest');
 const app = require('../lib/app');
+const path = require('../data/paths.json');
 const sinon = require('sinon');
 
 describe('/', function() {
@@ -471,5 +472,16 @@ describe('/getGameStatus', function() {
       .expect(expected)
       .expect(200, done);
     sinon.restore();
+  });
+});
+
+describe('/getPath', function() {
+  it('should get paths', function(done) {
+    request(app)
+      .get('/getPath')
+      .set('Cookie', 'sid=15838254823350')
+      .expect('Content-Type', /application\/json*/)
+      .expect(path)
+      .expect(200, done);
   });
 });

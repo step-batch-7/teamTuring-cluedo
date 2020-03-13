@@ -1,3 +1,5 @@
+const path = require('../data/paths.json');
+
 const handlePlayersPosition = function(req, res) {
   const game = req.game;
   const playersPosition = game.getPlayersPosition();
@@ -22,9 +24,14 @@ const getMyCardsList = function(req, res) {
   res.json(cardsList);
 };
 
+const getPath = function(req, res) {
+  res.json(path);
+};
+
 module.exports = {
   handlePlayersPosition,
   handlePlayersList,
   getPlayerName,
-  getMyCardsList
+  getMyCardsList,
+  getPath
 };

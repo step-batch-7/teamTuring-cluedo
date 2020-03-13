@@ -40,6 +40,38 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+  describe('updateDiceValue', () => {
+    it('Should update the dice value with the given values', () => {
+      const game = new Game(1);
+      const diceValues = [1, 1];
+      game.updateDiceValue(diceValues);
+      assert.deepStrictEqual(game.getDiceValues(), diceValues);
+    });
+  });
+  describe('getActivityLog', () => {
+    it('Should give the activity log of the game', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.addActivity(0, 'has rolled the dice and got 0');
+      const expected = [
+        'Scarlet has rolled the dice and got 0.',
+        'Game Started.'
+      ];
+      assert.deepStrictEqual(game.getActivityLog(), expected);
+    });
+  });
+  describe('addActivity', () => {
+    it('Should add the activity with given player name', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.addActivity(0, 'has rolled the dice and got 0');
+      const expected = [
+        'Scarlet has rolled the dice and got 0.',
+        'Game Started.'
+      ];
+      assert.deepStrictEqual(game.getActivityLog(), expected);
+    });
+  });
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {
       const game = new Game(1);

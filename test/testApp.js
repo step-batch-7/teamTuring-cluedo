@@ -207,6 +207,7 @@ describe('/rollDice', function() {
     sinon.restore();
   });
 });
+
 describe('/getGameStatus', function() {
   it('should give game status', function(done) {
     request(app)
@@ -235,6 +236,7 @@ describe('/getGameStatus', function() {
       .expect(200, done);
   });
 });
+
 describe('/getPlayerName', function() {
   it('should load the player name', function(done) {
     request(app)
@@ -283,54 +285,7 @@ describe('/movePlayer', () => {
   });
 });
 
-describe('getPossiblePositions', () => {
-  it('Should give a list of possible positions and rooms when he/she is outside the room', done => {
-    const expected = {
-      possiblePositions: [
-        '3_18',
-        '2_19',
-        '2_17',
-        '5_18',
-        '4_19',
-        'DiningRoom',
-        '8_17',
-        '7_18',
-        '6_19',
-        '6_17'
-      ],
-      isTurnChange: false
-    };
-    request(app)
-      .post('/possiblePositions')
-      .set('Cookie', 'sid=15838254823350')
-      .send({ diceValue: 4 })
-      .expect(expected)
-      .expect(200, done);
-  });
-  it('Should move the player in side room to test possibilities when he/she is inside room', done => {
-    request(app)
-      .post('/movePlayer')
-      .set('Cookie', 'sid=15838254823350')
-      .send({ position: 'DiningRoom' })
-      .expect(200)
-      .expect('Content-Type', /application\/json/)
-      .expect(/DiningRoom/, done);
-  });
-  it('Should give a list of possible positions and rooms when he/she inside the room', done => {
-    const expected = {
-      possiblePositions: ['6_17', '8_17', '7_18'],
-      isTurnChange: false
-    };
-    request(app)
-      .post('/possiblePositions')
-      .set('Cookie', 'sid=15838254823350')
-      .send({ diceValue: 2 })
-      .expect(expected)
-      .expect(200, done);
-  });
-});
-
-describe('diceValueAndPossiblePositions', function() {
+describe('/diceValueAndPossiblePositions', function() {
   it('Should give dice value and possible positions empty if dice is not rolled', function(done) {
     const expected = { diceValues: [], possiblePositions: [] };
     request(app)
@@ -359,17 +314,16 @@ describe('diceValueAndPossiblePositions', function() {
     const expected = {
       diceValues: [2, 2],
       possiblePositions: [
-        '4_17',
+        '3_18',
+        '2_19',
+        '2_17',
         '5_18',
+        '4_19',
+        'DiningRoom',
+        '8_17',
         '7_18',
         '6_19',
-        '9_16',
-        '10_17',
-        '9_18',
-        '8_19',
-        '6_17',
-        '8_17',
-        'Lounge'
+        '6_17'
       ]
     };
     request(app)
@@ -378,6 +332,7 @@ describe('diceValueAndPossiblePositions', function() {
       .expect(expected)
       .expect(200, done);
   });
+
   it('Should give dice value and possible positions as empty for other player', function(done) {
     const expected = {
       diceValues: [],
@@ -391,45 +346,88 @@ describe('diceValueAndPossiblePositions', function() {
   });
 });
 
-describe('/getGameStatus', function() {
-  it('should give is your turn false after your turn', function(done) {
+describe('/getPossiblePositions', () => {
+  it('should roll dice and give a values of both dices to get the possible positions', function(done) {
     Math.random = function() {
-      return 1;
+      return 0.3;
     };
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/getGameStatus')
+      .get('/rollDice')
       .set('Cookie', 'sid=15838254823350')
-      .expect({
-        isPlayersTurn: true,
-        activities: [
-          'Scarlet rolled dice and got 2.',
-          'Scarlet has entered Dining Room.',
-          'Scarlet rolled dice and got 4.',
-          'Scarlet has come out of Lounge.',
-          'Scarlet has entered Lounge.',
-          'Game Started.'
-        ],
-        canRollDice: false,
-        message: 'Select a position to move.',
-        positions: [
-          {
-            character: 'scarlet',
-            position: 'DiningRoom'
-          },
-          {
-            character: 'mustard',
-            position: '1_18'
-          },
-          {
-            character: 'white',
-            position: '10_1'
-          }
-        ]
-      })
+      .expect('Content-Type', /application\/json/)
+      .expect({ values: [2, 2] })
       .expect(200, done);
     sinon.restore();
+  });
+  it('Should give a list of possible positions and rooms when he/she is outside the room', done => {
+    const expected = {
+      possiblePositions: [
+        '3_18',
+        '2_19',
+        '2_17',
+        '5_18',
+        '4_19',
+        'DiningRoom',
+        '8_17',
+        '7_18',
+        '6_19',
+        '6_17'
+      ],
+      isTurnChange: false
+    };
+    request(app)
+      .get('/possiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(expected)
+      .expect(200, done);
+  });
+  it('Should move the player in side room to test possibilities when he/she is inside room', done => {
+    request(app)
+      .post('/movePlayer')
+      .set('Cookie', 'sid=15838254823350')
+      .send({ position: 'DiningRoom' })
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+      .expect(/DiningRoom/, done);
+  });
+  it('should roll dice and give a values of both dices to get the positions to come out of room', function(done) {
+    Math.random = function() {
+      return 0.3;
+    };
+    sinon.stub(Math, 'random');
+
+    request(app)
+      .get('/rollDice')
+      .set('Cookie', 'sid=15838254823350')
+      .expect('Content-Type', /application\/json/)
+      .expect({ values: [2, 2] })
+      .expect(200, done);
+    sinon.restore();
+  });
+  it('Should give a list of possible positions and rooms when he/she inside the room', done => {
+    const expected = {
+      possiblePositions: [
+        '4_17',
+        '5_18',
+        '7_18',
+        '6_19',
+        '9_16',
+        '10_17',
+        '9_18',
+        '8_19',
+        '6_17',
+        '8_17',
+        'Lounge'
+      ],
+      isTurnChange: false
+    };
+    request(app)
+      .get('/possiblePositions')
+      .set('Cookie', 'sid=15838254823350')
+      .expect(expected)
+      .expect(200, done);
   });
 });
 
@@ -445,36 +443,33 @@ describe('/changeTurn', function() {
 
 describe('/getGameStatus', function() {
   it('should give is your turn false after your turn', function(done) {
+    Math.random = function() {
+      return 1;
+    };
+    sinon.stub(Math, 'random');
+    const expected = {
+      activities: [
+        'Scarlet rolled dice and got 4.',
+        'Scarlet has entered Dining Room.',
+        'Scarlet rolled dice and got 4.',
+        'Scarlet has come out of Lounge.',
+        'Scarlet has entered Lounge.',
+        'Game Started.'
+      ],
+      isPlayersTurn: false,
+      message: "Mustard's turn.",
+      canRollDice: false,
+      positions: [
+        { character: 'scarlet', position: 'DiningRoom' },
+        { character: 'mustard', position: '1_18' },
+        { character: 'white', position: '10_1' }
+      ]
+    };
     request(app)
       .get('/getGameStatus')
       .set('Cookie', 'sid=15838254823350')
-      .expect({
-        isPlayersTurn: false,
-        activities: [
-          'Scarlet rolled dice and got 2.',
-          'Scarlet has entered Dining Room.',
-          'Scarlet rolled dice and got 4.',
-          'Scarlet has come out of Lounge.',
-          'Scarlet has entered Lounge.',
-          'Game Started.'
-        ],
-        canRollDice: false,
-        message: `Mustard'${'s'} turn.`,
-        positions: [
-          {
-            character: 'scarlet',
-            position: 'DiningRoom'
-          },
-          {
-            character: 'mustard',
-            position: '1_18'
-          },
-          {
-            character: 'white',
-            position: '10_1'
-          }
-        ]
-      })
+      .expect(expected)
       .expect(200, done);
+    sinon.restore();
   });
 });

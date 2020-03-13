@@ -95,14 +95,16 @@ describe('Game', () => {
     it('should give all the possible positions based on the diceValue', () => {
       const game = new Game(1);
       game.addPlayer('turing');
-      const actual = game.getPossiblePositions(0, 2);
+      game.updateDiceValue([1, 1]);
+      const actual = game.getPossiblePositions(0);
       const expected = ['8_23', '9_24'];
       assert.deepStrictEqual(actual, expected);
     });
     it('should give all the possible positions with rooms based on the diceValue', () => {
       const game = new Game(1);
       game.addPlayer('turing');
-      const actual = game.getPossiblePositions(0, 10);
+      game.updateDiceValue([5, 5]);
+      const actual = game.getPossiblePositions(0);
       const expected = [
         'Lounge',
         '4_19',

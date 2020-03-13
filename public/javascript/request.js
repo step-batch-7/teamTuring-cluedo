@@ -73,13 +73,8 @@ const joinPlayer = function() {
   sendRequest('POST', '/joinGame', data, confirmJoin);
 };
 
-const getPossiblePositions = function(diceValue) {
-  sendRequest(
-    'POST',
-    '/possiblePositions',
-    { diceValue },
-    showPossiblePositions
-  );
+const getPossiblePositions = function() {
+  sendRequest('GET', '/possiblePositions', {}, showPossiblePositions);
 };
 
 const changeTurn = function() {

@@ -204,6 +204,15 @@ describe('Game', () => {
       assert.ok(!game.hasAllJoined());
     });
   });
+  describe('changeMessage', () => {
+    it('Should change the message of the given player with given message', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      const message = 'wait for your turn.';
+      game.changeMessage(0, message);
+      assert.deepStrictEqual(game.getMessage(0), message);
+    });
+  });
   describe('isPlayerTurn', () => {
     it('Should give true if it is his turn and change the message as Your turn, roll dice.', () => {
       const game = new Game(1);
@@ -230,6 +239,29 @@ describe('Game', () => {
       const actual = game.isPlayersTurn(1);
       assert.ok(!actual);
       assert.strictEqual(game.getMessage(1), "Scarlet's turn.");
+    });
+  });
+  describe('currentPlayerCharacter', () => {
+    it('Should give the capitalized character name of the current Player', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      assert.strictEqual(game.currentPlayerCharacter(), 'Scarlet');
+    });
+  });
+  describe('getMessage', () => {
+    it('Should give the message of the given player', () => {
+      const game = new Game(1);
+      const message = 'wait for your turn.';
+      game.addPlayer('turing');
+      game.changeMessage(0, message);
+      assert.strictEqual(game.getMessage(0), message);
+    });
+  });
+  describe('blockRollingDice', () => {
+    it('Should change the diceRollable to false', () => {
+      const game = new Game(1);
+      game.blockRollingDice();
+      assert.ok(!game.diceRollable);
     });
   });
 });

@@ -13,11 +13,11 @@ describe('/', function() {
   });
 });
 
-describe('/index.html', function() {
+describe('/game.html', function() {
   it('should redirect to home.html when player have not joined or created game.', function(done) {
     request(app)
-      .get('/index.html')
-      .expect('location', '/home.html')
+      .get('/game.html')
+      .expect('location', '/index.html')
       .expect(302, done);
   });
 });
@@ -39,10 +39,10 @@ describe('/game.css', function() {
   });
 });
 
-describe('/index.js', function() {
+describe('/game.js', function() {
   it('should load the js files ', function(done) {
     request(app)
-      .get('/javascript/index.js')
+      .get('/javascript/game.js')
       .expect('Content-Type', /application\/javascript*/)
       .expect(200, done);
   });
@@ -72,7 +72,7 @@ describe('/createGame', function() {
 describe('/checkNoOfPlayers', function() {
   it('after creating game number of players should be 1', function(done) {
     request(app)
-      .get('/checkNoOfPlayers')
+      .get('/game/checkNoOfPlayers')
       .set('Cookie', 'sid=15838254823350')
       .expect({
         hasAllJoined: false,
@@ -136,13 +136,13 @@ describe('/joinGame', function() {
 describe('/distributeCards', function() {
   it('after all players has joined it should distribute cards', function(done) {
     request(app)
-      .get('/distributeCards')
+      .get('/game/distributeCards')
       .set('Cookie', 'sid=15838254823350')
       .expect(200, done);
   });
   it('should not distribute after distributed once', function(done) {
     request(app)
-      .get('/distributeCards')
+      .get('/game/distributeCards')
       .set('Cookie', 'sid=15838254823350')
       .expect(200, done);
   });
@@ -151,7 +151,7 @@ describe('/distributeCards', function() {
 describe('/getPlayersList', function() {
   it('should get all players details', function(done) {
     request(app)
-      .get('/getPlayersList')
+      .get('/game/getPlayersList')
       .set('Cookie', 'sid=15838254823350')
       .expect([
         { character: 'scarlet', username: 'hey' },
@@ -165,7 +165,7 @@ describe('/getPlayersList', function() {
 describe('/getPlayersPosition', function() {
   it('should give all players position', function(done) {
     request(app)
-      .get('/getPlayersPosition')
+      .get('/game/getPlayersPosition')
       .set('Cookie', 'sid=15838254823350')
       .expect([
         { character: 'scarlet', position: '8_25' },
@@ -179,16 +179,16 @@ describe('/getPlayersPosition', function() {
 describe('/myCards', function() {
   it('should able to see their card for a valid player', function(done) {
     request(app)
-      .get('/myCards')
+      .get('/game/myCards')
       .set('Cookie', 'sid=15838254823350')
       .expect(200, done);
   });
 
   it('should not be able to see their card for an invalid player', function(done) {
     request(app)
-      .get('/myCards')
+      .get('/game/myCards')
       .set('Cookie', '2001')
-      .expect(302, done);
+      .expect(403, done);
   });
 });
 
@@ -200,7 +200,7 @@ describe('/rollDice', function() {
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/rollDice')
+      .get('/game/rollDice')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json/)
       .expect({ values: [6, 6] })
@@ -241,7 +241,7 @@ describe('/getGameStatus', function() {
 describe('/getPlayerName', function() {
   it('should load the player name', function(done) {
     request(app)
-      .get('/getPlayerName')
+      .get('/game/getPlayerName')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json*/)
       .expect('"hey"')
@@ -252,7 +252,7 @@ describe('/getPlayerName', function() {
 describe('/movePlayer', () => {
   it('Should move the player in side room', done => {
     request(app)
-      .post('/movePlayer')
+      .post('/game/movePlayer')
       .set('Cookie', 'sid=15838254823350')
       .send({ position: 'Lounge' })
       .expect(200)
@@ -267,7 +267,7 @@ describe('/movePlayer', () => {
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/rollDice')
+      .get('/game/rollDice')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json/)
       .expect({ values: [6, 6] })
@@ -277,7 +277,7 @@ describe('/movePlayer', () => {
 
   it('Should be able to move out of room', done => {
     request(app)
-      .post('/movePlayer')
+      .post('/game/movePlayer')
       .set('Cookie', 'sid=15838254823350')
       .send({ position: '4_17' })
       .expect(200)
@@ -290,7 +290,7 @@ describe('/diceValueAndPossiblePositions', function() {
   it('Should give dice value and possible positions empty if dice is not rolled', function(done) {
     const expected = { diceValues: [], possiblePositions: [] };
     request(app)
-      .get('/diceValueAndPossiblePositions')
+      .get('/game/diceValueAndPossiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .expect(expected)
       .expect(200, done);
@@ -303,7 +303,7 @@ describe('/diceValueAndPossiblePositions', function() {
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/rollDice')
+      .get('/game/rollDice')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json/)
       .expect({ values: [2, 2] })
@@ -328,7 +328,7 @@ describe('/diceValueAndPossiblePositions', function() {
       ]
     };
     request(app)
-      .get('/diceValueAndPossiblePositions')
+      .get('/game/diceValueAndPossiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .expect(expected)
       .expect(200, done);
@@ -340,7 +340,7 @@ describe('/diceValueAndPossiblePositions', function() {
       possiblePositions: []
     };
     request(app)
-      .get('/diceValueAndPossiblePositions')
+      .get('/game/diceValueAndPossiblePositions')
       .set('Cookie', 'sid=15838254823352')
       .expect(expected)
       .expect(200, done);
@@ -355,7 +355,7 @@ describe('/getPossiblePositions', () => {
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/rollDice')
+      .get('/game/rollDice')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json/)
       .expect({ values: [2, 2] })
@@ -379,14 +379,14 @@ describe('/getPossiblePositions', () => {
       isTurnChange: false
     };
     request(app)
-      .get('/possiblePositions')
+      .get('/game/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .expect(expected)
       .expect(200, done);
   });
   it('Should move the player in side room to test possibilities when he/she is inside room', done => {
     request(app)
-      .post('/movePlayer')
+      .post('/game/movePlayer')
       .set('Cookie', 'sid=15838254823350')
       .send({ position: 'DiningRoom' })
       .expect(200)
@@ -400,7 +400,7 @@ describe('/getPossiblePositions', () => {
     sinon.stub(Math, 'random');
 
     request(app)
-      .get('/rollDice')
+      .get('/game/rollDice')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json/)
       .expect({ values: [2, 2] })
@@ -425,7 +425,7 @@ describe('/getPossiblePositions', () => {
       isTurnChange: false
     };
     request(app)
-      .get('/possiblePositions')
+      .get('/game/possiblePositions')
       .set('Cookie', 'sid=15838254823350')
       .expect(expected)
       .expect(200, done);
@@ -435,7 +435,7 @@ describe('/getPossiblePositions', () => {
 describe('/changeTurn', function() {
   it('should change the turn of player', function(done) {
     request(app)
-      .get('/changeTurn')
+      .get('/game/changeTurn')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json*/)
       .expect(200, done);
@@ -478,7 +478,7 @@ describe('/getGameStatus', function() {
 describe('/getPath', function() {
   it('should get paths', function(done) {
     request(app)
-      .get('/getPath')
+      .get('/game/getPath')
       .set('Cookie', 'sid=15838254823350')
       .expect('Content-Type', /application\/json*/)
       .expect(path)

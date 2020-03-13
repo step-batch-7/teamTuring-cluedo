@@ -1,13 +1,26 @@
 const authorize = function(req, res, next) {
-  const sessions = req.app.locals.sessions;
-  const games = req.app.locals.games;
-  if (sessions.isSessionAlive(req.cookies.sid)) {
-    const { gameId, playerId } = sessions.getUser(req.cookies.sid);
+  const { sessions, games } = req.app.locals;
+  const sid = req.cookies.sid;
+  if (sessions.isSessionAlive(sid)) {
+    const { gameId, playerId } = sessions.getUser(sid);
     req.player = playerId;
     req.game = games.getGame(gameId);
     return next();
   }
-  return res.redirect('/home.html');
+  res.redirect('/index.html');
 };
 
-module.exports = { authorize };
+const checkUserAccess = function(req, res, next) {
+  const { sessions, games } = req.app.locals;
+  const sid = req.cookies.sid;
+  if (sessions.isSessionAlive(sid)) {
+    const { gameId, playerId } = sessions.getUser(sid);
+    req.player = playerId;
+    req.game = games[gameId];
+    return next();
+  }
+  res.statusCode = 403;
+  return res.json({});
+};
+
+module.exports = { authorize, checkUserAccess };

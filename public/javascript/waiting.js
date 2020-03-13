@@ -11,11 +11,11 @@ const updateWaitingPage = function(details) {
 };
 
 const checkNoOfPlayer = function() {
-  sendRequest('GET', '/checkNoOfPlayers', {}, gameDetails => {
+  sendRequest('GET', '/game/checkNoOfPlayers', {}, gameDetails => {
     updateWaitingPage(gameDetails);
     if (gameDetails.hasAllJoined) {
-      sendRequest('GET', '/distributeCards', {}, () => {});
-      setTimeout(() => location.assign('../index.html'), 2000);
+      sendRequest('GET', '/game/distributeCards', {}, () => {});
+      setTimeout(() => location.assign('../game.html'), 2000);
     }
   });
 };

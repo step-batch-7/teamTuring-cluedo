@@ -18,11 +18,11 @@ const requestPath = function() {
 const getDicesValue = function() {
   const diceRoom = document.querySelector('#dices');
   diceRoom.classList.add('block');
-  sendRequest('GET', '/rollDice', {}, updateDiceFace);
+  sendRequest('GET', '/game/rollDice', {}, updateDiceFace);
 };
 
 const getDicesValueAndPossiblePositions = function() {
-  const url = '/diceValueAndPossiblePositions';
+  const url = '/game/diceValueAndPossiblePositions';
   sendRequest('GET', url, {}, updateDiceAndPossibilities);
 };
 
@@ -39,25 +39,30 @@ const requestHostGame = function() {
 };
 
 const updatePlayersPosition = function() {
-  sendRequest('GET', '/getPlayersPosition', {}, assignPlayerPosition);
+  sendRequest('GET', '/game/getPlayersPosition', {}, assignPlayerPosition);
 };
 
 const movePlayer = function() {
   const element = event.target;
-  sendRequest('POST', '/movePlayer', { position: element.id }, confirmMovement);
-  sendRequest('GET', '/changeTurn', {}, () => {});
+  sendRequest(
+    'POST',
+    '/game/movePlayer',
+    { position: element.id },
+    confirmMovement
+  );
+  changeTurn();
 };
 
 const getPlayerList = function() {
-  sendRequest('GET', '/getPlayersList', {}, generatePlayerList);
+  sendRequest('GET', '/game/getPlayersList', {}, generatePlayerList);
 };
 
 const displayPlayerName = function() {
-  sendRequest('GET', '/getPlayerName', {}, displayName);
+  sendRequest('GET', '/game/getPlayerName', {}, displayName);
 };
 
 const getMyCards = function() {
-  sendRequest('GET', '/myCards', {}, displayMyCards);
+  sendRequest('GET', '/game/myCards', {}, displayMyCards);
 };
 
 const getGameStatus = function() {
@@ -78,9 +83,9 @@ const joinPlayer = function() {
 };
 
 const getPossiblePositions = function() {
-  sendRequest('GET', '/possiblePositions', {}, showPossiblePositions);
+  sendRequest('GET', '/game/possiblePositions', {}, showPossiblePositions);
 };
 
 const changeTurn = function() {
-  sendRequest('GET', '/changeTurn', {}, () => {});
+  sendRequest('GET', '/game/changeTurn', {}, () => {});
 };

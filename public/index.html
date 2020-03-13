@@ -3,158 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CLUEDO</title>
-    <link rel="stylesheet" href="./css/rooms.css" />
-    <link rel="stylesheet" href="./css/navs.css" />
-    <link rel="stylesheet" href="./css/players.css" />
-    <link rel="stylesheet" href="./css/grid.css" />
-    <link rel="stylesheet" href="./css/game.css" />
-    <link rel="stylesheet" href="./css/dice.css" />
     <link
       rel="shortcut icon"
       href="./images/teamTuringLogo.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./css/logs.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script src="./javascript/game.js"></script>
     <script src="./javascript/request.js"></script>
-    <script src="./javascript/index.js"></script>
-    <script src="./javascript/dice.js"></script>
-    <script src="./javascript/movePlayer.js"></script>
-    <script src="./javascript/showPossiblePositions.js"></script>
+    <script src="./javascript/home.js"></script>
   </head>
 
-  <body onload="main()">
-    <div class="nav">
-      <div class="header"><img src="./images/teamTuringLogo2.png" /></div>
-      <div class="statusBar"></div>
-      <div class="profile">
-        <div id="profile-image">
-          <i class="fas fa-user-circle fa-3x"></i>
-        </div>
-        <div class="separator">|</div>
-        <div id="profile-name"></div>
-      </div>
-    </div>
+  <body>
+    <h1 class="header">CLUEDO</h1>
     <div class="container">
-      <div class="players"></div>
-      <div class="grid">
-        <div class="top-left-disable"></div>
-        <div class="top-right-disable"></div>
-        <div class="top-middle-disable"></div>
-        <div class="kitchen room" id="Kitchen"></div>
-        <div class="kitchen-door room" id="Kitchen"></div>
-        <div class="kitchen-bottom-extension room" id="Kitchen"></div>
-        <div class="kitchen-top-extension room" id="Kitchen"></div>
-        <div class="kitchen-right-disable"></div>
-        <div class="kitchen-disabled"></div>
-        <div class="ball-room room" id="Ballroom"></div>
-        <div class="ball-room-doorA room" id="Ballroom"></div>
-        <div class="ball-room-doorB room" id="Ballroom"></div>
-        <div class="ball-room-extent room" id="Ballroom"></div>
-        <div class="conservatory room" id="Conservatory"></div>
-        <div class="conservatory-door room" id="Conservatory"></div>
-        <div class="conservatory-extent room" id="Conservatory"></div>
-        <div class="conservatory-right-disable"></div>
-        <div class="conservatory-left-disable"></div>
-        <div class="dinning room" id="DiningRoom"></div>
-        <div class="dinning-extent room" id="DiningRoom"></div>
-        <div class="dinning-disable-top"></div>
-        <div class="dinning-door room" id="DiningRoom"></div>
-        <div class="dinning-disable-bottom"></div>
-        <div class="lounge room" id="Lounge"></div>
-        <div class="lounge-bottom-extension room" id="Lounge"></div>
-        <div class="lounge-door room" id="Lounge"></div>
-        <div class="lounge-disable-top"></div>
-        <div class="lounge-disable-bottom"></div>
-        <div class="hall room" id="Hall"></div>
-        <div class="hall-door room" id="Hall"></div>
-        <div class="hall-disable-left"></div>
-        <div class="hall-disable-right"></div>
-        <div class="study room" id="Study"></div>
-        <div class="study-bottom-extension room" id="Study"></div>
-        <div class="study-door room" id="Study"></div>
-        <div class="study-disable-bottom"></div>
-        <div class="study-disable-up"></div>
-        <div class="library room" id="Library"></div>
-        <div class="library-door room" id="Library"></div>
-        <div class="library-left-extension room" id="Library"></div>
-        <div class="library-right-extension room" id="Library"></div>
-        <div class="library-disable-top"></div>
-        <div class="library-disable-bottom"></div>
-        <div class="billiard room" id="Billiard"></div>
-        <div class="billiard-disable-top"></div>
-        <div class="billiard-door room" id="Billiard"></div>
-        <div class="dice-room ">
-          <div class="dice-room ">
-            <div class="gameName">CLUEDO</div>
-            <div id="dices" onclick="getDicesValue()">
-              <div id="cube1">
-                <div class="front">
-                  <img src="./images/dice/dice1.png" />
-                </div>
-                <div class="left">
-                  <img src="./images/dice/dice2.png" />
-                </div>
-                <div class="top">
-                  <img src="./images/dice/dice3.png" />
-                </div>
-                <div class="bottom">
-                  <img src="./images/dice/dice4.png" />
-                </div>
-                <div class="right">
-                  <img src="./images/dice/dice5.png" />
-                </div>
-                <div class="back">
-                  <img src="./images/dice/dice6.png" />
-                </div>
-              </div>
-              <div id="cube2">
-                <div class="front">
-                  <img src="./images/dice/dice1.png" />
-                </div>
-                <div class="left">
-                  <img src="./images/dice/dice2.png" />
-                </div>
-                <div class="top">
-                  <img src="./images/dice/dice3.png" />
-                </div>
-                <div class="bottom">
-                  <img src="./images/dice/dice4.png" />
-                </div>
-                <div class="right">
-                  <img src="./images/dice/dice5.png" />
-                </div>
-                <div class="back">
-                  <img src="./images/dice/dice6.png" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="options" id="mainDiv">
+        <button id="createGame" onclick="showHostGame()">Host Game</button>
+        <button id="joinGame" onclick="showJoinPage()">Join Game</button>
       </div>
-      <div class="info">
-        <div class="logs">
-          <div class="tabs">
-            <div
-              class="tabsContent active"
-              id="activityLogs"
-              onclick="showTab(this.id)"
-            >
-              <div>Activity</div>
-            </div>
-            <div class="tabsContent" id="myCards" onclick="showTab(this.id)">
-              <div>My Cards</div>
-            </div>
-          </div>
-          <div class="logContent" id="myCardsContent">
-            <div class="cards"></div>
-          </div>
-          <div class="logContent" id="activityLogsContent"></div>
-        </div>
+      <div class="popup" id="createGameDiv">
+        <label for="player-name">Player Name</label><br />
+        <input
+          onfocus="clearMsg('nameError')"
+          id="player-name"
+          type="text"
+          name="player-name"
+          placeholder="John Doe"
+        /><br />
+        <p class="error-host" id="nameError"></p>
+        <label for="no-of-players">Number Of Players</label><br />
+        <input
+          onfocus="clearMsg('userNumError')"
+          id="no-of-players"
+          type="number"
+          name="no-of-players"
+          min="3"
+          max="6"
+          value="3"
+        />
+        <p class="error-host" id="userNumError"></p>
+        <button id="create" onclick="requestHostGame()">Host</button>
+        <button id="cancel-create" onclick="backToHomePage(this.id)">
+          Cancel
+        </button>
+      </div>
+      <div class="popup" id="joinGameDiv">
+        <label for="player-name">Player Name</label><br />
+        <input
+          type="text"
+          name="player-name"
+          placeholder="John Doe"
+          id="joined-player"
+          onfocus="clearMsg('nameError-join')"
+        /><br />
+        <p class="error-join" id="nameError-join"></p>
+        <label for="game-id">Game Id</label><br />
+        <input
+          id="game-id"
+          type="text"
+          name="game-id"
+          placeholder="1234"
+          onfocus="clearMsg('idError')"
+        />
+        <p class="error-join" id="idError"></p>
+        <button id="join" onclick="joinPlayer(this.id)">Join</button>
+        <button id="cancel-join" onclick="backToHomePage(this.id)">
+          Cancel
+        </button>
       </div>
     </div>
   </body>

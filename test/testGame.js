@@ -128,4 +128,33 @@ describe('Game', () => {
       assert.deepStrictEqual(actual, expected);
     });
   });
+
+  describe('isPlayerTurn', () => {
+    it('Should give true if it is his turn and change the message as Your turn, roll dice.', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.updateDiceValue([1, 1]);
+      const actual = game.isPlayersTurn(0);
+      assert.ok(actual);
+      assert.strictEqual(game.getMessage(0), 'Your turn, roll dice.');
+    });
+    it('Should give true if it is his turn and should not change his message', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.updateDiceValue([1, 1]);
+      game.blockRollingDice();
+      const actual = game.isPlayersTurn(0);
+      assert.ok(actual);
+      assert.strictEqual(game.getMessage(0), '');
+    });
+    it('Should give false if it is not his turn and should change message as current players turn', () => {
+      const game = new Game(2);
+      game.addPlayer('turing');
+      game.addPlayer('rajesh');
+      game.updateDiceValue([1, 1]);
+      const actual = game.isPlayersTurn(1);
+      assert.ok(!actual);
+      assert.strictEqual(game.getMessage(1), "Scarlet's turn.");
+    });
+  });
 });

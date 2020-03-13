@@ -10,8 +10,8 @@ const updateWaitingPage = function(details) {
   }, '');
 };
 
-const checkNoOfPlayer = function() {
-  sendRequest('GET', '/game/checkNoOfPlayers', {}, gameDetails => {
+const waitingPageStatus = function() {
+  sendRequest('GET', '/game/waitingPageStatus', {}, gameDetails => {
     updateWaitingPage(gameDetails);
     if (gameDetails.hasAllJoined) {
       sendRequest('GET', '/game/distributeCards', {}, () => {});
@@ -21,5 +21,5 @@ const checkNoOfPlayer = function() {
 };
 
 const wait = function() {
-  setInterval(checkNoOfPlayer, 1000);
+  setInterval(waitingPageStatus, 1000);
 };

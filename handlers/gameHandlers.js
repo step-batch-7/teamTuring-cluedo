@@ -23,7 +23,7 @@ const joinGame = function(req, res) {
   res.json(games[gameId].addPlayer(playerName));
 };
 
-const checkNoOfPlayers = function(req, res) {
+const waitingPageStatus = function(req, res) {
   const { sessions } = req.app.locals;
   const { gameId } = sessions.getUser(req.cookies.sid);
   const game = req.game;
@@ -61,7 +61,7 @@ const changeTurn = function(req, res) {
 module.exports = {
   createGame,
   joinGame,
-  checkNoOfPlayers,
+  waitingPageStatus,
   distributeCards,
   getGameStatus,
   changeTurn

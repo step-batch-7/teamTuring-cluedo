@@ -69,10 +69,10 @@ describe('/createGame', function() {
   });
 });
 
-describe('/checkNoOfPlayers', function() {
+describe('/waitingPageStatus', function() {
   it('after creating game number of players should be 1', function(done) {
     request(app)
-      .get('/game/checkNoOfPlayers')
+      .get('/game/waitingPageStatus')
       .set('Cookie', 'sid=15838254823350')
       .expect({
         hasAllJoined: false,

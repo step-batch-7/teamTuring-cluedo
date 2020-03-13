@@ -4,7 +4,14 @@ const Game = require('../lib/game');
 const assert = require('assert');
 const sinon = require('sinon');
 
+// eslint-disable-next-line max-statements
 describe('Game', () => {
+  describe('nextPlayerId getter', () => {
+    it('Should give new id for next player', () => {
+      const game = new Game(1);
+      assert.strictEqual(game.nextPlayerId, 0);
+    });
+  });
   describe('addPlayer', () => {
     it('Should add the new player into game with given name when all player are not joined', () => {
       const game = new Game(1);
@@ -72,6 +79,51 @@ describe('Game', () => {
       assert.deepStrictEqual(game.getActivityLog(), expected);
     });
   });
+  describe('getDiceValues', () => {
+    it('Should give the dice values of the game', () => {
+      const game = new Game(1);
+      const diceValues = [1, 1];
+      game.updateDiceValue(diceValues);
+      assert.deepStrictEqual(game.getDiceValues(), diceValues);
+    });
+  });
+  describe('getPossiblePositions', () => {
+    it('should give all the possible positions based on the diceValue', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.updateDiceValue([1, 1]);
+      const actual = game.getPossiblePositions(0);
+      const expected = ['8_23', '9_24'];
+      assert.deepStrictEqual(actual, expected);
+    });
+    it('should give all the possible positions with rooms based on the diceValue', () => {
+      const game = new Game(1);
+      game.addPlayer('turing');
+      game.updateDiceValue([5, 5]);
+      const actual = game.getPossiblePositions(0);
+      const expected = [
+        'Lounge',
+        '4_19',
+        '5_18',
+        '6_17',
+        '7_18',
+        '6_19',
+        'DiningRoom',
+        '8_17',
+        '9_18',
+        '9_16',
+        '10_17',
+        '11_18',
+        '9_20',
+        '9_22',
+        '8_19',
+        '9_24',
+        '8_21',
+        '8_23'
+      ];
+      assert.deepStrictEqual(actual, expected);
+    });
+  });
   describe('movePlayer', () => {
     it('Should give true if player moves', () => {
       const game = new Game(1);
@@ -92,6 +144,14 @@ describe('Game', () => {
         player: 'scarlet'
       };
       assert.deepStrictEqual(actual, expected);
+    });
+  });
+  describe('getPlayerName', () => {
+    it('Should give the player name for the given player id', () => {
+      const game = new Game(1);
+      const playerName = 'turing';
+      game.addPlayer(playerName);
+      assert.strictEqual(game.getPlayerName(0), playerName);
     });
   });
   describe('getCards', () => {
@@ -132,41 +192,16 @@ describe('Game', () => {
     });
     after(() => sinon.restore());
   });
-  describe('getPossiblePositions', () => {
-    it('should give all the possible positions based on the diceValue', () => {
+  describe('hasAllJoined', () => {
+    it('Should give true when all players are joined the game', () => {
       const game = new Game(1);
       game.addPlayer('turing');
-      game.updateDiceValue([1, 1]);
-      const actual = game.getPossiblePositions(0);
-      const expected = ['8_23', '9_24'];
-      assert.deepStrictEqual(actual, expected);
+      assert.ok(game.hasAllJoined());
     });
-    it('should give all the possible positions with rooms based on the diceValue', () => {
-      const game = new Game(1);
+    it('Should give false when all players are not joined the game', () => {
+      const game = new Game(2);
       game.addPlayer('turing');
-      game.updateDiceValue([5, 5]);
-      const actual = game.getPossiblePositions(0);
-      const expected = [
-        'Lounge',
-        '4_19',
-        '5_18',
-        '6_17',
-        '7_18',
-        '6_19',
-        'DiningRoom',
-        '8_17',
-        '9_18',
-        '9_16',
-        '10_17',
-        '11_18',
-        '9_20',
-        '9_22',
-        '8_19',
-        '9_24',
-        '8_21',
-        '8_23'
-      ];
-      assert.deepStrictEqual(actual, expected);
+      assert.ok(!game.hasAllJoined());
     });
   });
   describe('isPlayerTurn', () => {

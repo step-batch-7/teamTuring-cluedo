@@ -24,12 +24,10 @@
 <body onload="main()">
   <div class="nav">
     <div class="header"><img src="./images/teamTuringLogo2.png" /></div>
-    <!-- <div class="statusBar"></div> -->
     <div class="profile">
       <div id="profile-image">
         <i class="fas fa-user"></i>
       </div>
-      <!-- <i class='fas fa-profile'></i> -->
       <div class="separator">|</div>
       <div id="profile-name"></div>
     </div>
@@ -141,11 +139,15 @@
           <div class="tabsContent" id="myCards" onclick="showTab(this.id)">
             <div>My Cards</div>
           </div>
+          <div class="tabsContent" id="actions" onclick="showTab(this.id)">
+            <div>Action</div>
+          </div>
         </div>
         <div class="logContent" id="myCardsContent">
           <div class="cards"></div>
         </div>
         <div class="logContent" id="activityLogsContent"></div>
+        <div class='logContent' id='actionsContent'> </div>
       </div>
     </div>
   </div>

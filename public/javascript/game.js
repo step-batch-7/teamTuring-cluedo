@@ -92,10 +92,9 @@ const addActivity = function (activities) {
   const activityContent = document.querySelector('#activityLogsContent');
   let activityDivs = '';
   activities.forEach(activity => {
-    const [icon, msg] = activity.split('=');
     const newAct = document.createElement('div');
     newAct.classList.add('activity');
-    newAct.innerHTML = `<i class=fas fa-dice> </i > ${msg}`;
+    newAct.innerHTML = activity;
     activityDivs = activityDivs.concat(newAct.outerHTML);
   });
   activityContent.innerHTML = activityDivs;

@@ -2,28 +2,31 @@
   display: flex;
   flex-flow: row;
   height: 8%;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   width: 98%;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .header {
   width: 10%;
   height: 100%;
   font-size: 3rem;
 }
+
 .statusBar {
-  display: none;
-  width: 30%;
+  display: flex;
+  width: 90%;
   justify-content: center;
-  background: #2362a9;
-  height: 1.9rem;
+  background: #2362a9c4;
+  height: 2rem;
   align-items: center;
   border-radius: 0.2rem;
   color: white;
   font-weight: 500;
 }
+
 .header > img {
   height: 100%;
 }
@@ -34,12 +37,15 @@
   justify-content: space-evenly;
 }
 #profile-image {
-  width: 3rem;
+  width: 0.5rem;
   color: whitesmoke;
 }
 #profile-name {
+  text-align: center;
+  align-items: center;
   font-size: 1.2rem;
 }
 .separator {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 100;
 }

@@ -1,161 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CLUEDO</title>
-    <link rel="stylesheet" href="./css/rooms.css" />
-    <link rel="stylesheet" href="./css/navs.css" />
-    <link rel="stylesheet" href="./css/players.css" />
-    <link rel="stylesheet" href="./css/grid.css" />
-    <link rel="stylesheet" href="./css/game.css" />
-    <link rel="stylesheet" href="./css/dice.css" />
-    <link
-      rel="shortcut icon"
-      href="./images/teamTuringLogo.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./css/logs.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script src="./javascript/request.js"></script>
-    <script src="./javascript/game.js"></script>
-    <script src="./javascript/dice.js"></script>
-    <script src="./javascript/movePlayer.js"></script>
-    <script src="./javascript/showPossiblePositions.js"></script>
-  </head>
 
-  <body onload="main()">
-    <div class="nav">
-      <div class="header"><img src="./images/teamTuringLogo2.png" /></div>
-      <div class="statusBar"></div>
-      <div class="profile">
-        <div id="profile-image">
-          <i class="fas fa-user-circle fa-3x"></i>
-        </div>
-        <div class="separator">|</div>
-        <div id="profile-name"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLUEDO</title>
+  <link rel="stylesheet" href="./css/rooms.css" />
+  <link rel="stylesheet" href="./css/navs.css" />
+  <link rel="stylesheet" href="./css/players.css" />
+  <link rel="stylesheet" href="./css/grid.css" />
+  <link rel="stylesheet" href="./css/game.css" />
+  <link rel="stylesheet" href="./css/dice.css" />
+  <link rel="shortcut icon" href="./images/teamTuringLogo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/logs.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet" />
+  <script src="./javascript/request.js"></script>
+  <script src="./javascript/game.js"></script>
+  <script src="./javascript/dice.js"></script>
+  <script src="./javascript/movePlayer.js"></script>
+  <script src="./javascript/showPossiblePositions.js"></script>
+</head>
+
+<body onload="main()">
+  <div class="nav">
+    <div class="header"><img src="./images/teamTuringLogo2.png" /></div>
+    <!-- <div class="statusBar"></div> -->
+    <div class="profile">
+      <div id="profile-image">
+        <i class="fas fa-user"></i>
       </div>
+      <!-- <i class='fas fa-profile'></i> -->
+      <div class="separator">|</div>
+      <div id="profile-name"></div>
     </div>
-    <div class="container">
-      <div class="players"></div>
-      <div class="grid">
-        <div class="top-left-disable"></div>
-        <div class="top-right-disable"></div>
-        <div class="top-middle-disable"></div>
-        <div class="kitchen room" id="Kitchen"></div>
-        <div class="kitchen-door room" id="Kitchen"></div>
-        <div class="kitchen-bottom-extension room" id="Kitchen"></div>
-        <div class="kitchen-top-extension room" id="Kitchen"></div>
-        <div class="kitchen-right-disable"></div>
-        <div class="kitchen-disabled"></div>
-        <div class="ball-room room" id="Ballroom"></div>
-        <div class="ball-room-doorA room" id="Ballroom"></div>
-        <div class="ball-room-doorB room" id="Ballroom"></div>
-        <div class="ball-room-extent room" id="Ballroom"></div>
-        <div class="conservatory room" id="Conservatory"></div>
-        <div class="conservatory-door room" id="Conservatory"></div>
-        <div class="conservatory-extent room" id="Conservatory"></div>
-        <div class="conservatory-right-disable"></div>
-        <div class="conservatory-left-disable"></div>
-        <div class="dinning room" id="DiningRoom"></div>
-        <div class="dinning-extent room" id="DiningRoom"></div>
-        <div class="dinning-disable-top"></div>
-        <div class="dinning-door room" id="DiningRoom"></div>
-        <div class="dinning-disable-bottom"></div>
-        <div class="lounge room" id="Lounge"></div>
-        <div class="lounge-bottom-extension room" id="Lounge"></div>
-        <div class="lounge-door room" id="Lounge"></div>
-        <div class="lounge-disable-top"></div>
-        <div class="lounge-disable-bottom"></div>
-        <div class="hall room" id="Hall"></div>
-        <div class="hall-door room" id="Hall"></div>
-        <div class="hall-disable-left"></div>
-        <div class="hall-disable-right"></div>
-        <div class="study room" id="Study"></div>
-        <div class="study-bottom-extension room" id="Study"></div>
-        <div class="study-door room" id="Study"></div>
-        <div class="study-disable-bottom"></div>
-        <div class="study-disable-up"></div>
-        <div class="library room" id="Library"></div>
-        <div class="library-door room" id="Library"></div>
-        <div class="library-left-extension room" id="Library"></div>
-        <div class="library-right-extension room" id="Library"></div>
-        <div class="library-disable-top"></div>
-        <div class="library-disable-bottom"></div>
-        <div class="billiard room" id="Billiard"></div>
-        <div class="billiard-disable-top"></div>
-        <div class="billiard-door room" id="Billiard"></div>
+  </div>
+  <div class="container">
+    <div class="players"></div>
+    <div class="grid">
+      <div class="top-left-disable"></div>
+      <div class="top-right-disable"></div>
+      <div class="top-middle-disable"></div>
+      <div class="kitchen room" id="Kitchen"></div>
+      <div class="kitchen-door room" id="Kitchen"></div>
+      <div class="kitchen-bottom-extension room" id="Kitchen"></div>
+      <div class="kitchen-top-extension room" id="Kitchen"></div>
+      <div class="kitchen-right-disable"></div>
+      <div class="kitchen-disabled"></div>
+      <div class="ball-room room" id="Ballroom"></div>
+      <div class="ball-room-doorA room" id="Ballroom"></div>
+      <div class="ball-room-doorB room" id="Ballroom"></div>
+      <div class="ball-room-extent room" id="Ballroom"></div>
+      <div class="conservatory room" id="Conservatory"></div>
+      <div class="conservatory-door room" id="Conservatory"></div>
+      <div class="conservatory-extent room" id="Conservatory"></div>
+      <div class="conservatory-right-disable"></div>
+      <div class="conservatory-left-disable"></div>
+      <div class="dinning room" id="DiningRoom"></div>
+      <div class="dinning-extent room" id="DiningRoom"></div>
+      <div class="dinning-disable-top"></div>
+      <div class="dinning-door room" id="DiningRoom"></div>
+      <div class="dinning-disable-bottom"></div>
+      <div class="lounge room" id="Lounge"></div>
+      <div class="lounge-bottom-extension room" id="Lounge"></div>
+      <div class="lounge-door room" id="Lounge"></div>
+      <div class="lounge-disable-top"></div>
+      <div class="lounge-disable-bottom"></div>
+      <div class="hall room" id="Hall"></div>
+      <div class="hall-door room" id="Hall"></div>
+      <div class="hall-disable-left"></div>
+      <div class="hall-disable-right"></div>
+      <div class="study room" id="Study"></div>
+      <div class="study-bottom-extension room" id="Study"></div>
+      <div class="study-door room" id="Study"></div>
+      <div class="study-disable-bottom"></div>
+      <div class="study-disable-up"></div>
+      <div class="library room" id="Library"></div>
+      <div class="library-door room" id="Library"></div>
+      <div class="library-left-extension room" id="Library"></div>
+      <div class="library-right-extension room" id="Library"></div>
+      <div class="library-disable-top"></div>
+      <div class="library-disable-bottom"></div>
+      <div class="billiard room" id="Billiard"></div>
+      <div class="billiard-disable-top"></div>
+      <div class="billiard-door room" id="Billiard"></div>
+      <div class="dice-room ">
         <div class="dice-room ">
-          <div class="dice-room ">
-            <div class="gameName">CLUEDO</div>
-            <div id="dices" onclick="getDicesValue()">
-              <div id="cube1">
-                <div class="front">
-                  <img src="./images/dice/dice1.png" />
-                </div>
-                <div class="left">
-                  <img src="./images/dice/dice2.png" />
-                </div>
-                <div class="top">
-                  <img src="./images/dice/dice3.png" />
-                </div>
-                <div class="bottom">
-                  <img src="./images/dice/dice4.png" />
-                </div>
-                <div class="right">
-                  <img src="./images/dice/dice5.png" />
-                </div>
-                <div class="back">
-                  <img src="./images/dice/dice6.png" />
-                </div>
+          <div class="gameName">CLUEDO</div>
+          <div id="dices" onclick="getDicesValue()">
+            <div id="cube1">
+              <div class="front">
+                <img src="./images/dice/dice1.png" />
               </div>
-              <div id="cube2">
-                <div class="front">
-                  <img src="./images/dice/dice1.png" />
-                </div>
-                <div class="left">
-                  <img src="./images/dice/dice2.png" />
-                </div>
-                <div class="top">
-                  <img src="./images/dice/dice3.png" />
-                </div>
-                <div class="bottom">
-                  <img src="./images/dice/dice4.png" />
-                </div>
-                <div class="right">
-                  <img src="./images/dice/dice5.png" />
-                </div>
-                <div class="back">
-                  <img src="./images/dice/dice6.png" />
-                </div>
+              <div class="left">
+                <img src="./images/dice/dice2.png" />
+              </div>
+              <div class="top">
+                <img src="./images/dice/dice3.png" />
+              </div>
+              <div class="bottom">
+                <img src="./images/dice/dice4.png" />
+              </div>
+              <div class="right">
+                <img src="./images/dice/dice5.png" />
+              </div>
+              <div class="back">
+                <img src="./images/dice/dice6.png" />
+              </div>
+            </div>
+            <div id="cube2">
+              <div class="front">
+                <img src="./images/dice/dice1.png" />
+              </div>
+              <div class="left">
+                <img src="./images/dice/dice2.png" />
+              </div>
+              <div class="top">
+                <img src="./images/dice/dice3.png" />
+              </div>
+              <div class="bottom">
+                <img src="./images/dice/dice4.png" />
+              </div>
+              <div class="right">
+                <img src="./images/dice/dice5.png" />
+              </div>
+              <div class="back">
+                <img src="./images/dice/dice6.png" />
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="info">
-        <div class="logs">
-          <div class="tabs">
-            <div
-              class="tabsContent active"
-              id="activityLogs"
-              onclick="showTab(this.id)"
-            >
-              <div>Activity</div>
-            </div>
-            <div class="tabsContent" id="myCards" onclick="showTab(this.id)">
-              <div>My Cards</div>
-            </div>
-          </div>
-          <div class="logContent" id="myCardsContent">
-            <div class="cards"></div>
-          </div>
-          <div class="logContent" id="activityLogsContent"></div>
         </div>
       </div>
     </div>
-  </body>
+    <div class="info">
+      <div class='statusBar'> Game started </div>
+      <div class="logs">
+        <div class="tabs">
+          <div class="tabsContent active" id="activityLogs" onclick="showTab(this.id)">
+            <div>Activity</div>
+          </div>
+          <div class="tabsContent" id="myCards" onclick="showTab(this.id)">
+            <div>My Cards</div>
+          </div>
+        </div>
+        <div class="logContent" id="myCardsContent">
+          <div class="cards"></div>
+        </div>
+        <div class="logContent" id="activityLogsContent"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

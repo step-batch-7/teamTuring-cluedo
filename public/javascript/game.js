@@ -43,7 +43,7 @@ const updatePosition = playersPosition => {
 
 const generatePlayerList = playersList => {
   const players = document.querySelector('.players');
-  playersList.forEach(function(playerInfo) {
+  playersList.forEach(function (playerInfo) {
     const playerCard = createPlayerCard(playerInfo);
     return players.appendChild(playerCard);
   });
@@ -62,14 +62,14 @@ const createPlayerCard = playerInfo => {
   return player;
 };
 
-const createCard = function(card) {
+const createCard = function (card) {
   const cardContent = document.createElement('div');
   cardContent.classList.add('card');
   cardContent.innerHTML = `<div><img src="./images/cards/${card}.jpg" /></div>`;
   return cardContent;
 };
 
-const addClassActive = function(id) {
+const addClassActive = function (id) {
   const tabs = document.querySelectorAll('.tabsContent');
   for (let tab = 0; tab < tabs.length; tab++) {
     tabs[tab].classList.remove('active');
@@ -78,7 +78,7 @@ const addClassActive = function(id) {
   element.classList.add('active');
 };
 
-const showTab = function(id) {
+const showTab = function (id) {
   const logContent = document.getElementsByClassName('logContent');
   addClassActive(id);
   for (let content = 0; content < logContent.length; content++) {
@@ -88,23 +88,24 @@ const showTab = function(id) {
   element.style.display = 'flex';
 };
 
-const addActivity = function(activities) {
+const addActivity = function (activities) {
   const activityContent = document.querySelector('#activityLogsContent');
   let activityDivs = '';
   activities.forEach(activity => {
+    const [icon, msg] = activity.split('=');
     const newAct = document.createElement('div');
     newAct.classList.add('activity');
-    newAct.innerHTML = activity;
+    newAct.innerHTML = `<i class=fas fa-dice> </i > ${msg}`;
     activityDivs = activityDivs.concat(newAct.outerHTML);
   });
   activityContent.innerHTML = activityDivs;
 };
 
-const clearMsg = function(id) {
+const clearMsg = function (id) {
   document.getElementById(id).innerHTML = '';
 };
 
-const activatePlayer = function(playerStatus) {
+const activatePlayer = function (playerStatus) {
   const gameBoard = document.querySelector('.grid');
   gameBoard.classList.add('block');
   if (playerStatus) {
@@ -112,7 +113,7 @@ const activatePlayer = function(playerStatus) {
   }
 };
 
-const toggleDiceRolling = function(diceStatus) {
+const toggleDiceRolling = function (diceStatus) {
   const dices = document.querySelector('#dices');
   dices.classList.add('block');
   if (diceStatus) {
@@ -120,13 +121,13 @@ const toggleDiceRolling = function(diceStatus) {
   }
 };
 
-const updateStatusBar = function(message) {
+const updateStatusBar = function (message) {
   const statusBar = document.querySelector('.statusBar');
   statusBar.style.display = 'flex';
   statusBar.innerText = message;
 };
 
-const changeStatus = function(status) {
+const changeStatus = function (status) {
   addActivity(status.activities);
   activatePlayer(status.isPlayersTurn);
   toggleDiceRolling(status.canRollDice);
@@ -134,20 +135,20 @@ const changeStatus = function(status) {
   updatePosition(status.positions);
 };
 
-const displayMyCards = function(cardsList) {
+const displayMyCards = function (cardsList) {
   const myCards = document.querySelector('.cards');
-  cardsList.forEach(function(card) {
+  cardsList.forEach(function (card) {
     const cardContent = createCard(card);
     return myCards.appendChild(cardContent);
   });
 };
 
-const displayName = function(name) {
+const displayName = function (name) {
   const profileName = document.querySelector('#profile-name');
   profileName.innerText = name;
 };
 
-const updateGameStatus = function() {
+const updateGameStatus = function () {
   setInterval(() => {
     getGameStatus();
   }, 1000);

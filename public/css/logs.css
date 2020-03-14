@@ -1,11 +1,12 @@
 .info {
   display: flex;
   flex-flow: column;
-  height: 98%;
-  width: 30%;
+  height: 100%;
+  width: 33%;
   align-items: center;
   justify-items: center;
   justify-content: space-between;
+  margin-top: -2rem;
 }
 .tabs {
   padding: 0;
@@ -46,11 +47,10 @@
 }
 .logs {
   display: flex;
-  height: 87%;
+  height: 90%;
   border-radius: 0.5rem;
   width: 90%;
   flex-flow: column;
-
   align-items: center;
   justify-content: space-between;
 }

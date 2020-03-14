@@ -1,8 +1,8 @@
-const getCookie = function() {
+const getCookie = function () {
   return new Date().getTime().toString() + Math.random();
 };
 
-const createGame = function(req, res) {
+const createGame = function (req, res) {
   const { noOfPlayers, playerName } = req.body;
   const { games, sessions } = req.app.locals;
   const gameId = games.create(noOfPlayers);
@@ -12,7 +12,7 @@ const createGame = function(req, res) {
   res.json({});
 };
 
-const joinGame = function(req, res) {
+const joinGame = function (req, res) {
   const { playerName, gameId } = req.body;
   const { games, sessions } = req.app.locals;
   if (!games.hasGameId(gameId)) {
@@ -23,7 +23,7 @@ const joinGame = function(req, res) {
   res.json(games[gameId].addPlayer(playerName));
 };
 
-const waitingPageStatus = function(req, res) {
+const waitingPageStatus = function (req, res) {
   const { sessions } = req.app.locals;
   const { gameId } = sessions.getUser(req.cookies.sid);
   const game = req.game;
@@ -36,20 +36,21 @@ const waitingPageStatus = function(req, res) {
   });
 };
 
-const distributeCards = function(req, res) {
+const distributeCards = function (req, res) {
   const game = req.game;
   game.distribute();
   res.json({});
 };
 
-const getGameStatus = function(req, res) {
+const getGameStatus = function (req, res) {
   const game = req.game;
   const activities = game.getActivityLog();
   const isPlayersTurn = game.isPlayersTurn(req.player);
   const canRollDice = game.canRollDice(req.player);
   const message = game.getMessage(req.player);
   const positions = game.getPlayersPosition();
-  res.json({ activities, isPlayersTurn, message, canRollDice, positions });
+  const action = game.getAction(req.player);
+  res.json({ activities, isPlayersTurn, message, canRollDice, positions, action });
 };
 
 module.exports = {

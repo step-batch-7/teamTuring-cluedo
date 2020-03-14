@@ -126,8 +126,17 @@ const updateStatusBar = function (message) {
   statusBar.innerText = message;
 };
 
+const addAction = function (message) {
+  if (message === 'show') {
+    document.querySelector('.actionMessage').style.display = 'block';
+  } else {
+    document.querySelector('.actionMessage').style.display = 'none';
+  }
+};
+
 const changeStatus = function (status) {
   addActivity(status.activities);
+  addAction(status.action);
   activatePlayer(status.isPlayersTurn);
   toggleDiceRolling(status.canRollDice);
   updateStatusBar(status.message);
@@ -162,4 +171,5 @@ const main = () => {
   displayPlayerName();
   updateGameStatus();
   getDicesValueAndPossiblePositions();
+  showTab('activityLogs');
 };

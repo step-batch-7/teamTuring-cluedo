@@ -1,13 +1,13 @@
 const getDiceValue = () => Math.ceil(Math.random() * 6);
 
-const rollDice = function(req, res) {
+const rollDice = function (req, res) {
   const game = req.game;
   const values = [getDiceValue(), getDiceValue()];
   game.updateDiceValue(values);
   res.json({ values });
 };
 
-const getPossiblePositions = function(req, res) {
+const getPossiblePositions = function (req, res) {
   const game = req.game;
   const possiblePositions = game.getPossiblePositions(req.player);
   const diceValue = game.getDiceValues().reduce((sum, num) => sum + num, 0);
@@ -20,12 +20,12 @@ const getPossiblePositions = function(req, res) {
 const movePlayer = (req, res) => {
   const game = req.game;
   const { position } = req.body;
-  const { hasMoved, player } = game.movePlayer(req.player, position);
+  const { player } = game.movePlayer(req.player, position);
   const positions = game.getPlayersPosition();
-  res.json({ hasMoved, positions, player });
+  res.json({ positions, player });
 };
 
-const getDiceAndPossiblePositions = function(req, res) {
+const getDiceAndPossiblePositions = function (req, res) {
   const { game, player } = req;
   let diceValues = [];
   let possiblePositions = [];
